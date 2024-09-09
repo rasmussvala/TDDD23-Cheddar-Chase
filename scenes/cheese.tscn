@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce7ol1nl2eh2w"]
+[gd_scene load_steps=9 format=3 uid="uid://cv7e0kb2x6ro2"]
 
 [ext_resource type="Script" path="res://scripts/cheese.gd" id="1_4ciu2"]
 [ext_resource type="Texture2D" uid="uid://denxba1gyce4n" path="res://assets/cheese/cheese.png" id="2_wbb3w"]
@@ -43,13 +43,17 @@ animations = [{
 size = Vector2(15, 11)
 
 [node name="Cheese" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_4ciu2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_53bq8")
 animation = &"idle"
-frame_progress = 0.63135
+autoplay = "idle"
+frame_progress = 0.78457
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_cumda")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

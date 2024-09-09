@@ -1,4 +1,7 @@
 extends Area2D
 
-func _on_body_entered(body):
-	print("You walked on a coin.")
+@onready var game_manager = %GameManager
+
+func _on_body_entered(body) -> void:
+	game_manager.add_point()
+	queue_free()
