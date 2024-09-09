@@ -25,4 +25,5 @@ ui_shift={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.676706, 0.814065, 0.924754, 1)
 2d/snap/snap_2d_transforms_to_pixel=true
