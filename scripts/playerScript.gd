@@ -6,6 +6,7 @@ var roll_speed = 210  # Initial speed for rolling
 var roll_duration = 0.5  # Duration of the roll in seconds
 var is_rolling = false  # Boolean to check if the player is rolling
 var roll_timer = 0.0  # Timer to track roll duration
+var is_attacking = false # Boolean to check if the player is attacking
 
 # Reference to the playerSprite node
 @onready var sprite = $playerSprite
@@ -15,6 +16,19 @@ func _ready():
 	sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
 
 func _process(delta):
+	if is_attacking:
+		# Handle attacking
+		# Wait until the attack animation finishes before setting is_attacking to false
+		if not sprite.is_playing():
+			is_attacking = false
+			# If not rolling, set to idle
+			if !is_rolling:
+				sprite.play("idle")
+		else:
+			# Ensure that we don't handle movement while attacking
+			velocity = Vector2.ZERO
+			return
+	
 	if is_rolling:
 		# Rolling logic
 		roll_timer -= delta
@@ -41,7 +55,7 @@ func _process(delta):
 		if input_vector.length() > 0:
 			# Normalize the input_vector to ensure consistent speed in all directions
 			velocity = input_vector.normalized() * speed
-			# Only play the walk animation if not colliding and not rolling
+			# Only play the walk animation if not colliding
 			if !is_colliding():
 				sprite.play("walk")  # Play walking animation
 			# Rotate the sprite to face the direction of movement
@@ -60,6 +74,10 @@ func _process(delta):
 
 	# Move the character using the set velocity property
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("ui_attack") and !is_rolling:
+		is_attacking = true
+		sprite.play("attack")
 
 	# Play obstruct animation if there is a collision and not rolling
 	if is_colliding() and !is_rolling:
