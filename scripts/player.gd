@@ -26,7 +26,6 @@ func _process(delta):
 				sprite.play("idle")
 		else:
 			# Ensure that we don't handle movement while attacking
-			velocity = Vector2.ZERO
 			return
 	
 	if is_rolling:
@@ -80,7 +79,7 @@ func _process(delta):
 		sprite.play("attack")
 
 	# Play obstruct animation if there is a collision and not rolling
-	if is_colliding() and !is_rolling:
+	if is_colliding() and !is_rolling and !is_attacking:
 		sprite.play("obstruct")
 
 # Function to check for collision
