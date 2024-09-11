@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b25qwne7s6ah4"]
 
 [ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_1b4al"]
-[ext_resource type="PackedScene" path="res://scenes/testRoom.tscn" id="1_8ay2r"]
+[ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/testRoom.tscn" id="1_8ay2r"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/playerCharacter.tscn" id="2_y4nnn"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/cheese.tscn" id="3_lfih6"]
 [ext_resource type="FontFile" uid="uid://c1jrm06anmbhs" path="res://assets/fonts/PixelOperator8.ttf" id="5_015kq"]
