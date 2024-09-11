@@ -6,4 +6,4 @@ var score = 0
 
 func add_point() -> void:
 	score += 1
-	score_label.text = "You have collected " + str(score) + " cheeses"
+	score_label.text = str(score) + " cheese"
