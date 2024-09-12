@@ -8,9 +8,6 @@ extends Area2D
 @onready var collision_shape = $CollisionShape2D
 
 func _ready() -> void:
-	# Initialize the hitbox as disabled
-	collision_layer = 5
-	collision_mask = 0
 	disable_hitbox()
 
 # Function to enable the hitbox
