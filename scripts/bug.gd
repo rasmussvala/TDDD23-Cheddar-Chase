@@ -7,22 +7,28 @@ var playerChase = false
 var player = null
 var wander_target = Vector2.ZERO
 var wander_time = 0
-var wander_interval = 3  # Time in seconds before choosing a new wander direction
+var wander_interval = 3
 var pause_time = 0
-var pause_duration = 2  # Time in seconds to pause when losing sight of player
+var pause_duration = 2
+
+var max_health = 2
+var current_health = 2
+var is_dead = false
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $sprite
 @onready var ray_cast: RayCast2D = $detectionRay
 
 func _ready():
-	# Ensure the RayCast2D is set up correctly
 	if not ray_cast:
 		ray_cast = RayCast2D.new()
 		add_child(ray_cast)
 	ray_cast.enabled = true
-	ray_cast.collision_mask = 1  # Adjust this to match your world/obstacle layer
+	ray_cast.collision_mask = 1  # Ensure this is set to the layer of the player
 
 func _physics_process(delta):
+	if is_dead:
+		return
+
 	if player and can_see_player():
 		chase_player()
 		pause_time = 0
@@ -72,4 +78,27 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(_body):
 	player = null
 	playerChase = false
-	pause_time = 0  # Reset pause timer when player exits detection area
+	pause_time = 0
+
+func take_damage(amount: int):
+	if is_dead:
+		return
+	
+	current_health -= amount
+	print("Bug took damage! Current health: ", current_health)
+	
+	if current_health <= 0:
+		die()
+	else:
+		# Optionally, play a hurt animation or sound here
+		pass
+
+func die():
+	is_dead = true
+	print("Bug died!")
+	# Play death animation
+	#animated_sprite_2d.play("death")
+	# Wait for the animation to finish
+	#await animated_sprite_2d.animation_finished
+	# Remove the bug from the scene
+	queue_free()

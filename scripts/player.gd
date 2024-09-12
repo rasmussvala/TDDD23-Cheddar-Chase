@@ -1,24 +1,26 @@
 extends CharacterBody2D
 
 # Variables for movement
-var speed = 100  # Normal movement speed
-var roll_speed = 210  # Initial speed for rolling
-var roll_duration = 0.5  # Duration of the roll in seconds
-var is_rolling = false  # Boolean to check if the player is rolling
-var roll_timer = 0.0  # Timer to track roll duration
-var is_attacking = false # Boolean to check if the player is attacking
+var speed = 100
+var roll_speed = 210
+var roll_duration = 0.5
+var is_rolling = false
+var roll_timer = 0.0
+var is_attacking = false
+var attack_duration = 0.5  # Duration of the attack animation
 
 # Reference to the playerSprite node
 @onready var sprite = $playerSprite
+@onready var hitbox: MyHitBox = $HitBox
 
 func _ready():
 	# Correct connection to the animation_finished signal using Callable
 	sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
+	hitbox.disable_hitbox()  # Ensure hitbox is disabled initially
 
 func _process(delta):
 	if is_attacking:
 		# Handle attacking
-		# Wait until the attack animation finishes before setting is_attacking to false
 		if not sprite.is_playing():
 			is_attacking = false
 			# If not rolling, set to idle
@@ -77,6 +79,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_attack") and !is_rolling:
 		is_attacking = true
 		sprite.play("attack")
+		hitbox.enable_hitbox()  # Enable hitbox at the start of the attack
 
 	# Play obstruct animation if there is a collision and not rolling
 	if is_colliding() and !is_rolling and !is_attacking:
@@ -91,7 +94,13 @@ func is_colliding() -> bool:
 	return false  # No collision detected
 
 # Animation finished callback
-func _on_animation_finished():
+func _on_animation_finished() -> void:
 	if is_rolling:
 		is_rolling = false  # Ensure rolling is set to false when the animation finishes
 		sprite.play("walk")  # Return to walk animation after rolling ends
+	elif is_attacking:
+		is_attacking = false
+		hitbox.disable_hitbox()
+		# Ensure idle animation plays when attack is done if not rolling
+		if !is_rolling:
+			sprite.play("idle")

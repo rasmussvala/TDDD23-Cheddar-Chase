@@ -10,6 +10,15 @@
 
 [node name="TestRoom" parent="Room" instance=ExtResource("1_h25ey")]
 
+[node name="Bug4" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(112, 80)
+
+[node name="Bug3" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, 80)
+
+[node name="Bug2" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, -16)
+
 [node name="Bug" parent="." instance=ExtResource("2_yj2lc")]
 position = Vector2(112, -16)
 
