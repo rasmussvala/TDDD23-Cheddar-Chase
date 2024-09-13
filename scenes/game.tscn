@@ -1,52 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://b25qwne7s6ah4"]
+[gd_scene load_steps=4 format=3 uid="uid://b3wdmox28pm05"]
 
-[ext_resource type="Script" path="res://scripts/gameManager.gd" id="1_1b4al"]
-[ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/testRoom.tscn" id="1_8ay2r"]
-[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/playerCharacter.tscn" id="2_y4nnn"]
-[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/cheese.tscn" id="3_lfih6"]
-[ext_resource type="FontFile" uid="uid://c1jrm06anmbhs" path="res://assets/fonts/PixelOperator8.ttf" id="5_015kq"]
+[ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/test/testRoom.tscn" id="1_h25ey"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/test/bug.tscn" id="2_yj2lc"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/test/playerCharacter.tscn" id="3_0xa32"]
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_1b4al")
-
-[node name="ScoreLabel" type="Label" parent="GameManager"]
-offset_left = -67.0
-offset_top = -84.0
-offset_right = 66.0
-offset_bottom = -65.0
-theme_override_fonts/font = ExtResource("5_015kq")
-theme_override_font_sizes/font_size = 8
-text = "You have collected  x cheeses."
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="Room" type="Node2D" parent="."]
 
-[node name="TestRoom" parent="Room" instance=ExtResource("1_8ay2r")]
+[node name="TestRoom" parent="Room" instance=ExtResource("1_h25ey")]
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Bug4" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(112, 80)
 
-[node name="playerCharacter" parent="Player" instance=ExtResource("2_y4nnn")]
+[node name="Bug3" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, 80)
 
-[node name="Cheeses" type="Node" parent="."]
+[node name="Bug2" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, -16)
 
-[node name="Cheese" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(-112, -78)
+[node name="Bug" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(112, -16)
 
-[node name="Cheese2" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(-142, -15)
-
-[node name="Cheese3" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(-142, 80)
-
-[node name="Cheese4" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(112, 81)
-
-[node name="Cheese5" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(112, -77)
-
-[node name="Cheese6" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(47, -45)
+[node name="Player" parent="." instance=ExtResource("3_0xa32")]
