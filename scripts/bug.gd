@@ -1,42 +1,48 @@
 extends CharacterBody2D
 
+# Variables for movement
 var speed = 25
 var chase_speed = 25
 var wander_speed = 15
-var playerChase = false
+var player_chase = false
 var player = null
 var wander_target = Vector2.ZERO
 var wander_time = 0
 var wander_interval = 3
 var pause_time = 0
 var pause_duration = 2
+
+# Variables for Health
 var max_health = 2
 var current_health = 2
 var is_dead = false
 
-# Knockback variables
+# Variables for Knockback
 var knockback_velocity = Vector2.ZERO
 var knockback_duration = 0.2
 var knockback_timer = 0.0
 var knockback_strength = 150
 
+# References to nodes
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var ray_cast: RayCast2D = $detectionRay
 @onready var detection_area = $detectionArea
-@onready var hitbox: MyHitBox = $HitBox
+@onready var hit_box: HitBox = $HitBox
 
 func _ready():
-	hitbox.enable_hitbox()
+	hit_box.enable_hitbox()
+	
 	if not ray_cast:
 		ray_cast = RayCast2D.new()
 		add_child(ray_cast)
+	
 	ray_cast.enabled = true
 	ray_cast.collision_mask = 1  # Ensure this is set to the layer of the player
 
 func _physics_process(delta):
 	if is_dead:
 		return
-
+	
 	if knockback_timer > 0:
 		knockback_timer -= delta
 		velocity = knockback_velocity
@@ -50,7 +56,6 @@ func _physics_process(delta):
 		else:
 			wander(delta)
 	
-	# Use move_and_slide() without parameters in Godot 4
 	move_and_slide()
 	
 	if velocity != Vector2.ZERO:
@@ -69,7 +74,7 @@ func can_see_player() -> bool:
 func chase_player():
 	if not player or not is_instance_valid(player):
 		return
-
+	
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * chase_speed
 
@@ -89,14 +94,14 @@ func wander(delta):
 		velocity = Vector2.ZERO
 
 func _on_detection_area_body_entered(body):
-	if body and body.name == "Player":  # Ensure you identify the player correctly
+	if body and body.name == "Player":
 		player = body
-		playerChase = true
+		player_chase = true
 
 func _on_detection_area_body_exited(body):
 	if body and body.name == "Player":
 		player = null
-		playerChase = false
+		player_chase = false
 		pause_time = 0
 
 func take_damage(amount: int, attacker_position: Vector2):
@@ -104,7 +109,6 @@ func take_damage(amount: int, attacker_position: Vector2):
 		return
 	
 	current_health -= amount
-	print("Bug took damage! Current health: ", current_health)
 	
 	if current_health <= 0:
 		die()
@@ -119,9 +123,6 @@ func take_damage(amount: int, attacker_position: Vector2):
 
 func die():
 	is_dead = true
-	print("Bug died!")
-	# Play death animation
 	sprite.play("death")
 	await sprite.animation_finished
-	# Remove the bug from the scene
 	queue_free()

@@ -1,4 +1,4 @@
-class_name MyHitBox
+class_name HitBox
 extends Area2D
 
 # Export a variable for damage

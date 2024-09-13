@@ -7,28 +7,30 @@ var roll_duration = 0.5
 var is_rolling = false
 var roll_timer = 0.0
 var is_attacking = false
-var attack_duration = 0.5  # Duration of the attack animation
+var attack_duration = 0.5  
 
-# Health and knockback variables
+# Variables for Health
 var max_health = 10
 var current_health = 10
 var is_dead = false
+
+# knockback variables
 var knockback_velocity = Vector2.ZERO
 var knockback_duration = 0.2
 var knockback_timer = 0.0
 var knockback_strength = 200
 
-# Reference to the playerSprite node
+# References to nodes
 @onready var sprite = $playerSprite
-@onready var hitbox: MyHitBox = $HitBox
-@onready var hurtbox = $HurtBox  # Assuming a HurtBox Area2D for collision detection
+@onready var hit_box: HitBox = $HitBox
+@onready var hurt_box: HurtBox = $HurtBox 
+@onready var death_timer: Timer = $deathTimer
 
 func _ready():
-	# Correct connection to the animation_finished signal using Callable
 	sprite.connect("animation_finished", Callable(self, "_on_animation_finished"))
-	hitbox.disable_hitbox()  # Ensure hitbox is disabled initially
-	hurtbox.enable_hurtbox()  # Ensure hurtbox is enabled initially
-	hurtbox.connect("body_entered", Callable(self, "_on_hurtbox_body_entered"))
+	hurt_box.connect("body_entered", Callable(self, "_on_hurtbox_body_entered"))
+	hit_box.disable_hitbox()  # Ensure hitbox is disabled initially
+	hurt_box.enable_hurtbox()  # Ensure hurtbox is enabled initially
 
 func _process(delta):
 	if is_dead:
@@ -37,34 +39,34 @@ func _process(delta):
 	if knockback_timer > 0:
 		knockback_timer -= delta
 		velocity = knockback_velocity
-		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, 5 * delta)  # Reduce knockback gradually
+		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, 5 * delta)
 	else:
 		handle_movement_and_actions(delta)
 	
-	# Move the character using the set velocity property
 	move_and_slide()
 
+# Function to handle the movement and actions
 func handle_movement_and_actions(delta):
+	# Rolling logic
 	if is_rolling:
-		# Rolling logic
 		roll_timer -= delta
+		
 		if roll_timer <= 0:
-			is_rolling = false  # End roll
-			sprite.play("walk")  # Return to walk animation when done
+			is_rolling = false
+			sprite.play("walk")
+			hurt_box.enable_hurtbox()
 		else:
-			# Gradually reduce roll speed to zero as the timer goes down
 			velocity = velocity.normalized() * lerp(roll_speed, 0, 1 - (roll_timer / roll_duration))
 	
+	# Attacking logic
 	elif is_attacking:
-		# Handle attacking
 		if !sprite.is_playing():
 			is_attacking = false
-			# If not rolling, set to idle
+			
 			if !is_rolling:
 				sprite.play("idle")
-			velocity = Vector2.ZERO  # Stop moving after attack animation
+			velocity = Vector2.ZERO
 		else:
-			# During attack, only stop movement if no input is given
 			var input_vector = Vector2.ZERO
 			if Input.is_action_pressed("ui_right"):
 				input_vector.x += 1
@@ -74,14 +76,13 @@ func handle_movement_and_actions(delta):
 				input_vector.y += 1
 			if Input.is_action_pressed("ui_up"):
 				input_vector.y -= 1
-
+	
 			if input_vector.length() > 0:
-				# Normalize the input_vector to ensure consistent speed in all directions
 				velocity = input_vector.normalized() * speed
 				sprite.rotation = velocity.angle()
 			else:
-				velocity = Vector2.ZERO  # Stop moving if no input
-
+				velocity = Vector2.ZERO
+	
 	else:
 		# Handle normal movement input if not rolling or attacking
 		var input_vector = Vector2.ZERO
@@ -95,43 +96,43 @@ func handle_movement_and_actions(delta):
 			input_vector.y -= 1
 
 		if input_vector.length() > 0:
-			# Normalize the input_vector to ensure consistent speed in all directions
 			velocity = input_vector.normalized() * speed
-			# Only play the walk animation if not colliding
+			
 			if !is_colliding():
-				sprite.play("walk")  # Play walking animation
-			# Rotate the sprite to face the direction of movement
+				sprite.play("walk")
 			sprite.rotation = velocity.angle()
 		else:
-			velocity = Vector2.ZERO  # Stop moving if no input is detected
+			velocity = Vector2.ZERO
+			
 			if !is_attacking and !is_rolling:
-				sprite.play("idle")  # Play idle animation if not attacking or rolling
-
+				sprite.play("idle")
+	
 		# Roll mechanic: Only allow rolling if there is movement input and the roll action is just pressed
-		if Input.is_action_just_pressed("ui_shift") and input_vector.length() > 0:  # Shift key
+		if Input.is_action_just_pressed("ui_shift") and input_vector.length() > 0:
 			is_rolling = true
 			roll_timer = roll_duration
-			velocity = velocity.normalized() * roll_speed  # Fast forward motion
-			sprite.play("roll")  # Play roll animation
-
+			velocity = velocity.normalized() * roll_speed
+			sprite.play("roll")
+			hurt_box.disable_hurtbox()
+	
+	# Play attack animation if attack button is pressed and not rolling
 	if Input.is_action_just_pressed("ui_attack") and !is_rolling:
 		is_attacking = true
 		sprite.play("attack")
-		hitbox.enable_hitbox()  # Enable hitbox at the start of the attack
-		hurtbox.disable_hurtbox()	# Disable hurtbox at the start of the attack
-
+		hit_box.enable_hitbox()
+		hurt_box.disable_hurtbox()
+	
 	# Play obstruct animation if there is a collision and not rolling
 	if is_colliding() and !is_rolling and !is_attacking:
 		sprite.play("obstruct")
 
-
 # Function to check for collision
 func is_colliding() -> bool:
-	# Check for collisions after moving
 	for i in range(get_slide_collision_count()):
+		
 		if get_slide_collision(i):
-			return true  # Collision detected
-	return false  # No collision detected
+			return true
+	return false
 
 # Function to handle taking damage
 func take_damage(amount: int, attacker_position: Vector2):
@@ -139,7 +140,6 @@ func take_damage(amount: int, attacker_position: Vector2):
 		return
 	
 	current_health -= amount
-	print("Player took damage! Current health: ", current_health)
 	
 	if current_health <= 0:
 		die()
@@ -150,29 +150,36 @@ func take_damage(amount: int, attacker_position: Vector2):
 		knockback_timer = knockback_duration
 		sprite.play("damaged")
 
+# Function to handle player death
 func die():
 	is_dead = true
-	print("Player died! Game will reset.")
-	# Reset the game or reload the scene
-	get_tree().reload_current_scene()
+	sprite.play("death")
+	
+	Engine.time_scale = 0.5
+	death_timer.start()
 
-# Hurtbox body entered callback
+# Function to check if hurtbox is entered
 func _on_hurtbox_body_entered(body):
-	# Assume the body is the attacker's hitbox and it has a position
-	if body is MyHitBox:
+	if body is HitBox:
 		var attacker_position = body.global_position
-		take_damage(1, attacker_position)  # Pass the damage amount and the attacker’s position
+		take_damage(1, attacker_position)
 
-# Animation finished callback
+# Function to handle when animation is finished
 func _on_animation_finished() -> void:
 	if is_rolling:
-		is_rolling = false  # Ensure rolling is set to false when the animation finishes
-		sprite.play("walk")  # Return to walk animation after rolling ends
+		is_rolling = false
+		sprite.play("walk")  
 	elif is_attacking:
 		is_attacking = false
-		hitbox.disable_hitbox()
-		hurtbox.enable_hurtbox()
-		# Ensure idle animation plays when attack is done if not rolling
+		hit_box.disable_hitbox()
+		hurt_box.enable_hurtbox()
+		
 		if !is_rolling:
 			sprite.play("idle")
-		velocity = Vector2.ZERO  # Stop moving after attack animation
+		velocity = Vector2.ZERO
+
+# Function that handles when the timer is over
+func _on_death_timer_timeout() -> void:
+	Engine.time_scale = 1
+	queue_free()
+	get_tree().reload_current_scene()
