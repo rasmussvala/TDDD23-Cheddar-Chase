@@ -1,44 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://b25qwne7s6ah4"]
+[gd_scene load_steps=4 format=3 uid="uid://b3wdmox28pm05"]
 
-[ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/hud.tscn" id="1_04vgg"]
-[ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/testRoom.tscn" id="1_8ay2r"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_15h3h"]
-[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/playerCharacter.tscn" id="2_y4nnn"]
-[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/cheese.tscn" id="3_lfih6"]
+[ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/test/testRoom.tscn" id="1_h25ey"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug.tscn" id="2_yj2lc"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_15h3h")
-
-[node name="HUD" parent="." instance=ExtResource("1_04vgg")]
-unique_name_in_owner = true
-
 [node name="Room" type="Node2D" parent="."]
 
-[node name="TestRoom" parent="Room" instance=ExtResource("1_8ay2r")]
+[node name="TestRoom" parent="Room" instance=ExtResource("1_h25ey")]
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Bug4" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(112, 80)
 
-[node name="playerCharacter" parent="Player" instance=ExtResource("2_y4nnn")]
+[node name="Bug3" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, 80)
 
-[node name="Cheeses" type="Node" parent="."]
+[node name="Bug2" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, -16)
 
-[node name="Cheese" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(-112, -78)
+[node name="Bug" parent="." instance=ExtResource("2_yj2lc")]
+position = Vector2(112, -16)
 
-[node name="Cheese2" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(-142, -15)
-
-[node name="Cheese3" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(-142, 80)
-
-[node name="Cheese4" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(112, 81)
-
-[node name="Cheese5" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(112, -77)
-
-[node name="Cheese6" parent="Cheeses" instance=ExtResource("3_lfih6")]
-position = Vector2(47, -45)
+[node name="Player" parent="." instance=ExtResource("3_0xa32")]
