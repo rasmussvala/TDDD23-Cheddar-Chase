@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://ct4xnrb6ua7pq"]
 
-[ext_resource type="Script" path="res://scripts/bug.gd" id="1_nut6h"]
-[ext_resource type="Texture2D" uid="uid://brjpccue7ndc3" path="res://assets/enemies/bug/walk.png" id="2_etpq1"]
-[ext_resource type="Texture2D" uid="uid://crry18qdidjdo" path="res://assets/enemies/bug/damaged.png" id="2_w6c88"]
-[ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/test/HurtBox.tscn" id="3_fnqh4"]
-[ext_resource type="Texture2D" uid="uid://c6dbdnnfvxjrn" path="res://assets/enemies/bug/death.png" id="3_w4eno"]
-[ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/test/HitBox.tscn" id="6_wrc18"]
+[ext_resource type="Script" path="res://scripts/characters/enemies/bug.gd" id="1_nut6h"]
+[ext_resource type="Texture2D" uid="uid://brjpccue7ndc3" path="res://assets/characters/enemies/bug/walk.png" id="2_etpq1"]
+[ext_resource type="Texture2D" uid="uid://crry18qdidjdo" path="res://assets/characters/enemies/bug/damaged.png" id="2_w6c88"]
+[ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/HurtBox.tscn" id="3_fnqh4"]
+[ext_resource type="Texture2D" uid="uid://c6dbdnnfvxjrn" path="res://assets/characters/enemies/bug/death.png" id="3_w4eno"]
+[ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/HitBox.tscn" id="6_wrc18"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftat6"]
 atlas = ExtResource("2_w6c88")
