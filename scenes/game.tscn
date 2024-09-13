@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b25qwne7s6ah4"]
+[gd_scene load_steps=6 format=3 uid="uid://b25qwne7s6ah4"]
 
-[ext_resource type="PackedScene" uid="uid://bnvkpndk0p0c3" path="res://scenes/hud.tscn" id="1_04vgg"]
+[ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/hud.tscn" id="1_04vgg"]
 [ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/testRoom.tscn" id="1_8ay2r"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_15h3h"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/playerCharacter.tscn" id="2_y4nnn"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/cheese.tscn" id="3_lfih6"]
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_15h3h")
 
 [node name="HUD" parent="." instance=ExtResource("1_04vgg")]
 unique_name_in_owner = true
