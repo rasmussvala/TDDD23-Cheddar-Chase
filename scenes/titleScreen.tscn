@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnvkpndk0p0c3"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_twnuh"]
+[ext_resource type="FontFile" uid="uid://dfblfbk50wbwq" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_2ekvr"]
+[ext_resource type="FontFile" uid="uid://c1jrm06anmbhs" path="res://assets/fonts/PixelOperator8.ttf" id="3_bkvwi"]
+
+[node name="TitleScreen" type="CanvasLayer"]
+script = ExtResource("1_twnuh")
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -561.5
+offset_top = -83.0
+offset_right = 561.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_2ekvr")
+theme_override_font_sizes/font_size = 64
+text = "Collect the cheese!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = 20.0
+offset_right = 136.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_bkvwi")
+theme_override_font_sizes/font_size = 64
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
