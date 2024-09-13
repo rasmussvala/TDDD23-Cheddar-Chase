@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="TDDD23-Game-Project"
-run/main_scene="res://scenes/test/playerCharacter.tscn"
+run/main_scene="res://scenes/characters/mouse/player.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://scenes/": "yellow",
+"res://scripts/": "teal"
+}
 
 [input]
 
