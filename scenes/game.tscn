@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=7 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/test/testRoom.tscn" id="1_h25ey"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
+[ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/tools/hud.tscn" id="2_cdmx2"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="6_prwsy"]
 
 [node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_sqrlk")
+
+[node name="HUD" parent="." instance=ExtResource("2_cdmx2")]
+unique_name_in_owner = true
 
 [node name="Room" type="Node2D" parent="."]
 
@@ -23,3 +33,15 @@ position = Vector2(-112, -16)
 position = Vector2(112, -16)
 
 [node name="Player" parent="." instance=ExtResource("3_0xa32")]
+
+[node name="Cheese" parent="." instance=ExtResource("6_prwsy")]
+position = Vector2(-112, -59)
+
+[node name="Cheese2" parent="." instance=ExtResource("6_prwsy")]
+position = Vector2(-112, 145)
+
+[node name="Cheese3" parent="." instance=ExtResource("6_prwsy")]
+position = Vector2(113, 144)
+
+[node name="Cheese4" parent="." instance=ExtResource("6_prwsy")]
+position = Vector2(113, -58)
