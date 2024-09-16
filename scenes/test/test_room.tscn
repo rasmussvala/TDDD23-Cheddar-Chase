@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://b4cu5dc1rlitf"]
 
-[ext_resource type="Texture2D" uid="uid://bqar5whg221ac" path="res://assets/testlevel/roomMaptile_test.png" id="1_0gpah"]
+[ext_resource type="Texture2D" uid="uid://bqar5whg221ac" path="res://assets/testlevel/tilemap.png" id="1_0gpah"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbf3e"]
 texture = ExtResource("1_0gpah")
@@ -207,12 +207,12 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/2 = SubResource("TileSetAtlasSource_wng25")
 
-[node name="TestRoom" type="Node2D"]
+[node name="test_room" type="Node2D"]
 
-[node name="TileMapLayer1" type="TileMapLayer" parent="."]
+[node name="tilemap_layer_1" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAAD///7/AAABAAAAAAAAAP7/AAABAAAAAAABAP7/AAACAAAAAAD+/wAAAAAAAAEAAAABAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAP//AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD+/wIAAAAJAAYAAAABAAIAAAAHAAYAAAAAAAIAAAABAAYAAAD//wIAAAABAAYAAAABAAEAAAACAAYAAAD+/wEAAAAAAAYAAAAAAAEAAAABAAYAAAD//wEAAAABAAYAAAABAP//AAAHAAEAAAD+////AAAJAAEAAAACAP//AAABAAMAAAD9////AAABAAMAAAD8////AAAFAAEAAAADAP//AAAFAAEAAAADAP7/AAADAAEAAAADAAAAAAADAAEAAAD8//7/AAADAAEAAAD8/wAAAAADAAEAAAD7////AAAAAAMAAAAEAP//AAACAAMAAAADAP3/AAADAAAAAAD8//3/AAADAAAAAAADAAIAAAAFAAYAAAADAAEAAAADAAYAAAABAAMAAAACAAcAAAD+/wMAAAAAAAcAAAAAAAMAAAABAAcAAAD//wMAAAABAAcAAAACAAIAAAABAAgAAAAEAAIAAAACAAgAAAADAAMAAAADAAYAAAADAAQAAAADAAcAAAD8/wEAAAADAAYAAAD8/wMAAAADAAYAAAD9/wIAAAABAAgAAAD7/wIAAAAAAAgAAAD8/wIAAAAFAAYAAAD8/wQAAAADAAcAAAA=")
 tile_set = SubResource("TileSet_a3nj1")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+[node name="tilemap_layer_2" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAEAAgAPAAEAAAAAAAAAAgAPAAEAAAD//wEAAgANAAEAAAD//wAAAgANAAEAAAD/////AgANAAAAAAAAAP//AgAPAAAAAAD//wIAAgANAAIAAAAAAAIAAgAPAAIAAAA=")
 tile_set = SubResource("TileSet_ttvn5")
