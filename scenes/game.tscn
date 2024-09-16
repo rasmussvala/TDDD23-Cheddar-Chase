@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3wdmox28pm05"]
 
-[ext_resource type="PackedScene" uid="uid://b4cu5dc1rlitf" path="res://scenes/test/test_room.tscn" id="1_h25ey"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/tools/hud.tscn" id="2_cdmx2"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
+[ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="3_no3av"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="6_prwsy"]
 
 [node name="game" type="Node2D"]
@@ -16,9 +16,7 @@ script = ExtResource("1_sqrlk")
 [node name="hud" parent="." instance=ExtResource("2_cdmx2")]
 unique_name_in_owner = true
 
-[node name="room" type="Node2D" parent="."]
-
-[node name="test_room" parent="room" instance=ExtResource("1_h25ey")]
+[node name="tile_map" parent="." instance=ExtResource("3_no3av")]
 
 [node name="bug_4" parent="." instance=ExtResource("2_yj2lc")]
 position = Vector2(112, 80)
