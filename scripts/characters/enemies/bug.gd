@@ -24,10 +24,10 @@ var knockback_timer = 0.0
 var knockback_strength = 150
 
 # References to nodes
-@onready var sprite: AnimatedSprite2D = $sprite
-@onready var ray_cast: RayCast2D = $detectionRay
-@onready var detection_area = $detectionArea
-@onready var hit_box: HitBox = $HitBox
+@onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
+@onready var ray_cast: RayCast2D = $detection_ray
+@onready var detection_area: Area2D = $detection_area
+@onready var hit_box: HitBox = $hit_box
 
 func _ready():
 	hit_box.enable_hitbox()
@@ -59,7 +59,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if velocity != Vector2.ZERO:
-		sprite.rotation = velocity.angle()
+		animated_sprite_2d.rotation = velocity.angle()
 
 func can_see_player() -> bool:
 	if not player or not is_instance_valid(player):
@@ -94,12 +94,12 @@ func wander(delta):
 		velocity = Vector2.ZERO
 
 func _on_detection_area_body_entered(body):
-	if body and body.name == "Player":
+	if body and body.name == "player":
 		player = body
 		player_chase = true
 
 func _on_detection_area_body_exited(body):
-	if body and body.name == "Player":
+	if body and body.name == "player":
 		player = null
 		player_chase = false
 		pause_time = 0
@@ -117,12 +117,12 @@ func take_damage(amount: int, attacker_position: Vector2):
 		knockback_velocity = direction * knockback_strength
 		knockback_timer = knockback_duration
 		
-		sprite.play("damaged")
-		await sprite.animation_finished
-		sprite.play("walk")
+		animated_sprite_2d.play("damaged")
+		await animated_sprite_2d.animation_finished
+		animated_sprite_2d.play("walk")
 
 func die():
 	is_dead = true
-	sprite.play("death")
-	await sprite.animation_finished
+	animated_sprite_2d.play("death")
+	await animated_sprite_2d.animation_finished
 	queue_free()

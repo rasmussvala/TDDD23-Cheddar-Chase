@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scripts/characters/enemies/bug.gd" id="1_nut6h"]
 [ext_resource type="Texture2D" uid="uid://brjpccue7ndc3" path="res://assets/characters/enemies/bug/walk.png" id="2_etpq1"]
 [ext_resource type="Texture2D" uid="uid://crry18qdidjdo" path="res://assets/characters/enemies/bug/damaged.png" id="2_w6c88"]
-[ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/HurtBox.tscn" id="3_fnqh4"]
+[ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/hurt_box.tscn" id="3_fnqh4"]
 [ext_resource type="Texture2D" uid="uid://c6dbdnnfvxjrn" path="res://assets/characters/enemies/bug/death.png" id="3_w4eno"]
-[ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/HitBox.tscn" id="6_wrc18"]
+[ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="6_wrc18"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftat6"]
 atlas = ExtResource("2_w6c88")
@@ -163,44 +163,44 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_i8w3p"]
 radius = 3.0
 
-[node name="Bug" type="CharacterBody2D"]
+[node name="bug" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_nut6h")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7owlx")
 animation = &"death"
 autoplay = "walk"
 
-[node name="detectionArea" type="Area2D" parent="."]
+[node name="detection_area" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 2
 
-[node name="areaShape" type="CollisionShape2D" parent="detectionArea"]
+[node name="detection_collision" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_4keik")
 
-[node name="detectionRay" type="RayCast2D" parent="."]
+[node name="detection_ray" type="RayCast2D" parent="."]
 target_position = Vector2(25, 0)
 
-[node name="bodyCollision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1.19209e-07, 0)
 rotation = 1.5708
 scale = Vector2(0.4, 0.4)
 shape = SubResource("CircleShape2D_ehi18")
 one_way_collision_margin = 3.5
 
-[node name="HurtBox" parent="." instance=ExtResource("3_fnqh4")]
+[node name="hurt_box" parent="." instance=ExtResource("3_fnqh4")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="hurt_box_collision" type="CollisionShape2D" parent="hurt_box"]
 shape = SubResource("CircleShape2D_raih4")
 debug_color = Color(1.10701e-06, 0.650037, 0.115694, 0.42)
 
-[node name="HitBox" parent="." instance=ExtResource("6_wrc18")]
+[node name="hit_box" parent="." instance=ExtResource("6_wrc18")]
 collision_layer = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="hit_box_collision" type="CollisionShape2D" parent="hit_box"]
 shape = SubResource("CircleShape2D_i8w3p")
 debug_color = Color(0.991119, 0, 0.269717, 0.42)
 
-[connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

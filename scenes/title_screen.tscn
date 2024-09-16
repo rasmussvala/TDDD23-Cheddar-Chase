@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnvkpndk0p0c3"]
 
 [ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_twnuh"]
-[ext_resource type="FontFile" uid="uid://dfblfbk50wbwq" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_2ekvr"]
-[ext_resource type="FontFile" uid="uid://c1jrm06anmbhs" path="res://assets/fonts/PixelOperator8.ttf" id="3_bkvwi"]
+[ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="2_2ekvr"]
+[ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="3_bkvwi"]
 
-[node name="TitleScreen" type="CanvasLayer"]
+[node name="title_screen" type="CanvasLayer"]
 script = ExtResource("1_twnuh")
 
-[node name="Message" type="Label" parent="."]
+[node name="message" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -27,7 +27,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="StartButton" type="Button" parent="."]
+[node name="start_button" type="Button" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -43,4 +43,4 @@ theme_override_fonts/font = ExtResource("3_bkvwi")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]

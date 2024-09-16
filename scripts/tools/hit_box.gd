@@ -5,15 +5,15 @@ extends Area2D
 @export var damage: int = 1
 
 # Reference to the CollisionShape2D node
-@onready var collision_shape = $CollisionShape2D
+@onready var hit_box_collision: CollisionShape2D = $hit_box_collision
 
 func _ready() -> void:
 	disable_hitbox()
 
 # Function to enable the hitbox
 func enable_hitbox() -> void:
-	collision_shape.disabled = false
+	hit_box_collision.disabled = false
 
 # Function to disable the hitbox
 func disable_hitbox() -> void:
-	collision_shape.disabled = true
+	hit_box_collision.disabled = true
