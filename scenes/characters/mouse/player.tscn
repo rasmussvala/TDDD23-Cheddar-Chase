@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dnlv8wuw8y7et"]
+[gd_scene load_steps=83 format=3 uid="uid://dnlv8wuw8y7et"]
 
 [ext_resource type="Script" path="res://scripts/characters/mouse/player.gd" id="1_p3jmh"]
 [ext_resource type="Texture2D" uid="uid://cnc8pblqp3s00" path="res://assets/characters/mouse/roll.png" id="2_72rxg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlejngkxu8iex" path="res://assets/characters/mouse/walk.png" id="3_nllni"]
 [ext_resource type="Texture2D" uid="uid://c57n7m8rd2p0r" path="res://assets/characters/mouse/obstruct.png" id="3_wj4mi"]
 [ext_resource type="Texture2D" uid="uid://cx5sahijxh51p" path="res://assets/characters/mouse/death.png" id="4_u5uvf"]
+[ext_resource type="Texture2D" uid="uid://dqsuohh178t6r" path="res://assets/characters/mouse/fall.png" id="5_sjks1"]
 [ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/hurt_box.tscn" id="7_d2iwd"]
 [ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="7_j7bjn"]
 
@@ -102,6 +103,30 @@ region = Rect2(160, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7me74"]
 atlas = ExtResource("4_u5uvf")
 region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca8ib"]
+atlas = ExtResource("5_sjks1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on0rl"]
+atlas = ExtResource("5_sjks1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxsjm"]
+atlas = ExtResource("5_sjks1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uvy7"]
+atlas = ExtResource("5_sjks1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4so6"]
+atlas = ExtResource("5_sjks1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5todt"]
+atlas = ExtResource("5_sjks1")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ufwjx"]
 atlas = ExtResource("2_ebnf0")
@@ -343,6 +368,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ca8ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on0rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxsjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uvy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4so6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5todt")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ufwjx")
 }, {
 "duration": 1.0,
@@ -487,11 +535,12 @@ radius = 17.0
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_p3jmh")
 
 [node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_copu8")
-animation = &"death"
+animation = &"fall"
 speed_scale = 2.0
 
 [node name="camera_2d" type="Camera2D" parent="."]

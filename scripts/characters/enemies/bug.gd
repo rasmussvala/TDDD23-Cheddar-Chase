@@ -11,6 +11,7 @@ var wander_time = 0
 var wander_interval = 3
 var pause_time = 0
 var pause_duration = 2
+var is_rolling = false
 
 # Variables for Health
 var max_health = 2
@@ -125,4 +126,17 @@ func die():
 	is_dead = true
 	animated_sprite_2d.play("death")
 	await animated_sprite_2d.animation_finished
+	queue_free()
+
+func fall_in_pit():
+	hit_box.call_deferred("disable_hitbox")
+	
+	# Create a new Tween instance
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
+	tween.parallel().tween_property($animated_sprite_2d, "modulate", Color.BLACK, 0.5)
+	tween.parallel().tween_property($animated_sprite_2d, "rotation_degrees", 360.0, 2)
+	await tween.finished
+	
 	queue_free()

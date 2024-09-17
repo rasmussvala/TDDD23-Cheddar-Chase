@@ -165,6 +165,7 @@ radius = 3.0
 
 [node name="bug" type="CharacterBody2D"]
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_nut6h")
 
 [node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
@@ -190,6 +191,7 @@ shape = SubResource("CircleShape2D_ehi18")
 one_way_collision_margin = 3.5
 
 [node name="hurt_box" parent="." instance=ExtResource("3_fnqh4")]
+collision_mask = 16
 
 [node name="hurt_box_collision" type="CollisionShape2D" parent="hurt_box"]
 shape = SubResource("CircleShape2D_raih4")
