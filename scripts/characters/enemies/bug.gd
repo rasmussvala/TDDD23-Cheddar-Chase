@@ -12,6 +12,7 @@ var wander_interval = 3
 var pause_time = 0
 var pause_duration = 2
 var is_rolling = false
+var is_falling = false
 
 # Variables for Health
 var max_health = 2

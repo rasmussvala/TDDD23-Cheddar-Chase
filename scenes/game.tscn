@@ -50,7 +50,7 @@ position = Vector2(113, -58)
 
 [node name="pit" parent="." instance=ExtResource("7_5m25o")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pit"]
+[node name="pit_collision" type="CollisionShape2D" parent="pit"]
 position = Vector2(80, -48)
 shape = SubResource("RectangleShape2D_yseke")
 debug_color = Color(0.961248, 0, 0.511433, 0.42)
