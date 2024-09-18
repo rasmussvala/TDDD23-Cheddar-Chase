@@ -23,7 +23,7 @@ signal trigger_death_screen
 var knockback_velocity = Vector2.ZERO
 var knockback_duration = 0.2
 var knockback_timer = 0.0
-var knockback_strength = 200
+var knockback_strength = 220
 
 # References to nodes
 @onready var hud: CanvasLayer = $hud
