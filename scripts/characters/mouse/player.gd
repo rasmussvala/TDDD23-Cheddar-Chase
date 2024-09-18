@@ -26,7 +26,7 @@ var knockback_timer = 0.0
 var knockback_strength = 200
 
 # References to nodes
-@onready var hud: CanvasLayer = %hud
+@onready var hud: CanvasLayer = $hud
 @onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
 @onready var hit_box: HitBox = $hit_box
 @onready var hurt_box: HurtBox = $hurt_box
@@ -163,9 +163,7 @@ func take_damage(amount: int, attacker_position: Vector2):
 		animated_sprite_2d.play("damaged")
 
 # Function to handle player death
-func die():
-	const DEATH_SCREEN = preload("res://scenes/death_screen.tscn")
-	
+func die():	
 	is_dead = true
 	animated_sprite_2d.play("death")
 	Engine.time_scale = 0.5
@@ -191,25 +189,6 @@ func _on_animation_finished() -> void:
 			animated_sprite_2d.play("idle")
 		velocity = Vector2.ZERO
 
-# Function that handles when the timer is over
-func _on_death_timer_timeout() -> void:
-	Engine.time_scale = 1
-	queue_free()
-	get_tree().reload_current_scene()
-
-# Function to reset the player after falling
-func reset_player_after_fall():
-	global_position = spawn_point
-	
-	velocity = Vector2.ZERO
-	
-	if current_health <= 0:
-		die()
-	else:
-		$animated_sprite_2d.scale = Vector2.ONE
-		$animated_sprite_2d.modulate = Color(1, 1, 1, 1) 
-		$animated_sprite_2d.rotation_degrees = 0 
-
 # Function to handle when the player falls into a pit
 func fall_in_pit():
 	if is_falling:
@@ -218,14 +197,14 @@ func fall_in_pit():
 	
 	animated_sprite_2d.play("fall")
 	
-	current_health -= 1
+	current_health = 0
+	hud.update_health(current_health)
+	trigger_death_screen.emit()
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
 	tween.parallel().tween_property($animated_sprite_2d, "modulate", Color.BLACK, 0.5)
 	tween.parallel().tween_property($animated_sprite_2d, "rotation_degrees", 360.0, 2)
 	await tween.finished
-	
-	reset_player_after_fall()
-	
+		
 	is_falling = false
