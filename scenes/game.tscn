@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=11 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/tools/hud.tscn" id="2_cdmx2"]
-[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug.tscn" id="2_yj2lc"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
 [ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="3_no3av"]
+[ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="5_8sk2h"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="6_prwsy"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="7_5m25o"]
+[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="8_b8f1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
 size = Vector2(32, 32)
@@ -20,19 +22,29 @@ script = ExtResource("1_sqrlk")
 [node name="hud" parent="." instance=ExtResource("2_cdmx2")]
 unique_name_in_owner = true
 
-[node name="tile_map" parent="." instance=ExtResource("3_no3av")]
+[node name="Node" type="Node" parent="."]
 
-[node name="bug_4" parent="." instance=ExtResource("2_yj2lc")]
-position = Vector2(112, 80)
+[node name="Enemies" type="Node" parent="."]
 
-[node name="bug_3" parent="." instance=ExtResource("2_yj2lc")]
-position = Vector2(-112, 80)
+[node name="bug_red_1" parent="Enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(112, -16)
 
-[node name="bug_2" parent="." instance=ExtResource("2_yj2lc")]
+[node name="bug_red_2" parent="Enemies" instance=ExtResource("2_yj2lc")]
 position = Vector2(-112, -16)
 
-[node name="bug_1" parent="." instance=ExtResource("2_yj2lc")]
-position = Vector2(112, -16)
+[node name="bug_red_3" parent="Enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, 80)
+
+[node name="bug_red_4" parent="Enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(112, 80)
+
+[node name="bug_blue_1" parent="Enemies" instance=ExtResource("8_b8f1k")]
+position = Vector2(0, 144)
+
+[node name="bug_green_1" parent="Enemies" instance=ExtResource("5_8sk2h")]
+position = Vector2(-88, 144)
+
+[node name="tile_map" parent="." instance=ExtResource("3_no3av")]
 
 [node name="player" parent="." instance=ExtResource("3_0xa32")]
 

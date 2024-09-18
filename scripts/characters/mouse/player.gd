@@ -22,7 +22,7 @@ var is_dead = false
 var knockback_velocity = Vector2.ZERO
 var knockback_duration = 0.2
 var knockback_timer = 0.0
-var knockback_strength = 200
+var knockback_strength = 220
 
 # References to nodes
 @onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d

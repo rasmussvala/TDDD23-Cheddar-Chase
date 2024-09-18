@@ -1,35 +1,36 @@
 extends CharacterBody2D
 
 # Variables for movement
-var speed = 25
-var chase_speed = 25
-var wander_speed = 15
+var speed = 15
+var chase_speed = 20
+var wander_speed = 5
 var player_chase = false
 var player = null
 var wander_target = Vector2.ZERO
 var wander_time = 0
 var wander_interval = 3
 var pause_time = 0
-var pause_duration = 2
+var pause_duration = 3
 var is_rolling = false
 var is_falling = false
 
 # Variables for Health
-var max_health = 2
-var current_health = 2
+var max_health = 20
+var current_health = 20
 var is_dead = false
 
 # Variables for Knockback
 var knockback_velocity = Vector2.ZERO
 var knockback_duration = 0.2
 var knockback_timer = 0.0
-var knockback_strength = 150
+var knockback_strength = 100
 
 # References to nodes
 @onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
 @onready var ray_cast: RayCast2D = $detection_ray
 @onready var detection_area: Area2D = $detection_area
 @onready var hit_box: HitBox = $hit_box
+
 
 func _ready():
 	hit_box.enable_hitbox()
