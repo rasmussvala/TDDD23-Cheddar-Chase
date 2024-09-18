@@ -24,4 +24,6 @@ func fade_in():
 	tween.parallel().tween_property(restart_button, "modulate:a", opacity, fade_in_time)
 
 func _on_restart_button_pressed() -> void:
-	pass # Replace with function body.
+	Engine.time_scale = 1.0
+	var game_scene = load("res://scenes/game.tscn")  
+	get_tree().change_scene_to_packed(game_scene)
