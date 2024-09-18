@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs03yq5n5ibww"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/pit.gd" id="1_wev1t"]
+
+[node name="pit" type="Area2D"]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("1_wev1t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

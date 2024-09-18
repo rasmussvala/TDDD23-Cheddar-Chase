@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=9 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/tools/hud.tscn" id="2_cdmx2"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
 [ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="3_no3av"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="6_prwsy"]
+[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="7_5m25o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
+size = Vector2(32, 32)
 
 [node name="game" type="Node2D"]
 
@@ -43,3 +47,10 @@ position = Vector2(113, 144)
 
 [node name="cheese_4" parent="." instance=ExtResource("6_prwsy")]
 position = Vector2(113, -58)
+
+[node name="pit" parent="." instance=ExtResource("7_5m25o")]
+
+[node name="pit_collision" type="CollisionShape2D" parent="pit"]
+position = Vector2(80, -48)
+shape = SubResource("RectangleShape2D_yseke")
+debug_color = Color(0.961248, 0, 0.511433, 0.42)

@@ -8,6 +8,10 @@ var is_rolling = false
 var roll_timer = 0.0
 var is_attacking = false
 var attack_duration = 0.5  
+var is_falling = false
+
+# Spawn
+var spawn_point: Vector2
 
 # Variables for Health
 var max_health = 10
@@ -27,6 +31,7 @@ var knockback_strength = 200
 @onready var death_timer: Timer = $death_timer
 
 func _ready():
+	spawn_point = global_position
 	animated_sprite_2d.connect("animation_finished", Callable(self, "_on_animation_finished"))
 	hurt_box.connect("body_entered", Callable(self, "_on_hurtbox_body_entered"))
 	hit_box.disable_hitbox()  # Ensure hitbox is disabled initially
@@ -85,6 +90,10 @@ func handle_movement_and_actions(delta):
 	
 	else:
 		# Handle normal movement input if not rolling or attacking
+		if is_falling:
+			velocity = Vector2.ZERO  # Prevent movement while falling
+			return  # Exit the function if falling
+		
 		var input_vector = Vector2.ZERO
 		if Input.is_action_pressed("ui_right"):
 			input_vector.x += 1
@@ -116,14 +125,14 @@ func handle_movement_and_actions(delta):
 			hurt_box.disable_hurtbox()
 	
 	# Play attack animation if attack button is pressed and not rolling
-	if Input.is_action_just_pressed("ui_attack") and !is_rolling:
+	if Input.is_action_just_pressed("ui_attack") and !is_rolling and !is_falling:
 		is_attacking = true
 		animated_sprite_2d.play("attack")
 		hit_box.enable_hitbox()
 		hurt_box.disable_hurtbox()
 	
 	# Play obstruct animation if there is a collision and not rolling
-	if is_colliding() and !is_rolling and !is_attacking:
+	if is_colliding() and !is_rolling and !is_attacking and !is_falling:
 		animated_sprite_2d.play("obstruct")
 
 # Function to check for collision
@@ -183,3 +192,36 @@ func _on_death_timer_timeout() -> void:
 	Engine.time_scale = 1
 	queue_free()
 	get_tree().reload_current_scene()
+
+# Function to reset the player after falling
+func reset_player_after_fall():
+	global_position = spawn_point
+	
+	velocity = Vector2.ZERO
+	
+	if current_health <= 0:
+		die()
+	else:
+		$animated_sprite_2d.scale = Vector2.ONE
+		$animated_sprite_2d.modulate = Color(1, 1, 1, 1) 
+		$animated_sprite_2d.rotation_degrees = 0 
+
+# Function to handle when the player falls into a pit
+func fall_in_pit():
+	if is_falling:
+		return
+	is_falling = true
+	
+	animated_sprite_2d.play("fall")
+	
+	current_health -= 1
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
+	tween.parallel().tween_property($animated_sprite_2d, "modulate", Color.BLACK, 0.5)
+	tween.parallel().tween_property($animated_sprite_2d, "rotation_degrees", 360.0, 2)
+	await tween.finished
+	
+	reset_player_after_fall()
+	
+	is_falling = false
