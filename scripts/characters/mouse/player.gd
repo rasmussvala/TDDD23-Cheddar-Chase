@@ -67,6 +67,11 @@ func handle_movement_and_actions(delta):
 	
 	# Attacking logic
 	elif is_attacking:
+		
+		if is_falling:
+			velocity = Vector2.ZERO  # Prevent movement while falling
+			return  # Exit the function if falling
+		
 		if !animated_sprite_2d.is_playing():
 			is_attacking = false
 			

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
-[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/death_screen.tscn" id="2_wlcxk"]
+[ext_resource type="PackedScene" uid="uid://by8676srd1166" path="res://scenes/death_screen.tscn" id="2_wlcxk"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
 [ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="3_no3av"]
