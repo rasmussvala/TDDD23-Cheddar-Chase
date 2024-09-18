@@ -13,6 +13,7 @@ var attack_duration = 0.5
 var max_health = 3
 var current_health = max_health
 var is_dead = false
+signal trigger_death_screen
 
 # knockback variables
 var knockback_velocity = Vector2.ZERO
@@ -25,7 +26,6 @@ var knockback_strength = 200
 @onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
 @onready var hit_box: HitBox = $hit_box
 @onready var hurt_box: HurtBox = $hurt_box
-@onready var death_timer: Timer = $death_timer
 
 func _ready():
 	animated_sprite_2d.connect("animation_finished", Callable(self, "_on_animation_finished"))
@@ -155,11 +155,12 @@ func take_damage(amount: int, attacker_position: Vector2):
 
 # Function to handle player death
 func die():
+	const DEATH_SCREEN = preload("res://scenes/death_screen.tscn")
+	
 	is_dead = true
 	animated_sprite_2d.play("death")
-	
 	Engine.time_scale = 0.5
-	death_timer.start()
+	trigger_death_screen.emit()
 
 # Function to check if hurtbox is entered
 func _on_hurtbox_body_entered(body):
