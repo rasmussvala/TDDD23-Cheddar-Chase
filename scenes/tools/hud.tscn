@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq501sdvos586"]
+[gd_scene load_steps=4 format=3 uid="uid://cq501sdvos586"]
 
-[ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_2if4o"]
+[ext_resource type="FontFile" uid="uid://hu3cedqh4cft" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_2if4o"]
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_20cvk"]
+[ext_resource type="Texture2D" uid="uid://8rjfv0b0gwqs" path="res://assets/heart/heart-filled.png" id="3_424o5"]
 
 [node name="hud" type="CanvasLayer"]
 script = ExtResource("1_20cvk")
@@ -18,3 +19,18 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_2if4o")
 theme_override_font_sizes/font_size = 64
 text = "0 Cheese"
+
+[node name="heart_3" type="Sprite2D" parent="."]
+position = Vector2(1104, 600)
+scale = Vector2(8, 8)
+texture = ExtResource("3_424o5")
+
+[node name="heart_2" type="Sprite2D" parent="."]
+position = Vector2(1040, 600)
+scale = Vector2(8, 8)
+texture = ExtResource("3_424o5")
+
+[node name="heart_1" type="Sprite2D" parent="."]
+position = Vector2(976, 600)
+scale = Vector2(8, 8)
+texture = ExtResource("3_424o5")
