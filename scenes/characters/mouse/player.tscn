@@ -540,6 +540,7 @@ collision_mask = 9
 script = ExtResource("1_p3jmh")
 
 [node name="hud" parent="." instance=ExtResource("2_ynafe")]
+unique_name_in_owner = true
 
 [node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_copu8")
