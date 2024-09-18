@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
-[ext_resource type="PackedScene" uid="uid://cq501sdvos586" path="res://scenes/tools/hud.tscn" id="2_cdmx2"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/death_screen.tscn" id="2_wlcxk"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
 [ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="3_no3av"]
@@ -19,7 +19,7 @@ size = Vector2(32, 32)
 unique_name_in_owner = true
 script = ExtResource("1_sqrlk")
 
-[node name="hud" parent="." instance=ExtResource("2_cdmx2")]
+[node name="death_screen" parent="." instance=ExtResource("2_wlcxk")]
 unique_name_in_owner = true
 
 [node name="Node" type="Node" parent="."]
@@ -66,3 +66,5 @@ position = Vector2(113, -58)
 position = Vector2(80, -48)
 shape = SubResource("RectangleShape2D_yseke")
 debug_color = Color(0.961248, 0, 0.511433, 0.42)
+
+[connection signal="trigger_death_screen" from="player" to="game_manager" method="_on_player_trigger_death_screen"]
