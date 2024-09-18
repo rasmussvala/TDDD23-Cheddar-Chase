@@ -10,8 +10,8 @@ var is_attacking = false
 var attack_duration = 0.5  
 
 # Variables for Health
-var max_health = 10
-var current_health = 10
+var max_health = 3
+var current_health = max_health
 var is_dead = false
 
 # knockback variables
@@ -21,6 +21,7 @@ var knockback_timer = 0.0
 var knockback_strength = 200
 
 # References to nodes
+@onready var hud: CanvasLayer = %hud
 @onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
 @onready var hit_box: HitBox = $hit_box
 @onready var hurt_box: HurtBox = $hurt_box
@@ -31,6 +32,7 @@ func _ready():
 	hurt_box.connect("body_entered", Callable(self, "_on_hurtbox_body_entered"))
 	hit_box.disable_hitbox()  # Ensure hitbox is disabled initially
 	hurt_box.enable_hurtbox()  # Ensure hurtbox is enabled initially
+	hud.update_health(current_health) # Initialize health in HUD
 
 func _process(delta):
 	if is_dead:
@@ -140,6 +142,7 @@ func take_damage(amount: int, attacker_position: Vector2):
 		return
 	
 	current_health -= amount
+	hud.update_health(current_health)
 	
 	if current_health <= 0:
 		die()

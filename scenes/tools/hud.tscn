@@ -20,17 +20,17 @@ theme_override_fonts/font = ExtResource("1_2if4o")
 theme_override_font_sizes/font_size = 64
 text = "0 Cheese"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="heart_3" type="Sprite2D" parent="."]
 position = Vector2(1104, 600)
 scale = Vector2(8, 8)
 texture = ExtResource("3_424o5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="heart_2" type="Sprite2D" parent="."]
 position = Vector2(1040, 600)
 scale = Vector2(8, 8)
 texture = ExtResource("3_424o5")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="heart_1" type="Sprite2D" parent="."]
 position = Vector2(976, 600)
 scale = Vector2(8, 8)
 texture = ExtResource("3_424o5")
