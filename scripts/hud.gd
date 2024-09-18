@@ -12,8 +12,10 @@ func update_score(score) -> void:
 	score_label.text = str(score) + " Cheese"
 
 func update_health(new_health) -> void:
+	# Save all sprite in array
 	var hearts = [heart_3, heart_2, heart_1]
 	
+	# Loop through all hearts and update sprites according to new_health
 	for i in range(hearts.size()):
 		if i < new_health:
 			hearts[i].texture = heart_filled
@@ -23,8 +25,8 @@ func update_health(new_health) -> void:
 		else: 
 			hearts[i].texture = heart_empty
 
+# Give a visual feedback on which heart is being removed
 func bounce_heart(heart: Sprite2D) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(heart, "scale", Vector2(10.0, 10.0), 0.15).set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(heart, "scale", Vector2(8.0, 8.0), 0.15).set_trans(Tween.TRANS_BOUNCE)
-	#tween.tween_callback(heart.queue_free)
