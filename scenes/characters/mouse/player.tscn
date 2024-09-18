@@ -540,7 +540,7 @@ script = ExtResource("1_p3jmh")
 
 [node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_copu8")
-animation = &"fall"
+animation = &"idle"
 speed_scale = 2.0
 
 [node name="camera_2d" type="Camera2D" parent="."]
