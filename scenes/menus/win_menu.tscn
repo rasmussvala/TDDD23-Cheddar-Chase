@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpw6urgdij01f"]
 
+[ext_resource type="Script" path="res://scripts/menus/win_menu.gd" id="1_5b8ax"]
 [ext_resource type="FontFile" uid="uid://hu3cedqh4cft" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_ab6rm"]
-[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_tsmp8"]
 
 [node name="win_screen" type="CanvasLayer"]
-script = ExtResource("1_tsmp8")
+script = ExtResource("1_5b8ax")
 
 [node name="window" type="ColorRect" parent="."]
 anchors_preset = 15

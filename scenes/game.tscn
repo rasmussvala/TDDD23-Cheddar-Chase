@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
-[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_screen.tscn" id="2_1la2g"]
-[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_screen.tscn" id="2_wlcxk"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_1la2g"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="2_wlcxk"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
 [ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="3_no3av"]
@@ -20,10 +20,10 @@ size = Vector2(32, 32)
 unique_name_in_owner = true
 script = ExtResource("1_sqrlk")
 
-[node name="win_screen" parent="." instance=ExtResource("2_1la2g")]
+[node name="win_menu" parent="." instance=ExtResource("2_1la2g")]
 unique_name_in_owner = true
 
-[node name="death_screen" parent="." instance=ExtResource("2_wlcxk")]
+[node name="death_menu" parent="." instance=ExtResource("2_wlcxk")]
 unique_name_in_owner = true
 
 [node name="Cheeses" type="Node" parent="."]
@@ -72,4 +72,4 @@ position = Vector2(80, -48)
 shape = SubResource("RectangleShape2D_yseke")
 debug_color = Color(0.961248, 0, 0.511433, 0.42)
 
-[connection signal="trigger_death_screen" from="player" to="game_manager" method="_on_player_trigger_death_screen"]
+[connection signal="trigger_death_screen" from="player" to="game_manager" method="_on_player_trigger_death_menu"]

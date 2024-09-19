@@ -3,9 +3,9 @@ extends Node
 var score = 0
 var max_score = 0
 
-@onready var win_screen: CanvasLayer = %win_screen
-@onready var death_screen: CanvasLayer = %death_screen
 @onready var player: CharacterBody2D = %player
+@onready var death_menu: CanvasLayer = %death_menu
+@onready var win_menu: CanvasLayer = %win_menu
 
 func _ready() -> void:
 	max_score = get_tree().get_node_count_in_group("Cheeses")
@@ -25,8 +25,8 @@ func add_point() -> void:
 	if score >= max_score: 
 		win()
 
-func _on_player_trigger_death_screen() -> void:
-	death_screen.fade_in()
+func _on_player_trigger_death_menu() -> void:
+	death_menu.fade_in()
 	
 func win() -> void:
-	win_screen.fade_in()
+	win_menu.fade_in()
