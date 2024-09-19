@@ -9,6 +9,7 @@ var roll_timer = 0.0
 var is_attacking = false
 var attack_duration = 0.5  
 var is_falling = false
+var attack_switch = false
 
 # Spawn
 var spawn_point: Vector2
@@ -134,7 +135,14 @@ func handle_movement_and_actions(delta):
 	# Play attack animation if attack button is pressed and not rolling
 	if Input.is_action_just_pressed("ui_attack") and !is_rolling and !is_falling:
 		is_attacking = true
-		animated_sprite_2d.play("attack")
+		
+		if attack_switch:
+			animated_sprite_2d.play("attack_right")
+			attack_switch = false
+		elif !attack_switch:
+			animated_sprite_2d.play("attack_left")
+			attack_switch = true
+		
 		hit_box.enable_hitbox()
 		hurt_box.disable_hurtbox()
 	
