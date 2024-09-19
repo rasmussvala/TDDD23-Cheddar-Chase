@@ -1,0 +1,31 @@
+name: Godot Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build Game
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Setup Godot
+      uses: albinaask/setup-godot@v1
+      with:
+        godot-version: 4.3  # Specify your Godot version here
+        
+    - name: Build
+      run: |
+        mkdir -p build/windows
+        godot --export "Windows Desktop" ./build/windows/game.exe
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-build
+        path: build/windows/game.exe
