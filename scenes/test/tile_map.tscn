@@ -287,5 +287,6 @@ format = 2
 [node name="room_layer" parent="." instance=ExtResource("3_fn64f")]
 
 [node name="furniture_layer" parent="." instance=ExtResource("4_ao24x")]
+tile_map_data = PackedByteArray(0, 0, 252, 255, 252, 255, 0, 0, 3, 0, 3, 0, 0, 0, 255, 255, 252, 255, 0, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="decoration_layer" parent="." instance=ExtResource("5_1egfr")]

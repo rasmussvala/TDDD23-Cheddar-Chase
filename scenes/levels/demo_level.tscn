@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=4 uid="uid://dni2huswsn7rp"]
+[gd_scene load_steps=13 format=4 uid="uid://dni2huswsn7rp"]
 
 [ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="1_3im0l"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_k3ck1"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="1_v7lt3"]
 [ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="2_38877"]
-[ext_resource type="PackedScene" uid="uid://by8676srd1166" path="res://scenes/death_screen.tscn" id="2_i0jtn"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="2_y8u5l"]
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="3_7hcgq"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="4_82wxn"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="5_4bd2v"]
@@ -14,12 +15,15 @@
 
 [node name="demo_level" type="Node2D"]
 
+[node name="win_menu" parent="." instance=ExtResource("1_v7lt3")]
+unique_name_in_owner = true
+
+[node name="death_menu" parent="." instance=ExtResource("2_y8u5l")]
+unique_name_in_owner = true
+
 [node name="game_manager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_k3ck1")
-
-[node name="death_screen" parent="." instance=ExtResource("2_i0jtn")]
-unique_name_in_owner = true
 
 [node name="level_layers" type="Node" parent="."]
 
@@ -117,4 +121,4 @@ polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
 unique_name_in_owner = true
 position = Vector2(0, -16)
 
-[connection signal="trigger_death_screen" from="player/player" to="game_manager" method="_on_player_trigger_death_screen"]
+[connection signal="trigger_death_menu" from="player/player" to="game_manager" method="_on_player_trigger_death_menu"]
