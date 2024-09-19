@@ -10,23 +10,24 @@ on:
 
 jobs:
   build:
-    name: Build Windows Game
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4
-      
-    - name: Build Godot Project
-      id: build
-      uses: manleydev/build-godot-action@v1.4.1
-      with:
-        name: TDDD23_Game
-        preset: "Windows Desktop"
-        debugMode: "false"
-        
-    - name: Upload Artifact
+
+    - name: Install Godot Engine
+      run: |
+        wget https://downloads.tuxfamily.org/godotengine/4.3.0/Godot_v4.3-stable_linux_headless.64.zip
+        unzip Godot_v4.3-stable_linux_headless.64.zip
+        sudo mv Godot_v4.3-stable_linux_headless.64 /usr/local/bin/godot
+
+    - name: Build Godot project
+      run: |
+        godot --export "Windows Desktop" build/game.exe
+
+    - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: windows-build
-        path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+        path: build/game.exe
