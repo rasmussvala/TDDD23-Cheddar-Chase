@@ -22,23 +22,25 @@ script = ExtResource("1_sqrlk")
 
 [node name="win_menu" parent="." instance=ExtResource("2_1la2g")]
 unique_name_in_owner = true
+visible = false
 
 [node name="death_menu" parent="." instance=ExtResource("2_wlcxk")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Cheeses" type="Node" parent="."]
 
 [node name="cheese_1" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(-112, -59)
+position = Vector2(-16, -48)
 
 [node name="cheese_2" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(-112, 145)
+position = Vector2(-80, 112)
 
 [node name="cheese_3" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(113, 144)
+position = Vector2(112, 80)
 
 [node name="cheese_4" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(113, -58)
+position = Vector2(112, -112)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -72,4 +74,4 @@ position = Vector2(80, -48)
 shape = SubResource("RectangleShape2D_yseke")
 debug_color = Color(0.961248, 0, 0.511433, 0.42)
 
-[connection signal="trigger_death_screen" from="player" to="game_manager" method="_on_player_trigger_death_menu"]
+[connection signal="trigger_death_menu" from="player" to="game_manager" method="_on_player_trigger_death_menu"]

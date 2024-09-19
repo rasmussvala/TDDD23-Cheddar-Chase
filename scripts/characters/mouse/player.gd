@@ -18,7 +18,7 @@ var spawn_point: Vector2
 var max_health = 3
 var current_health = max_health
 var is_dead = false
-signal trigger_death_screen
+signal trigger_death_menu
 
 # knockback variables
 var knockback_velocity = Vector2.ZERO
@@ -180,7 +180,7 @@ func die():
 	is_dead = true
 	animated_sprite_2d.play("death")
 	Engine.time_scale = 0.5
-	trigger_death_screen.emit()
+	trigger_death_menu.emit()
 
 # Function to check if hurtbox is entered
 func _on_hurtbox_body_entered(body):
@@ -212,7 +212,7 @@ func fall_in_pit():
 	
 	current_health = 0
 	hud.update_health(current_health)
-	trigger_death_screen.emit()
+	trigger_death_menu.emit()
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
