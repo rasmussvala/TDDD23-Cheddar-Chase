@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=4 uid="uid://dni2huswsn7rp"]
+
+[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="1_3im0l"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_k3ck1"]
+[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="2_38877"]
+[ext_resource type="PackedScene" uid="uid://by8676srd1166" path="res://scenes/death_screen.tscn" id="2_i0jtn"]
+[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="3_7hcgq"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="4_82wxn"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="5_4bd2v"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="5_5gdem"]
+[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="5_jdct3"]
+[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="5_pey20"]
+[ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="6_itwjh"]
+
+[node name="demo_level" type="Node2D"]
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_k3ck1")
+
+[node name="death_screen" parent="." instance=ExtResource("2_i0jtn")]
+unique_name_in_owner = true
+
+[node name="level_layers" type="Node" parent="."]
+
+[node name="room_layer" parent="level_layers" instance=ExtResource("1_3im0l")]
+tile_map_data = PackedByteArray("AAAEAP//AAACAAYAAAD//wAAAAAAAAIAAAAAAAAAAAACAAIAAAADAP//AAABAAYAAAACAP//AAABAAYAAAABAP//AAABAAYAAAAAAP//AAAGAAEAAAD/////AAAAAAEAAAD///7/AAAAAAAAAAAAAP7/AAACAAAAAAAFAP//AAABAAYAAAAGAP//AAABAAYAAAAHAP//AAACAAYAAAAJAP7/AAAAAAEAAAAJAP3/AAAAAAEAAAAJAPz/AAAAAAAAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAIAP//AAABAAYAAAAJAP//AAAIAAEAAAAJAAAAAAAAAAEAAAAKAPz/AAABAAAAAAALAPz/AAABAAAAAAAMAPz/AAABAAAAAAANAPz/AAABAAAAAAAOAPz/AAABAAAAAAAKAAIAAAABAAIAAAALAAIAAAABAAIAAAAMAAIAAAABAAIAAAANAAIAAAABAAIAAAAOAAIAAAABAAIAAAAPAAIAAAACAAIAAAAPAPz/AAACAAAAAAAMAP//AAAEAAQAAAANAAAAAAAIAAUAAAAMAAAAAAAHAAUAAAALAAAAAAAGAAUAAAALAP//AAAGAAQAAAALAP7/AAAGAAMAAAAMAP7/AAAHAAMAAAANAP7/AAAIAAMAAAANAP//AAAIAAQAAAAKAAAAAAAHAAEAAAALAAEAAAAHAAEAAAAKAP7/AAAHAAEAAAALAP3/AAAHAAEAAAANAP3/AAAHAAEAAAAOAP7/AAAHAAEAAAAOAAAAAAAHAAEAAAANAAEAAAAHAAEAAAAPAAAAAAACAAEAAAAPAP3/AAACAAEAAAAPAP7/AAACAAEAAAAPAP//AAAGAAEAAAAMAP3/AAABAAEAAAAOAP3/AAABAAEAAAAOAP//AAABAAEAAAAOAAEAAAABAAEAAAAMAAEAAAABAAEAAAAKAAEAAAABAAEAAAAKAP//AAABAAEAAAAKAP3/AAABAAEAAAAQAP//AAABAAYAAAAPAAEAAAACAAEAAAARAP//AAAJAAoAAAARAP7/AAAAAAoAAAARAP3/AAAAAAkAAAARAAEAAAAAAAsAAAARAAAAAAAAAAoAAAASAAEAAAABAAsAAAATAAEAAAABAAsAAAAUAAEAAAABAAsAAAAVAAEAAAACAAsAAAASAP3/AAABAAkAAAATAP3/AAABAAkAAAAUAP3/AAABAAkAAAAVAP3/AAACAAkAAAAVAP7/AAACAAoAAAAVAP//AAACAAoAAAAVAAAAAAACAAoAAAASAAAAAAABAAoAAAASAP//AAABAAoAAAASAP7/AAABAAoAAAATAP7/AAABAAoAAAATAP//AAABAAoAAAATAAAAAAABAAoAAAAUAAAAAAABAAoAAAAUAP//AAABAAoAAAAUAP7/AAABAAoAAAA=")
+
+[node name="furniture_layer" parent="level_layers" instance=ExtResource("2_38877")]
+
+[node name="decoration_layer" parent="level_layers" instance=ExtResource("3_7hcgq")]
+tile_map_data = PackedByteArray("AAAUAP//AQAEAAMAAAAJAAIAAQAGAAMAAAAKAP3/AQAAAAQAAAAOAAIAAQACAAQAAAANAAAAAQAEAAQAAAAKAAEAAQADAAQAAFAOAPz/AQACAAMAAAASAP7/AQAFAAQAAAAUAAAAAQAEAAQAAAA=")
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="bug_red_1" parent="enemies" instance=ExtResource("5_4bd2v")]
+position = Vector2(169, -16)
+
+[node name="bug_blue_1" parent="enemies" instance=ExtResource("5_jdct3")]
+position = Vector2(336, -80)
+
+[node name="bug_blue_2" parent="enemies" instance=ExtResource("5_jdct3")]
+position = Vector2(464, -80)
+
+[node name="bug_blue_3" parent="enemies" instance=ExtResource("5_jdct3")]
+position = Vector2(464, 48)
+
+[node name="bug_blue_4" parent="enemies" instance=ExtResource("5_jdct3")]
+position = Vector2(336, 48)
+
+[node name="bug_green_1" parent="enemies" instance=ExtResource("6_itwjh")]
+position = Vector2(656, -48)
+
+[node name="bug_green_2" parent="enemies" instance=ExtResource("6_itwjh")]
+position = Vector2(656, 16)
+
+[node name="collectibles" type="Node" parent="."]
+
+[node name="cheese_1" parent="collectibles" instance=ExtResource("5_5gdem")]
+position = Vector2(400, -16)
+
+[node name="cheese_2" parent="collectibles" instance=ExtResource("5_5gdem")]
+position = Vector2(656, -16)
+
+[node name="obstacles" type="Node" parent="."]
+
+[node name="pits" parent="obstacles" instance=ExtResource("5_pey20")]
+position = Vector2(80, -64)
+
+[node name="pit_shape_1" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(40, 56)
+polygon = PackedVector2Array(21, -20, 27, -20, 27, 4, 21, 4)
+
+[node name="pit_shape_2" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(136, 56)
+polygon = PackedVector2Array(21, -20, 27, -20, 27, 4, 21, 4)
+
+[node name="pit_shape_3" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(280, 56)
+polygon = PackedVector2Array(18, -10, 25, -10, 25, 7, 55, 7, 55, -23, 25, -23, 25, -10, 18, -10, 18, -30, 62, -30, 62, 14, 18, 14)
+
+[node name="pit_shape_4" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(264, 120)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_5" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(232, 88)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_6" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(328, 120)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_7" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(360, 88)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_8" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(232, 24)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_9" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(360, 24)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_10" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(264, -8)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="pit_shape_11" type="CollisionPolygon2D" parent="obstacles/pits"]
+position = Vector2(328, -8)
+polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="player" type="Node" parent="."]
+
+[node name="player" parent="player" instance=ExtResource("4_82wxn")]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+
+[connection signal="trigger_death_screen" from="player/player" to="game_manager" method="_on_player_trigger_death_screen"]

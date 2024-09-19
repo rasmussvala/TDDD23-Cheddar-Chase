@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3wdmox28pm05"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_3lynm"]
+[ext_resource type="PackedScene" uid="uid://by8676srd1166" path="res://scenes/death_screen.tscn" id="2_tu1ci"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="3_y82r2"]
+[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="4_jnbbn"]
+[ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="5_5aiu8"]
+[ext_resource type="PackedScene" uid="uid://o8sj1thyh5lx" path="res://scenes/test/tile_map.tscn" id="6_6qm2w"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="7_8ir1y"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="8_fcmp8"]
+[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="9_lbtj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
+size = Vector2(32, 32)
+
+[node name="game" type="Node2D"]
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_3lynm")
+
+[node name="death_screen" parent="." instance=ExtResource("2_tu1ci")]
+unique_name_in_owner = true
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="bug_red_1" parent="Enemies" instance=ExtResource("3_y82r2")]
+position = Vector2(112, -16)
+
+[node name="bug_red_2" parent="Enemies" instance=ExtResource("3_y82r2")]
+position = Vector2(-112, -16)
+
+[node name="bug_red_3" parent="Enemies" instance=ExtResource("3_y82r2")]
+position = Vector2(-112, 80)
+
+[node name="bug_red_4" parent="Enemies" instance=ExtResource("3_y82r2")]
+position = Vector2(112, 80)
+
+[node name="bug_blue_1" parent="Enemies" instance=ExtResource("4_jnbbn")]
+position = Vector2(0, 144)
+
+[node name="bug_green_1" parent="Enemies" instance=ExtResource("5_5aiu8")]
+position = Vector2(-88, 144)
+
+[node name="tile_map" parent="." instance=ExtResource("6_6qm2w")]
+
+[node name="player" parent="." instance=ExtResource("7_8ir1y")]
+unique_name_in_owner = true
+
+[node name="cheese_1" parent="." instance=ExtResource("8_fcmp8")]
+position = Vector2(-112, -59)
+
+[node name="cheese_2" parent="." instance=ExtResource("8_fcmp8")]
+position = Vector2(-112, 145)
+
+[node name="cheese_3" parent="." instance=ExtResource("8_fcmp8")]
+position = Vector2(113, 144)
+
+[node name="cheese_4" parent="." instance=ExtResource("8_fcmp8")]
+position = Vector2(113, -58)
+
+[node name="pit" parent="." instance=ExtResource("9_lbtj5")]
+
+[node name="pit_collision" type="CollisionShape2D" parent="pit"]
+position = Vector2(80, -48)
+shape = SubResource("RectangleShape2D_yseke")
+debug_color = Color(0.961248, 0, 0.511433, 0.42)
+
+[connection signal="trigger_death_screen" from="player" to="game_manager" method="_on_player_trigger_death_screen"]
