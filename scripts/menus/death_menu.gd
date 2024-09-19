@@ -13,8 +13,12 @@ func _ready():
 	death_label.modulate.a = opacity
 	cheesy_label.modulate.a = opacity
 	restart_button.modulate.a = opacity
+	
+	self.visible = false
 
 func fade_in():
+	self.visible = true
+	
 	var opacity = 1.0
 	
 	var tween = create_tween()
@@ -22,6 +26,8 @@ func fade_in():
 	tween.parallel().tween_property(death_label, "modulate:a", opacity, fade_in_time)
 	tween.parallel().tween_property(cheesy_label, "modulate:a", opacity, fade_in_time)
 	tween.parallel().tween_property(restart_button, "modulate:a", opacity, fade_in_time)
+	
+	
 
 func _on_restart_button_pressed() -> void:
 	Engine.time_scale = 1.0
