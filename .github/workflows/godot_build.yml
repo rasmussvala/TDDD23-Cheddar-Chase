@@ -18,9 +18,9 @@ jobs:
 
     - name: Install Godot Engine
       run: |
-        wget https://downloads.tuxfamily.org/godotengine/4.3.0/Godot_v4.3-stable_linux_headless.64.zip
-        unzip Godot_v4.3-stable_linux_headless.64.zip
-        sudo mv Godot_v4.3-stable_linux_headless.64 /usr/local/bin/godot
+        wget https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_64.zip
+        unzip Godot_v4.3-stable_linux.x86_64.zip
+        sudo mv Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot
 
     - name: Build Godot project
       run: |
