@@ -13,8 +13,12 @@ func _ready():
 	death_label.modulate.a = opacity
 	cheesy_label.modulate.a = opacity
 	restart_button.modulate.a = opacity
+	
+	self.visible = false
 
 func fade_in():
+	self.visible = true
+	
 	var opacity = 1.0
 	
 	var tween = create_tween()

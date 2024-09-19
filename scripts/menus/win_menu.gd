@@ -12,8 +12,12 @@ func _ready() -> void:
 	window.color.a = opacity
 	return_button.modulate.a = opacity
 	win_label.modulate.a = opacity
+	
+	self.visible = false
 
 func fade_in():
+	self.visible = true
+	
 	var opacity = 1.0
 	
 	var tween = create_tween()
@@ -22,5 +26,5 @@ func fade_in():
 	tween.parallel().tween_property(return_button, "modulate:a", opacity, fade_in_time)
 
 func _on_return_button_pressed() -> void:
-	var TITLE_SCREEN = load("res://scenes/title_screen.tscn")
-	get_tree().change_scene_to_packed(TITLE_SCREEN)
+	var main_menu = load("res://scenes/menus/main_menu.tscn")
+	get_tree().change_scene_to_packed(main_menu)
