@@ -22,9 +22,9 @@ jobs:
         unzip Godot_v4.3-stable_linux.x86_64.zip
         sudo mv Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot
 
-    - name: Build Godot project
+    - name: Build Godot project (Headless with OpenGL)
       run: |
-        godot --export-release "Windows Desktop" build/game.exe
+        godot --headless --rendering-driver opengl3 --export-release "Windows Desktop" build/game.exe
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
