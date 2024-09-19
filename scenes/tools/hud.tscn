@@ -20,17 +20,31 @@ theme_override_fonts/font = ExtResource("1_2if4o")
 theme_override_font_sizes/font_size = 64
 text = "1/999 Cheese"
 
-[node name="heart_3" type="Sprite2D" parent="."]
-position = Vector2(1104, 600)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_top = -336.0
+offset_right = -296.0
+offset_bottom = -296.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="heart_1" type="Sprite2D" parent="Control"]
+position = Vector2(160, 288)
 scale = Vector2(8, 8)
 texture = ExtResource("3_424o5")
 
-[node name="heart_2" type="Sprite2D" parent="."]
-position = Vector2(1040, 600)
+[node name="heart_2" type="Sprite2D" parent="Control"]
+position = Vector2(224, 288)
 scale = Vector2(8, 8)
 texture = ExtResource("3_424o5")
 
-[node name="heart_1" type="Sprite2D" parent="."]
-position = Vector2(976, 600)
+[node name="heart_3" type="Sprite2D" parent="Control"]
+position = Vector2(288, 288)
 scale = Vector2(8, 8)
 texture = ExtResource("3_424o5")
