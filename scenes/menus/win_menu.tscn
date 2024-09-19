@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menus/win_menu.gd" id="1_5b8ax"]
 [ext_resource type="FontFile" uid="uid://hu3cedqh4cft" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_ab6rm"]
 
-[node name="win_screen" type="CanvasLayer"]
+[node name="win_menu" type="CanvasLayer"]
 script = ExtResource("1_5b8ax")
 
 [node name="window" type="ColorRect" parent="."]

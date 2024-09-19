@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://bunedbeyryvnq" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="2_x5xsa"]
 [ext_resource type="FontFile" uid="uid://hu3cedqh4cft" path="res://assets/tools/fonts/PixelOperator8.ttf" id="3_idsb0"]
 
-[node name="title_screen" type="CanvasLayer"]
+[node name="main_menu" type="CanvasLayer"]
 script = ExtResource("1_q11qb")
 
 [node name="message" type="Label" parent="."]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menus/death_menu.gd" id="1_qinvd"]
 [ext_resource type="FontFile" uid="uid://hu3cedqh4cft" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_vrx8g"]
 
-[node name="death_screen" type="CanvasLayer"]
+[node name="death_menu" type="CanvasLayer"]
 script = ExtResource("1_qinvd")
 
 [node name="window" type="ColorRect" parent="."]
