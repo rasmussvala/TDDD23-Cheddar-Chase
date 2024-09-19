@@ -1,6 +1,6 @@
 name: Build Godot Project for Windows
 
-on:
+on: 
   push:
     branches:
       - master
@@ -9,31 +9,37 @@ on:
       - master
 
 jobs:
-  build:
+  # job id, can be anything
+  export_game:
+    # Always use ubuntu-latest for this action
     runs-on: ubuntu-latest
-
+    # Add permission for release creation. Can be made narrower according to your needs
+    permissions: write-all
+    # Job name, can be anything
+    name: Export Game
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Install Godot Engine
-      run: |
-        wget https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_linux.x86_64.zip
-        unzip Godot_v4.3-stable_linux.x86_64.zip
-        sudo mv Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot
-
-    - name: Install Godot Export Templates
-      run: |
-        wget https://downloads.tuxfamily.org/godotengine/4.3/Godot_v4.3-stable_export_templates.tpz
-        mkdir -p ~/.local/share/godot/export_templates/4.3.stable/
-        unzip Godot_v4.3-stable_export_templates.tpz -d ~/.local/share/godot/export_templates/4.3.stable/
-
-    - name: Build Godot project (Headless with OpenGL)
-      run: |
-        godot --headless --rendering-driver opengl3 --export-release "Windows Desktop" build/game.exe
-
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v4
+      # Always include the checkout step so that 
+      # your project is available for Godot to export
+    - name: checkout
+      uses: actions/checkout@v3.3.0
+  
+    - name: export game
+      id: export
+      # Use latest version (see releases for all versions)
+      uses: firebelley/godot-export@v5.2.0
       with:
-        name: windows-build
-        path: build/game.exe
+        # Defining all the required inputs
+        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+        relative_project_path: ./
+        archive_output: true
+
+      # This release action has worked well for me. However, you can most likely use any release action of your choosing.
+      # https://github.com/ncipollo/release-action
+    - name: create release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        generateReleaseNotes: true
+        tag: ${{ github.ref_name }}
+        artifacts: ${{ steps.export.outputs.archive_directory }}/*
