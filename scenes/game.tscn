@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=12 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/win_screen.tscn" id="2_1la2g"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/death_screen.tscn" id="2_wlcxk"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="2_yj2lc"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="3_0xa32"]
@@ -19,10 +20,25 @@ size = Vector2(32, 32)
 unique_name_in_owner = true
 script = ExtResource("1_sqrlk")
 
+[node name="win_screen" parent="." instance=ExtResource("2_1la2g")]
+unique_name_in_owner = true
+
 [node name="death_screen" parent="." instance=ExtResource("2_wlcxk")]
 unique_name_in_owner = true
 
-[node name="Node" type="Node" parent="."]
+[node name="Cheeses" type="Node" parent="."]
+
+[node name="cheese_1" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(-112, -59)
+
+[node name="cheese_2" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(-112, 145)
+
+[node name="cheese_3" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(113, 144)
+
+[node name="cheese_4" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(113, -58)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -48,18 +64,6 @@ position = Vector2(-88, 144)
 
 [node name="player" parent="." instance=ExtResource("3_0xa32")]
 unique_name_in_owner = true
-
-[node name="cheese_1" parent="." instance=ExtResource("6_prwsy")]
-position = Vector2(-112, -59)
-
-[node name="cheese_2" parent="." instance=ExtResource("6_prwsy")]
-position = Vector2(-112, 145)
-
-[node name="cheese_3" parent="." instance=ExtResource("6_prwsy")]
-position = Vector2(113, 144)
-
-[node name="cheese_4" parent="." instance=ExtResource("6_prwsy")]
-position = Vector2(113, -58)
 
 [node name="pit" parent="." instance=ExtResource("7_5m25o")]
 

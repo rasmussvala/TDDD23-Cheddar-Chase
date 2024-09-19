@@ -8,8 +8,8 @@ extends CanvasLayer
 var heart_filled: Texture2D = preload("res://assets/heart/heart-filled.png")
 var heart_empty: Texture2D = preload("res://assets/heart/heart-empty.png")
 
-func update_score(score) -> void:
-	score_label.text = str(score) + " Cheese"
+func update_score(score, max_score) -> void:
+	score_label.text = str(score) + "/" + str(max_score) + " Cheese"
 
 func update_health(new_health) -> void:
 	# Save all sprite in array
