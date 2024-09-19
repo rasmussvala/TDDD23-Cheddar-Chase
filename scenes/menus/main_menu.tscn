@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnvkpndk0p0c3"]
 
-[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_twnuh"]
-[ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="2_2ekvr"]
-[ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="3_bkvwi"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_q11qb"]
+[ext_resource type="FontFile" uid="uid://bunedbeyryvnq" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="2_x5xsa"]
+[ext_resource type="FontFile" uid="uid://hu3cedqh4cft" path="res://assets/tools/fonts/PixelOperator8.ttf" id="3_idsb0"]
 
 [node name="title_screen" type="CanvasLayer"]
-script = ExtResource("1_twnuh")
+script = ExtResource("1_q11qb")
 
 [node name="message" type="Label" parent="."]
 anchors_preset = 8
@@ -20,7 +20,7 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_2ekvr")
+theme_override_fonts/font = ExtResource("2_x5xsa")
 theme_override_font_sizes/font_size = 64
 text = "Collect the cheese!"
 horizontal_alignment = 1
@@ -39,7 +39,7 @@ offset_right = 136.0
 offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_bkvwi")
+theme_override_fonts/font = ExtResource("3_idsb0")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
