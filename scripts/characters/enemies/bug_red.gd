@@ -77,6 +77,10 @@ func chase_player():
 	if not player or not is_instance_valid(player):
 		return
 	
+	if is_falling:
+		velocity = Vector2.ZERO
+		return
+	
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * chase_speed
 
@@ -130,6 +134,10 @@ func die():
 	queue_free()
 
 func fall_in_pit():
+	if is_falling:
+		return
+	is_falling = true
+	
 	hit_box.call_deferred("disable_hitbox")
 	
 	# Create a new Tween instance

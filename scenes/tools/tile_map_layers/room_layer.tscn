@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://o8sj1thyh5lx"]
+[gd_scene load_steps=6 format=4 uid="uid://y16vsgpfcas8"]
 
-[ext_resource type="Texture2D" uid="uid://cuqwg8ely2sp7" path="res://assets/testlevel/tile_map_floor.png" id="1_qfyt2"]
-[ext_resource type="Texture2D" uid="uid://c170gtgkqeth0" path="res://assets/furnishings/couch.png" id="2_y46m5"]
-[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="3_fn64f"]
-[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="4_ao24x"]
-[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="5_1egfr"]
+[ext_resource type="Texture2D" uid="uid://cuqwg8ely2sp7" path="res://assets/testlevel/tile_map_floor.png" id="1_cqqf8"]
+[ext_resource type="Texture2D" uid="uid://c170gtgkqeth0" path="res://assets/furnishings/couch.png" id="2_y3s62"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ltqg"]
-texture = ExtResource("1_qfyt2")
+texture = ExtResource("1_cqqf8")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, -12, -12, -12, -12, 16, -16, 16, -16, -16)
@@ -245,7 +242,7 @@ texture_region_size = Vector2i(32, 32)
 2:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(12, 12, 12, -12, -16, -12, -16, -16, 16, -16, 16, 16, -16, 16, -16, 12)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_noeul"]
-texture = ExtResource("2_y46m5")
+texture = ExtResource("2_y3s62")
 texture_region_size = Vector2i(32, 32)
 0:3/size_in_atlas = Vector2i(3, 3)
 0:3/0 = 0
@@ -279,13 +276,8 @@ physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_7ltqg")
 sources/1 = SubResource("TileSetAtlasSource_noeul")
 
-[node name="tile_map" type="TileMap"]
+[node name="room_layer" type="TileMapLayer"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD7//v/AAAAAAAAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAABAPv/AAABAAAAAAACAPv/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAACAAAAAAAEAPz/AAACAAEAAAAEAP3/AAACAAEAAAAEAP7/AAACAAEAAAAEAP//AAACAAEAAAD7//z/AAAAAAEAAAD7//3/AAAAAAEAAAD7//7/AAAAAAEAAAD7////AAAAAAEAAAAEAAQAAAACAAsAAAD7/wQAAAAAAAsAAAD7/wMAAAAAAAoAAAD7/wIAAAAAAAoAAAD7/wEAAAAAAAoAAAD7/wAAAAAAAAoAAAAEAAMAAAACAAoAAAAEAAIAAAACAAoAAAAEAAEAAAACAAoAAAAEAAAAAAACAAoAAAADAAQAAAABAAsAAAACAAQAAAABAAsAAAABAAQAAAABAAsAAAAAAAQAAAABAAsAAAD//wQAAAABAAsAAAD+/wQAAAABAAsAAAD9/wQAAAABAAsAAAD8/wQAAAABAAsAAAADAAMAAAABAAoAAAACAAMAAAABAAoAAAABAAMAAAABAAoAAAAAAAMAAAABAAoAAAD//wMAAAABAAoAAAD+/wMAAAABAAoAAAD9/wMAAAABAAoAAAD8/wMAAAABAAoAAAD8/wIAAAABAAoAAAD9/wIAAAABAAoAAAD+/wIAAAABAAoAAAD//wIAAAABAAoAAAAAAAIAAAABAAoAAAABAAIAAAABAAoAAAACAAIAAAABAAoAAAADAAIAAAABAAoAAAADAAEAAAABAAoAAAACAAEAAAABAAoAAAABAAEAAAABAAoAAAAAAAEAAAABAAoAAAD//wEAAAABAAoAAAD+/wEAAAABAAoAAAD9/wEAAAABAAoAAAD8/wEAAAABAAoAAAD8/wAAAAABAAoAAAD9/wAAAAABAAoAAAD+/wAAAAABAAoAAAD//wAAAAABAAoAAAAAAAAAAAABAAoAAAABAAAAAAABAAoAAAACAAAAAAABAAoAAAADAAAAAAABAAoAAAADAP//AAAIAAUAAAACAP//AAAHAAUAAAABAP//AAAGAAUAAAAAAP//AAABAAEAAAD/////AAABAAEAAAD+////AAABAAEAAAD9////AAABAAEAAAD8////AAABAAEAAAD8//7/AAABAAEAAAD9//7/AAABAAEAAAD+//7/AAABAAEAAAD///7/AAABAAEAAAAAAP7/AAABAAEAAAABAP7/AAAGAAQAAAACAP7/AAAHAAQAAAADAP7/AAAIAAQAAAADAP3/AAAIAAMAAAACAP3/AAAHAAMAAAABAP3/AAAGAAMAAAAAAP3/AAABAAEAAAD///3/AAABAAEAAAD+//3/AAABAAEAAAD9//3/AAABAAEAAAD8//3/AAABAAEAAAD8//z/AAABAAEAAAD9//z/AAABAAEAAAD+//z/AAABAAEAAAD///z/AAABAAEAAAAAAPz/AAABAAEAAAABAPz/AAABAAEAAAACAPz/AAABAAEAAAADAPz/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_qagsj")
 rendering_quadrant_size = 32
-format = 2
-
-[node name="room_layer" parent="." instance=ExtResource("3_fn64f")]
-
-[node name="furniture_layer" parent="." instance=ExtResource("4_ao24x")]
-
-[node name="decoration_layer" parent="." instance=ExtResource("5_1egfr")]

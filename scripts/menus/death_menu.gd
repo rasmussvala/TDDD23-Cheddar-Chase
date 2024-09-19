@@ -31,5 +31,5 @@ func fade_in():
 
 func _on_restart_button_pressed() -> void:
 	Engine.time_scale = 1.0
-	var game_scene = load("res://scenes/game.tscn")  
+	var game_scene = load("res://scenes/levels/game.tscn")  
 	get_tree().change_scene_to_packed(game_scene)
