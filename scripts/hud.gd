@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 @onready var score_label: Label = $score_label
-@onready var heart_1: Sprite2D = $heart_1
-@onready var heart_2: Sprite2D = $heart_2
-@onready var heart_3: Sprite2D = $heart_3
+@onready var heart_1: Sprite2D = $anchor_control/heart_1
+@onready var heart_2: Sprite2D = $anchor_control/heart_2
+@onready var heart_3: Sprite2D = $anchor_control/heart_3
 
 var heart_filled: Texture2D = preload("res://assets/heart/heart-filled.png")
 var heart_empty: Texture2D = preload("res://assets/heart/heart-empty.png")

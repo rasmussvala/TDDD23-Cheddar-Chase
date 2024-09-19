@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var return_button: Button = $window/return_button
 @onready var win_label: Label = $window/win_label
 
-@export var fade_in_time = 0.5 
+@export var fade_in_time = 0.2 
 
 func _ready() -> void:
 	var opacity = 0
