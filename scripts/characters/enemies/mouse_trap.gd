@@ -1,9 +1,10 @@
 extends Area2D
 
-# Reference the player's node (update the path if necessary)
-@onready var player: CharacterBody2D = %player
+# Variables for animated sprites
 @onready var animated_sprite_2d_1 = $animated_sprite_2d_1
 @onready var animated_sprite_2d_2 = $animated_sprite_2d_2
+@onready var player = %player
+var has_activated = false
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
@@ -13,15 +14,18 @@ func _ready():
 
 # Function called when a body enters the trap
 func _on_body_entered(body: Node) -> void:
-	# Disable player's sprite
-	body.animated_sprite_2d.visible = false
-	# Play the "pow" animation on animated_sprite_2d_2
-	animated_sprite_2d_2.play("pow")
-	# Play the "trapped" animation on animated_sprite_2d_1
-	animated_sprite_2d_1.play("trapped")
-	body.die()
+	if not has_activated:
+		if body.has_method("die"):
+			body.animated_sprite_2d.visible = false
+			animated_sprite_2d_2.play("pow")
+			if body == player:
+				animated_sprite_2d_1.play("player_trapped")
+			else:
+				animated_sprite_2d_1.play("bug_trapped")
+			
+			body.die()
+			has_activated = true
 
 # Function to handle when the "pow" animation finishes
 func _on_pow_animation_finished():
-	# Switch "pow" back to "nothing" after the animation has finished
 	animated_sprite_2d_2.play("nothing")
