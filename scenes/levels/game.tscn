@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=13 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_1la2g"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="6_prwsy"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="7_5m25o"]
 [ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="8_b8f1k"]
+[ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="11_p0wvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
 size = Vector2(32, 32)
@@ -63,6 +64,9 @@ position = Vector2(0, 144)
 position = Vector2(-88, 144)
 
 [node name="tile_map" parent="." instance=ExtResource("3_no3av")]
+
+[node name="mouse_trap" parent="." instance=ExtResource("11_p0wvp")]
+position = Vector2(40, 0)
 
 [node name="player" parent="." instance=ExtResource("3_0xa32")]
 unique_name_in_owner = true
