@@ -143,9 +143,9 @@ func fall_in_pit():
 	# Create a new Tween instance
 	var tween = get_tree().create_tween()
 	
-	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
-	tween.parallel().tween_property($animated_sprite_2d, "modulate", Color.BLACK, 0.5)
-	tween.parallel().tween_property($animated_sprite_2d, "rotation_degrees", 360.0, 2)
+	tween.tween_property($animated_sprite_bug_red, "scale", Vector2(), 1)
+	tween.parallel().tween_property($animated_sprite_bug_red, "modulate", Color.BLACK, 0.5)
+	tween.parallel().tween_property($animated_sprite_bug_red, "rotation_degrees", 360.0, 2)
 	await tween.finished
 	
 	queue_free()
