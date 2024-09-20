@@ -1,8 +1,8 @@
 extends Area2D
 
 # Variables for animated sprites
-@onready var animated_sprite_2d_1 = $animated_sprite_2d_1
-@onready var animated_sprite_2d_2 = $animated_sprite_2d_2
+@onready var animated_sprite_2d_1 = $animated_sprite_trap
+@onready var animated_sprite_2d_2 = $animated_sprite_pow
 @onready var player = %player
 var has_activated = false
 

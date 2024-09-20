@@ -101,15 +101,15 @@ size = Vector2(10, 20)
 collision_mask = 6
 script = ExtResource("1_bmycu")
 
-[node name="animated_sprite_2d_1" type="AnimatedSprite2D" parent="."]
+[node name="animated_sprite_trap" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tk7wu")
 animation = &"bug_trapped"
 autoplay = "idle"
 
-[node name="animated_sprite_2d_2" type="AnimatedSprite2D" parent="."]
+[node name="animated_sprite_pow" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3bu4c")
 animation = &"pow"
 autoplay = "nothing"
 
-[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hhibv")
