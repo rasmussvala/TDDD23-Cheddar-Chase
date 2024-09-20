@@ -154,7 +154,7 @@ collision_layer = 4
 collision_mask = 9
 script = ExtResource("1_nut6h")
 
-[node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
+[node name="animated_sprite_bug_red" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7owlx")
 animation = &"damaged"
 autoplay = "walk"

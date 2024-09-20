@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=13 format=3 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_1la2g"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="6_prwsy"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="7_5m25o"]
 [ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="8_b8f1k"]
+[ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="11_p0wvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
 size = Vector2(32, 32)
@@ -22,56 +23,63 @@ script = ExtResource("1_sqrlk")
 
 [node name="win_menu" parent="." instance=ExtResource("2_1la2g")]
 unique_name_in_owner = true
-visible = false
 
 [node name="death_menu" parent="." instance=ExtResource("2_wlcxk")]
 unique_name_in_owner = true
-visible = false
 
-[node name="Cheeses" type="Node" parent="."]
+[node name="level_layers" type="Node" parent="."]
 
-[node name="cheese_1" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(-16, -48)
+[node name="tile_map" parent="level_layers" instance=ExtResource("3_no3av")]
 
-[node name="cheese_2" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(-80, 112)
+[node name="obstacles" type="Node" parent="."]
 
-[node name="cheese_3" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(112, 80)
+[node name="mouse_trap" parent="obstacles" instance=ExtResource("11_p0wvp")]
+position = Vector2(40, 0)
 
-[node name="cheese_4" parent="Cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
-position = Vector2(112, -112)
+[node name="pit" parent="obstacles" instance=ExtResource("7_5m25o")]
 
-[node name="Enemies" type="Node" parent="."]
-
-[node name="bug_red_1" parent="Enemies" instance=ExtResource("2_yj2lc")]
-position = Vector2(112, -16)
-
-[node name="bug_red_2" parent="Enemies" instance=ExtResource("2_yj2lc")]
-position = Vector2(-112, -16)
-
-[node name="bug_red_3" parent="Enemies" instance=ExtResource("2_yj2lc")]
-position = Vector2(-112, 80)
-
-[node name="bug_red_4" parent="Enemies" instance=ExtResource("2_yj2lc")]
-position = Vector2(112, 80)
-
-[node name="bug_blue_1" parent="Enemies" instance=ExtResource("8_b8f1k")]
-position = Vector2(0, 144)
-
-[node name="bug_green_1" parent="Enemies" instance=ExtResource("5_8sk2h")]
-position = Vector2(-88, 144)
-
-[node name="tile_map" parent="." instance=ExtResource("3_no3av")]
-
-[node name="player" parent="." instance=ExtResource("3_0xa32")]
-unique_name_in_owner = true
-
-[node name="pit" parent="." instance=ExtResource("7_5m25o")]
-
-[node name="pit_collision" type="CollisionShape2D" parent="pit"]
+[node name="pit_collision" type="CollisionShape2D" parent="obstacles/pit"]
 position = Vector2(80, -48)
 shape = SubResource("RectangleShape2D_yseke")
 debug_color = Color(0.961248, 0, 0.511433, 0.42)
 
-[connection signal="trigger_death_menu" from="player" to="game_manager" method="_on_player_trigger_death_menu"]
+[node name="cheeses" type="Node" parent="."]
+
+[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(-16, -48)
+
+[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(-80, 112)
+
+[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(112, 80)
+
+[node name="cheese_4" parent="cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
+position = Vector2(112, -112)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="bug_red_1" parent="enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(112, -16)
+
+[node name="bug_red_2" parent="enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, -16)
+
+[node name="bug_red_3" parent="enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(-112, 80)
+
+[node name="bug_red_4" parent="enemies" instance=ExtResource("2_yj2lc")]
+position = Vector2(112, 80)
+
+[node name="bug_blue_1" parent="enemies" instance=ExtResource("8_b8f1k")]
+position = Vector2(0, 144)
+
+[node name="bug_green_1" parent="enemies" instance=ExtResource("5_8sk2h")]
+position = Vector2(-88, 144)
+
+[node name="player" type="Node" parent="."]
+
+[node name="player" parent="player" instance=ExtResource("3_0xa32")]
+unique_name_in_owner = true
+
+[connection signal="trigger_death_menu" from="player/player" to="game_manager" method="_on_player_trigger_death_menu"]

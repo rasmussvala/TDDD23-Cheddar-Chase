@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw5xityvbf8d2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ypsqa"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="bug_flying" type="CharacterBody2D"]
+
+[node name="animated_sprite_bug_flying" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ypsqa")
+animation = &"idle"

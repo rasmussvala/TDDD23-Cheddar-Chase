@@ -26,7 +26,7 @@ var knockback_timer = 0.0
 var knockback_strength = 150
 
 # References to nodes
-@onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
+@onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_bug_red
 @onready var ray_cast: RayCast2D = $detection_ray
 @onready var detection_area: Area2D = $detection_area
 @onready var hit_box: HitBox = $hit_box
@@ -143,9 +143,9 @@ func fall_in_pit():
 	# Create a new Tween instance
 	var tween = get_tree().create_tween()
 	
-	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
-	tween.parallel().tween_property($animated_sprite_2d, "modulate", Color.BLACK, 0.5)
-	tween.parallel().tween_property($animated_sprite_2d, "rotation_degrees", 360.0, 2)
+	tween.tween_property($animated_sprite_bug_red, "scale", Vector2(), 1)
+	tween.parallel().tween_property($animated_sprite_bug_red, "modulate", Color.BLACK, 0.5)
+	tween.parallel().tween_property($animated_sprite_bug_red, "rotation_degrees", 360.0, 2)
 	await tween.finished
 	
 	queue_free()
