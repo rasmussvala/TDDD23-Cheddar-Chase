@@ -16,6 +16,11 @@ func _ready() -> void:
 	self.visible = false
 
 func fade_in():
+	# Ensure the win screen continues to process while the game is paused
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	get_tree().paused = true
+	
 	self.visible = true
 	
 	var opacity = 1.0
@@ -26,5 +31,8 @@ func fade_in():
 	tween.parallel().tween_property(return_button, "modulate:a", opacity, fade_in_time)
 
 func _on_return_button_pressed() -> void:
+	# Unpause the game when pressing the button
+	get_tree().paused = false
+
 	var main_menu = load("res://scenes/menus/main_menu.tscn")
 	get_tree().change_scene_to_packed(main_menu)
