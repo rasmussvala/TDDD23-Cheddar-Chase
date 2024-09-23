@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://clndqfqsjcxyl"]
+
+[ext_resource type="Script" path="res://scripts/characters/enemies/projectile.gd" id="1_ul6du"]
+[ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="2_4j5bj"]
+[ext_resource type="Texture2D" uid="uid://ulrqyk4pjd0h" path="res://assets/characters/enemies/projectile.png" id="2_dgapk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c84pn"]
+atlas = ExtResource("2_dgapk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jnio5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c84pn")
+}],
+"loop": true,
+"name": &"projectile",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmu1t"]
+radius = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13miv"]
+radius = 3.16228
+
+[node name="projectile" type="Area2D"]
+collision_layer = 256
+collision_mask = 3
+script = ExtResource("1_ul6du")
+
+[node name="animated_sprite_projectile" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_jnio5")
+animation = &"projectile"
+
+[node name="projectile_collision" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_xmu1t")
+
+[node name="vos_notifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1, -1)
+
+[node name="hit_box" parent="." instance=ExtResource("2_4j5bj")]
+collision_layer = 32
+
+[node name="hit_box_collision" type="CollisionShape2D" parent="hit_box"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_13miv")
+debug_color = Color(0.65, 0, 0, 0.470588)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

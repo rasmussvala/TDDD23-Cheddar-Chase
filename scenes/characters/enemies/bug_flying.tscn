@@ -121,7 +121,7 @@ script = ExtResource("1_dlee4")
 
 [node name="animated_sprite_bug_flying" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ypsqa")
-animation = &"death"
+animation = &"damaged"
 autoplay = "walk"
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -137,7 +137,6 @@ debug_color = Color(0, 0.583333, 0.7, 0.470588)
 [node name="detection_ray" type="RayCast2D" parent="."]
 position = Vector2(-2, 0)
 target_position = Vector2(58, 0)
-collision_mask = 128
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)

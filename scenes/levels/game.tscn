@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=17 format=4 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_1la2g"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="8_b8f1k"]
 [ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="11_p0wvp"]
 [ext_resource type="PackedScene" uid="uid://bw5xityvbf8d2" path="res://scenes/characters/enemies/bug_flying.tscn" id="11_soepf"]
+[ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="15_rs0q6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
 size = Vector2(32, 32)
@@ -97,5 +98,8 @@ unique_name_in_owner = true
 
 [node name="bug_flying_1" parent="flying_enemies" instance=ExtResource("11_soepf")]
 position = Vector2(136, -96)
+
+[node name="bug_flying_shooter_1" parent="flying_enemies" instance=ExtResource("15_rs0q6")]
+position = Vector2(-64, -120)
 
 [connection signal="trigger_death_menu" from="player/player" to="game_manager" method="_on_player_trigger_death_menu"]
