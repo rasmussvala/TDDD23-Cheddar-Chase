@@ -13,6 +13,7 @@ var pause_time = 0
 var pause_duration = 3
 var is_rolling = false
 var is_falling = false
+var is_flying = false
 
 # Variables for Health
 var max_health = 10

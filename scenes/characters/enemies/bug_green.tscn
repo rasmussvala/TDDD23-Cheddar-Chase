@@ -165,12 +165,12 @@ radius = 5.0
 
 [node name="bug_green" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 9
+collision_mask = 137
 script = ExtResource("1_8ke32")
 
 [node name="animated_sprite_bug_green" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_06pb0")
-animation = &"damaged"
+animation = &"death"
 autoplay = "walk"
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -183,6 +183,7 @@ debug_color = Color(0, 0.541667, 0.65, 0.470588)
 
 [node name="detection_ray" type="RayCast2D" parent="."]
 target_position = Vector2(64, 0)
+collision_mask = 129
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)

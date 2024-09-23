@@ -9,6 +9,7 @@ var roll_timer = 0.0
 var is_attacking = false
 var attack_duration = 0.5  
 var is_falling = false
+var is_flying = false
 var attack_switch = false
 
 # Spawn
