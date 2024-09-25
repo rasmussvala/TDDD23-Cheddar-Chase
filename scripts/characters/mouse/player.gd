@@ -9,7 +9,12 @@ var roll_timer = 0.0
 var is_attacking = false
 var attack_duration = 0.5  
 var is_falling = false
+var is_flying = false
 var attack_switch = false
+
+# Cooldown variables
+var attack_cooldown = 0.7 
+var attack_timer = 0.0 
 
 # Spawn
 var spawn_point: Vector2
@@ -20,7 +25,7 @@ var current_health = max_health
 var is_dead = false
 signal trigger_death_menu
 
-# knockback variables
+# Knockback variables
 var knockback_velocity = Vector2.ZERO
 var knockback_duration = 0.2
 var knockback_timer = 0.0
@@ -43,6 +48,10 @@ func _ready():
 func _process(delta):
 	if is_dead:
 		return
+	
+	# Update attack cooldown timer
+	if attack_timer > 0:
+		attack_timer -= delta
 	
 	if knockback_timer > 0:
 		knockback_timer -= delta
@@ -132,14 +141,15 @@ func handle_movement_and_actions(delta):
 			animated_sprite_2d.play("roll")
 			hurt_box.disable_hurtbox()
 	
-	# Play attack animation if attack button is pressed and not rolling
-	if Input.is_action_just_pressed("ui_attack") and !is_rolling and !is_falling:
+	# Play attack animation if attack button is pressed and not rolling, not falling, and cooldown has passed
+	if Input.is_action_just_pressed("ui_attack") and !is_rolling and !is_falling and attack_timer <= 0:
 		is_attacking = true
+		attack_timer = attack_cooldown  # Reset the cooldown timer
 		
 		if attack_switch:
 			animated_sprite_2d.play("attack_right")
 			attack_switch = false
-		elif !attack_switch:
+		else:
 			animated_sprite_2d.play("attack_left")
 			attack_switch = true
 		
@@ -153,7 +163,6 @@ func handle_movement_and_actions(delta):
 # Function to check for collision
 func is_colliding() -> bool:
 	for i in range(get_slide_collision_count()):
-		
 		if get_slide_collision(i):
 			return true
 	return false
@@ -219,5 +228,5 @@ func fall_in_pit():
 	tween.parallel().tween_property($animated_sprite_mouse, "modulate", Color.BLACK, 0.5)
 	tween.parallel().tween_property($animated_sprite_mouse, "rotation_degrees", 360.0, 2)
 	await tween.finished
-		
+	
 	is_falling = false

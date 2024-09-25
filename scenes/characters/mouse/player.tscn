@@ -626,7 +626,7 @@ radius = 17.0
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 137
 script = ExtResource("1_p3jmh")
 
 [node name="hud" parent="." instance=ExtResource("2_ynafe")]
@@ -634,7 +634,7 @@ unique_name_in_owner = true
 
 [node name="animated_sprite_mouse" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_copu8")
-animation = &"attack_left"
+animation = &"obstruct"
 speed_scale = 2.0
 
 [node name="camera_2d" type="Camera2D" parent="."]
