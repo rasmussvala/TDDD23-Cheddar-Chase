@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Cat
 
+@onready var animated_sprite_cat: AnimatedSprite2D = %animated_sprite_cat
+
 # Cat's attributes
 var hunger: float = 0.0
 var tiredness: float = 0.0
@@ -48,16 +50,21 @@ func make_decision():
 		current_state = State.IDLE
 
 func idle_action():
+	animated_sprite_cat.play("sit")
 	make_decision()
 
 func eating_action(delta):
 	hunger -= EATING_RATE * delta
+	animated_sprite_cat.play("eating")
+
 	if hunger <= 0:
 		current_state = State.IDLE
 		make_decision()
 
 func sleeping_action(delta):
 	tiredness -= SLEEPING_RATE * delta
+	animated_sprite_cat.play("stretch") # CHANGE TO SLEEP WHEN AVAILABLE
+	
 	if tiredness <= 0:
 		current_state = State.IDLE
 		make_decision()
