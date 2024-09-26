@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 folder_colors={
 "res://assets/": "red",
+"res://behavior-tree/": "purple",
 "res://scenes/": "yellow",
 "res://scripts/": "teal"
 }
