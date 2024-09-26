@@ -58,12 +58,12 @@ position = Vector2(656, -48)
 [node name="bug_green_2" parent="enemies" instance=ExtResource("6_itwjh")]
 position = Vector2(656, 16)
 
-[node name="collectibles" type="Node" parent="."]
+[node name="cheeses" type="Node" parent="."]
 
-[node name="cheese_1" parent="collectibles" instance=ExtResource("5_5gdem")]
+[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("5_5gdem")]
 position = Vector2(400, -16)
 
-[node name="cheese_2" parent="collectibles" instance=ExtResource("5_5gdem")]
+[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("5_5gdem")]
 position = Vector2(656, -16)
 
 [node name="obstacles" type="Node" parent="."]
