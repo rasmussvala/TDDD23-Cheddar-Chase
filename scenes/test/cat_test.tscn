@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c26d014o8kqaq"]
+
+[ext_resource type="PackedScene" uid="uid://byhacx40miyrs" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="cat" parent="." instance=ExtResource("1_m1wqp")]
+unique_name_in_owner = true
+position = Vector2(563, 305)
