@@ -1,10 +1,14 @@
-[gd_scene load_steps=104 format=3 uid="uid://byhacx40miyrs"]
+[gd_scene load_steps=108 format=3 uid="uid://byhacx40miyrs"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/cat.gd" id="1_fji5n"]
 [ext_resource type="Texture2D" uid="uid://daq4bviamg1x0" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
 [ext_resource type="Texture2D" uid="uid://dlafii6fo7prn" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
 [ext_resource type="Texture2D" uid="uid://l7nuscuglyhw" path="res://assets/characters/enemies/cat/stretch.png" id="4_1wgy5"]
 [ext_resource type="Texture2D" uid="uid://1utpfadajssq" path="res://assets/characters/enemies/cat/walk.png" id="5_wdolk"]
+[ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
+[ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
+[ext_resource type="Script" path="res://behavior-tree/nodes/leaves/condition.gd" id="8_jo50c"]
+[ext_resource type="Script" path="res://behavior-tree/nodes/leaves/action.gd" id="9_dtijr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
 atlas = ExtResource("2_1nhte")
@@ -726,3 +730,25 @@ frame_progress = 0.941703
 [node name="collsion_shape_cat" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("CircleShape2D_6raqv")
+
+[node name="behavior_tree" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_wa3x3")
+
+[node name="check_tiredness" type="Node" parent="behavior_tree"]
+script = ExtResource("7_k3i1t")
+
+[node name="is_tired" type="Node" parent="behavior_tree/check_tiredness"]
+script = ExtResource("8_jo50c")
+
+[node name="sleep" type="Node" parent="behavior_tree/check_tiredness"]
+script = ExtResource("9_dtijr")
+
+[node name="check_hunger" type="Node" parent="behavior_tree"]
+script = ExtResource("7_k3i1t")
+
+[node name="is_hungry" type="Node" parent="behavior_tree/check_hunger"]
+script = ExtResource("8_jo50c")
+
+[node name="eat" type="Node" parent="behavior_tree/check_hunger"]
+script = ExtResource("9_dtijr")

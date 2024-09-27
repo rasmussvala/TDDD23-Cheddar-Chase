@@ -1,11 +1,8 @@
-extends Node
+class_name BTSequence extends BTCompositeNode
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func tick(delta: float) -> int:
+	for child in children:
+		var response = child.tick(delta)
+		if response != Status.SUCCESS:
+			return response
+	return Status.SUCCESS
