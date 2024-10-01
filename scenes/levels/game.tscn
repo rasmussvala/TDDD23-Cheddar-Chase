@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=18 format=4 uid="uid://b3wdmox28pm05"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_1la2g"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_3xtj4"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="7_5m25o"]
 [ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="8_b8f1k"]
+[ext_resource type="PackedScene" uid="uid://d4bboajpgnlfq" path="res://scenes/collectibles/pill.tscn" id="9_j6jwb"]
 [ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="11_p0wvp"]
 [ext_resource type="PackedScene" uid="uid://bw5xityvbf8d2" path="res://scenes/characters/enemies/bug_flying.tscn" id="11_soepf"]
 [ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="15_rs0q6"]
@@ -56,6 +57,9 @@ shape = SubResource("RectangleShape2D_yseke")
 debug_color = Color(0.961248, 0, 0.511433, 0.42)
 
 [node name="cheeses" type="Node" parent="."]
+
+[node name="pill_1" parent="cheeses" instance=ExtResource("9_j6jwb")]
+position = Vector2(48, -176)
 
 [node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("6_prwsy")]
 position = Vector2(-16, -48)
