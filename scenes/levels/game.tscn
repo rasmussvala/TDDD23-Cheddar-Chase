@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://b3wdmox28pm05"]
+[gd_scene load_steps=19 format=4 uid="uid://b3wdmox28pm05"]
 
+[ext_resource type="Script" path="res://scripts/levels/game.gd" id="1_5w8s8"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_sqrlk"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_1la2g"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="2_wlcxk"]
@@ -21,6 +22,7 @@
 size = Vector2(32, 32)
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_5w8s8")
 
 [node name="game_manager" type="Node" parent="."]
 unique_name_in_owner = true

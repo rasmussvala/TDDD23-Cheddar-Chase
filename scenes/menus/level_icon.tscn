@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://xkbgidfk0x0m"]
+
+[ext_resource type="Script" path="res://scripts/menus/level_icon.gd" id="1_tru2s"]
+[ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="2_6dorg"]
+
+[sub_resource type="Gradient" id="Gradient_du2fs"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hnmxo"]
+gradient = SubResource("Gradient_du2fs")
+width = 64
+
+[node name="level_icon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("1_tru2s")
+
+[node name="label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -16.0
+offset_right = 78.0
+offset_bottom = 7.0
+theme_override_fonts/font = ExtResource("2_6dorg")
+theme_override_font_sizes/font_size = 16
+text = "Level 1"
+
+[node name="texture_rect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture1D_hnmxo")

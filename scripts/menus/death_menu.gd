@@ -5,8 +5,6 @@ extends CanvasLayer
 @onready var cheesy_label: Label = $window/cheesy_label
 @onready var restart_button: Button = $window/restart_button
 @onready var back_button: Button = $window/back_button
-@onready var level_select = load("res://scenes/menus/level_select.tscn")
-
 @export var fade_in_time = 1.5 
 
 func _ready():
@@ -33,17 +31,17 @@ func fade_in():
 
 func _on_restart_button_pressed() -> void:
 	Engine.time_scale = 1.0
-	
-	var current_level_path = game_data.get_current_level()
-	if current_level_path != "":
-		get_tree().change_scene_to_file(current_level_path)  # Reload the current level
+	var current_level = game_data.get_current_level()
+	if current_level != "":
+		game_data.transition_to_level(current_level)
 	else:
 		print("Current level path not set")
 
-
 func _on_back_button_pressed() -> void:
 	Engine.time_scale = 1.0
+	var level_select = game_data.get_level_select_scene()
+	
 	if level_select:
-		get_tree().change_scene_to_packed(level_select)
+		game_data.transition_to_level_select(game_data.get_current_world(), level_select)
 	else:
-		print("Failed to load main menu")
+		print("Failed to load level select menu")

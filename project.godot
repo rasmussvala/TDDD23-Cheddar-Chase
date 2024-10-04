@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 [autoload]
 
 game_data="*res://scripts/game_data.gd"
+functions="*res://scripts/functions.gd"
 
 [file_customization]
 

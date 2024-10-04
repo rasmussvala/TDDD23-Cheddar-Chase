@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const level_select = preload("res://scenes/menus/level_select.tscn") as PackedScene
+const level_select = preload("res://scenes/menus/world_select.tscn") as PackedScene
 
 func _on_start_button_pressed() -> void:
 	if level_select:
