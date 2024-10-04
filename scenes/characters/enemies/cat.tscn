@@ -733,14 +733,14 @@ shape = SubResource("CircleShape2D_6raqv")
 [node name="behavior_tree" type="Node" parent="."]
 script = ExtResource("6_iwl8f")
 
-[node name="behavior" type="Node" parent="behavior_tree"]
+[node name="root" type="Node" parent="behavior_tree"]
 script = ExtResource("6_wa3x3")
 
-[node name="check_hunger" type="Node" parent="behavior_tree/behavior"]
+[node name="check_hunger" type="Node" parent="behavior_tree/root"]
 script = ExtResource("7_k3i1t")
 
-[node name="is_hungry" type="Node" parent="behavior_tree/behavior/check_hunger"]
+[node name="is_hungry" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("10_3ljsi")
 
-[node name="eat" type="Node" parent="behavior_tree/behavior/check_hunger"]
+[node name="eat" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("11_20a86")
