@@ -10,7 +10,7 @@ var blackboard: Dictionary = {
 	"hunger": 0.0,
 	"max_hunger": 100,
 	"hunger_threshold": 80,
-	"eating_rate": 10,
+	"eating_rate": 30,
 	"hunger_increase_rate": 5,
 	"is_eating": false  ,
 	

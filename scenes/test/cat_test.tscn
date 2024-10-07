@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c26d014o8kqaq"]
+[gd_scene load_steps=2 format=3 uid="uid://bludxlvphttuh"]
 
-[ext_resource type="PackedScene" uid="uid://byhacx40miyrs" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
+[ext_resource type="PackedScene" uid="uid://dgimfnrec4mn2" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(196, 113)
+zoom = Vector2(3, 3)
+
 [node name="cat" parent="." instance=ExtResource("1_m1wqp")]
 unique_name_in_owner = true
-position = Vector2(563, 305)
+position = Vector2(197, 116)
