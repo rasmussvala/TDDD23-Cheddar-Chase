@@ -1,14 +1,16 @@
-[gd_scene load_steps=108 format=3 uid="uid://byhacx40miyrs"]
+[gd_scene load_steps=110 format=3 uid="uid://dgimfnrec4mn2"]
 
-[ext_resource type="Texture2D" uid="uid://daq4bviamg1x0" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
-[ext_resource type="Texture2D" uid="uid://dlafii6fo7prn" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
-[ext_resource type="Texture2D" uid="uid://l7nuscuglyhw" path="res://assets/characters/enemies/cat/stretch.png" id="4_1wgy5"]
-[ext_resource type="Texture2D" uid="uid://1utpfadajssq" path="res://assets/characters/enemies/cat/walk.png" id="5_wdolk"]
+[ext_resource type="Texture2D" uid="uid://beryj7jpp0bbr" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
+[ext_resource type="Texture2D" uid="uid://d2tsavcd0o5d5" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
+[ext_resource type="Texture2D" uid="uid://cv6ky538ea482" path="res://assets/characters/enemies/cat/stretch.png" id="4_1wgy5"]
+[ext_resource type="Texture2D" uid="uid://dwajow6bn638" path="res://assets/characters/enemies/cat/walk.png" id="5_wdolk"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
 [ext_resource type="Script" path="res://behavior-tree/cat/is_hungry.gd" id="10_3ljsi"]
+[ext_resource type="Script" path="res://behavior-tree/cat/is_tired.gd" id="10_fqmc6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/eat.gd" id="11_20a86"]
+[ext_resource type="Script" path="res://behavior-tree/cat/sleep.gd" id="11_ylqhf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
 atlas = ExtResource("2_1nhte")
@@ -744,3 +746,12 @@ script = ExtResource("10_3ljsi")
 
 [node name="eat" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("11_20a86")
+
+[node name="check_tiredness" type="Node" parent="behavior_tree/root"]
+script = ExtResource("7_k3i1t")
+
+[node name="is_tired" type="Node" parent="behavior_tree/root/check_tiredness"]
+script = ExtResource("10_fqmc6")
+
+[node name="sleep" type="Node" parent="behavior_tree/root/check_tiredness"]
+script = ExtResource("11_ylqhf")
