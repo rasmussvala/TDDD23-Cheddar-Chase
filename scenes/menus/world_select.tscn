@@ -1,50 +1,562 @@
-[gd_scene load_steps=5 format=3 uid="uid://crq73p80u74u6"]
+[gd_scene load_steps=18 format=3 uid="uid://crq73p80u74u6"]
 
 [ext_resource type="PackedScene" uid="uid://bfwnyu2q3bdeu" path="res://scenes/menus/world_icon.tscn" id="1_fa4lk"]
 [ext_resource type="Script" path="res://scripts/menus/world_select.gd" id="1_ppa2h"]
+[ext_resource type="Texture2D" uid="uid://waqpmiqfn6gm" path="res://assets/testlevel/world_background.png" id="2_f77n3"]
+[ext_resource type="Texture2D" uid="uid://q4y2k3jeb5ln" path="res://assets/testlevel/world_background_loop.png" id="3_1bq30"]
+[ext_resource type="Texture2D" uid="uid://bpcsg5w6du4rl" path="res://assets/testlevel/world_background_house_1.png" id="3_sb5bs"]
 [ext_resource type="PackedScene" uid="uid://beqv3mlfudjby" path="res://scenes/menus/player_icon.tscn" id="3_u4mso"]
 [ext_resource type="PackedScene" uid="uid://ipb3wj586xgu" path="res://scenes/menus/level_select_world_2.tscn" id="4_eg84q"]
+[ext_resource type="Texture2D" uid="uid://co52trasfnvea" path="res://assets/testlevel/world_background_house_1_loop.png" id="5_p151k"]
+[ext_resource type="Texture2D" uid="uid://bsv2qiiranrxq" path="res://assets/testlevel/world_background_cloud_2.png" id="9_7ypvb"]
+[ext_resource type="Texture2D" uid="uid://nhxa3p4tv2vc" path="res://assets/testlevel/world_background_cloud_1.png" id="9_p3ck8"]
+
+[sub_resource type="Gradient" id="Gradient_c6kcu"]
+offsets = PackedFloat32Array(0.612903, 0.870968)
+colors = PackedColorArray(0, 0.48823, 0.917034, 1, 0.753727, 0.863497, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t1e33"]
+gradient = SubResource("Gradient_c6kcu")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_eanjx"]
+frames = 2
+frame_0/texture = ExtResource("2_f77n3")
+frame_0/duration = 0.4
+frame_1/texture = ExtResource("3_1bq30")
+frame_1/duration = 0.4
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_kd4xh"]
+frames = 2
+frame_0/texture = ExtResource("3_sb5bs")
+frame_0/duration = 0.4
+frame_1/texture = ExtResource("5_p151k")
+frame_1/duration = 0.4
+
+[sub_resource type="Animation" id="Animation_d3vwq"]
+resource_name = "cloud"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("clouds/cloud_1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(168, 192), Vector2(168, 183), Vector2(168, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("clouds/cloud_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(496, 112), Vector2(496, 130), Vector2(496, 112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("clouds/cloud_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(904, 200), Vector2(904, 177), Vector2(904, 200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("clouds/cloud_4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(256, 208), Vector2(256, 194), Vector2(256, 208)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("clouds/cloud_5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(632, 160), Vector2(632, 172), Vector2(632, 160)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("clouds/cloud_6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1264, 120), Vector2(1264, 143), Vector2(1264, 120)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("clouds/cloud_7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-184, 112), Vector2(-184, 137), Vector2(-184, 112)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("clouds/cloud_8:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-48, 168), Vector2(-48, 182), Vector2(-48, 168)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("clouds/cloud_9:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1120, 72), Vector2(1120, 91), Vector2(1120, 72)]
+}
+
+[sub_resource type="Animation" id="Animation_aw4gv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("clouds/cloud_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, 192)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("clouds/cloud_2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(496, 112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("clouds/cloud_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(904, 200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("clouds/cloud_4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 208)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("clouds/cloud_5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(632, 160)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("clouds/cloud_6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1264, 120)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("clouds/cloud_7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-184, 112)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("clouds/cloud_8:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48, 168)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("clouds/cloud_9:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1120, 72)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypkah"]
+_data = {
+"RESET": SubResource("Animation_aw4gv"),
+"cloud": SubResource("Animation_d3vwq")
+}
 
 [node name="world_select" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -632.0
+offset_top = -412.0
+offset_right = -632.0
+offset_bottom = -412.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ppa2h")
 
-[node name="world_icon1" parent="." instance=ExtResource("1_fa4lk")]
-offset_left = 224.0
+[node name="sky" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 3616.0
+offset_top = -1624.0
+offset_right = 4082.0
+offset_bottom = -579.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = SubResource("GradientTexture1D_t1e33")
+
+[node name="ground" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background3" type="TextureRect" parent="ground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1668.0
+offset_top = 524.0
+offset_right = 1924.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_eanjx")
+
+[node name="background2" type="TextureRect" parent="ground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 388.0
+offset_top = 524.0
+offset_right = 644.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_eanjx")
+
+[node name="background" type="TextureRect" parent="ground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -892.0
+offset_top = 524.0
+offset_right = -636.0
+offset_bottom = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_eanjx")
+
+[node name="world_1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
 offset_top = 448.0
-offset_right = 288.0
+offset_right = 112.0
 offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = SubResource("AnimatedTexture_kd4xh")
+
+[node name="world_icon1" parent="." instance=ExtResource("1_fa4lk")]
+layout_mode = 1
+offset_left = 128.0
+offset_top = 384.0
+offset_right = 192.0
+offset_bottom = 448.0
 
 [node name="world_icon2" parent="." instance=ExtResource("1_fa4lk")]
-offset_left = 384.0
-offset_top = 256.0
-offset_right = 448.0
-offset_bottom = 320.0
+layout_mode = 1
+offset_left = 352.0
+offset_top = 384.0
+offset_right = 416.0
+offset_bottom = 448.0
 world_index = 2
 level_select_packed = ExtResource("4_eg84q")
 
 [node name="world_icon3" parent="." instance=ExtResource("1_fa4lk")]
-offset_left = 544.0
-offset_top = 448.0
-offset_right = 608.0
-offset_bottom = 512.0
+layout_mode = 1
+offset_left = 576.0
+offset_top = 384.0
+offset_right = 640.0
+offset_bottom = 448.0
 world_index = 3
 
 [node name="world_icon4" parent="." instance=ExtResource("1_fa4lk")]
-offset_left = 704.0
-offset_top = 256.0
-offset_right = 768.0
-offset_bottom = 320.0
+layout_mode = 1
+offset_left = 800.0
+offset_top = 384.0
+offset_right = 864.0
+offset_bottom = 448.0
 world_index = 4
 
 [node name="world_icon5" parent="." instance=ExtResource("1_fa4lk")]
-offset_left = 864.0
-offset_top = 448.0
-offset_right = 928.0
-offset_bottom = 512.0
+layout_mode = 1
+offset_left = 1016.0
+offset_top = 384.0
+offset_right = 1080.0
+offset_bottom = 448.0
 world_index = 5
 
 [node name="player_icon" parent="." instance=ExtResource("3_u4mso")]
-layout_mode = 0
-rotation = 0.0
+layout_mode = 1
+
+[node name="clouds" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="animation_player" type="AnimationPlayer" parent="clouds"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ypkah")
+}
+speed_scale = 0.2
+
+[node name="cloud_9" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1100.0
+offset_top = 52.0
+offset_right = 1228.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_p3ck8")
+
+[node name="cloud_8" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 148.0
+offset_right = 60.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_p3ck8")
+
+[node name="cloud_7" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = 92.0
+offset_right = -76.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_7ypvb")
+
+[node name="cloud_6" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1244.0
+offset_top = 100.0
+offset_right = 1372.0
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_7ypvb")
+
+[node name="cloud_5" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 612.0
+offset_top = 140.0
+offset_right = 740.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_7ypvb")
+
+[node name="cloud_4" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 236.0
+offset_top = 188.0
+offset_right = 364.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_7ypvb")
+
+[node name="cloud_3" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 884.0
+offset_top = 180.0
+offset_right = 1012.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_p3ck8")
+
+[node name="cloud_2" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 476.0
+offset_top = 92.0
+offset_right = 604.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_p3ck8")
+
+[node name="cloud_1" type="TextureRect" parent="clouds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 148.0
+offset_top = 172.0
+offset_right = 276.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("9_p3ck8")

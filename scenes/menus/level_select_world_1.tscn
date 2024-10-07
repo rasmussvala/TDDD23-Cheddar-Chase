@@ -1,76 +1,263 @@
-[gd_scene load_steps=4 format=3 uid="uid://pckx6wtppot6"]
+[gd_scene load_steps=9 format=3 uid="uid://pckx6wtppot6"]
 
 [ext_resource type="Script" path="res://scripts/menus/level_select.gd" id="1_uc3rh"]
+[ext_resource type="Texture2D" uid="uid://c2r4abkrwo2nl" path="res://assets/testlevel/world_1.png" id="2_cmu4o"]
+[ext_resource type="Texture2D" uid="uid://waqpmiqfn6gm" path="res://assets/testlevel/world_background.png" id="2_lg7e7"]
 [ext_resource type="PackedScene" uid="uid://xkbgidfk0x0m" path="res://scenes/menus/level_icon.tscn" id="2_m0ttj"]
 [ext_resource type="PackedScene" uid="uid://beqv3mlfudjby" path="res://scenes/menus/player_icon.tscn" id="3_n6nib"]
+[ext_resource type="Texture2D" uid="uid://q4y2k3jeb5ln" path="res://assets/testlevel/world_background_loop.png" id="3_tn71a"]
+[ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="7_at478"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_7vm1u"]
+frames = 2
+frame_0/texture = ExtResource("2_lg7e7")
+frame_0/duration = 0.4
+frame_1/texture = ExtResource("3_tn71a")
+frame_1/duration = 0.4
 
 [node name="level_select" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_uc3rh")
 
-[node name="level_icon1" parent="." node_paths=PackedStringArray("next_level_right") instance=ExtResource("2_m0ttj")]
-offset_left = 128.0
-offset_top = 448.0
-offset_right = 192.0
-offset_bottom = 512.0
-next_scene_path = "res://scenes/levels/game.tscn"
-next_level_right = NodePath("../level_icon2")
+[node name="background6" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 324.0
+offset_right = 896.0
+offset_bottom = 511.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
 
-[node name="level_icon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-offset_left = 320.0
-offset_top = 320.0
-offset_right = 384.0
-offset_bottom = 384.0
+[node name="background5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -640.0
+offset_top = 332.0
+offset_right = -384.0
+offset_bottom = 519.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1920.0
+offset_top = 324.0
+offset_right = -1664.0
+offset_bottom = 511.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1920.0
+offset_top = -476.0
+offset_right = -1664.0
+offset_bottom = -289.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_top = -476.0
+offset_right = 896.0
+offset_bottom = -289.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -640.0
+offset_top = -476.0
+offset_right = -384.0
+offset_bottom = -289.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background8" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -648.0
+offset_top = -1340.0
+offset_right = -392.0
+offset_bottom = -1153.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background7" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -1928.0
+offset_top = -1332.0
+offset_right = -1672.0
+offset_bottom = -1145.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="background9" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 632.0
+offset_top = -1332.0
+offset_right = 890.0
+offset_bottom = -1145.0
+scale = Vector2(5, 5)
+texture = SubResource("AnimatedTexture_7vm1u")
+
+[node name="house" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("2_cmu4o")
+
+[node name="level_icon1" parent="." node_paths=PackedStringArray("next_level_up") instance=ExtResource("2_m0ttj")]
+offset_left = -416.0
+offset_top = 117.0
+offset_right = -352.0
+offset_bottom = 181.0
+next_scene_path = "res://scenes/levels/game.tscn"
+next_level_up = NodePath("../level_icon2")
+
+[node name="level_icon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_right") instance=ExtResource("2_m0ttj")]
+offset_left = -417.0
+offset_top = -33.0
+offset_right = -353.0
+offset_bottom = 31.0
 level_name = "2"
 next_scene_path = "res://scenes/levels/demo_level.tscn"
 next_level_up = NodePath("../level_icon2B")
-next_level_left = NodePath("../level_icon1")
+next_level_down = NodePath("../level_icon1")
 next_level_right = NodePath("../level_icon3")
 
 [node name="level_icon2B" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
-offset_left = 320.0
-offset_top = 128.0
-offset_right = 384.0
-offset_bottom = 192.0
+offset_left = -415.0
+offset_top = -188.0
+offset_right = -351.0
+offset_bottom = -124.0
 level_name = "2B"
 next_level_down = NodePath("../level_icon2")
 
 [node name="level_icon3" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-offset_left = 512.0
-offset_top = 384.0
-offset_right = 576.0
-offset_bottom = 448.0
+offset_left = -240.0
+offset_top = -35.0
+offset_right = -176.0
+offset_bottom = 29.0
 level_name = "3"
 next_level_left = NodePath("../level_icon2")
 next_level_right = NodePath("../level_icon4")
 
-[node name="level_icon4" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-offset_left = 640.0
-offset_top = 192.0
-offset_right = 704.0
-offset_bottom = 256.0
+[node name="level_icon4" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
+offset_left = -72.0
+offset_top = -35.0
+offset_right = -8.0
+offset_bottom = 29.0
 level_name = "4"
+next_level_up = NodePath("../level_icon4B")
+next_level_down = NodePath("../level_icon4C")
 next_level_left = NodePath("../level_icon3")
 next_level_right = NodePath("../level_icon5")
 
-[node name="level_icon5" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-offset_left = 832.0
-offset_top = 384.0
-offset_right = 896.0
-offset_bottom = 448.0
+[node name="level_icon4B" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
+offset_left = -72.0
+offset_top = -187.0
+offset_right = -8.0
+offset_bottom = -123.0
+level_name = "4B"
+next_level_down = NodePath("../level_icon4")
+
+[node name="level_icon4C" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("2_m0ttj")]
+offset_left = -72.0
+offset_top = 101.0
+offset_right = -8.0
+offset_bottom = 165.0
+level_name = "4C"
+next_level_up = NodePath("../level_icon4")
+next_level_right = NodePath("../level_icon5C")
+
+[node name="level_icon5" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
+offset_left = 160.0
+offset_top = -35.0
+offset_right = 224.0
+offset_bottom = 29.0
 level_name = "5"
+next_level_up = NodePath("../level_icon5B")
+next_level_down = NodePath("../level_icon5C")
 next_level_left = NodePath("../level_icon4")
 next_level_right = NodePath("../level_icon6")
 
-[node name="level_icon6" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("2_m0ttj")]
-offset_left = 960.0
-offset_top = 192.0
-offset_right = 1024.0
-offset_bottom = 256.0
+[node name="level_icon5B" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
+offset_left = 160.0
+offset_top = -187.0
+offset_right = 224.0
+offset_bottom = -123.0
+level_name = "5B"
+next_level_down = NodePath("../level_icon5")
+
+[node name="level_icon5C" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
+offset_left = 160.0
+offset_top = 101.0
+offset_right = 224.0
+offset_bottom = 165.0
+level_name = "5C"
+next_level_up = NodePath("../level_icon5")
+next_level_left = NodePath("../level_icon4C")
+next_level_right = NodePath("../level_icon5D")
+
+[node name="level_icon5D" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("2_m0ttj")]
+offset_left = 392.0
+offset_top = 101.0
+offset_right = 456.0
+offset_bottom = 165.0
+level_name = "5D"
+next_level_left = NodePath("../level_icon5C")
+
+[node name="level_icon6" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("2_m0ttj")]
+offset_left = 392.0
+offset_top = -35.0
+offset_right = 456.0
+offset_bottom = 29.0
 level_name = "6"
+next_level_up = NodePath("../level_icon7")
 next_level_left = NodePath("../level_icon5")
 
+[node name="level_icon7" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
+offset_left = 392.0
+offset_top = -187.0
+offset_right = 456.0
+offset_bottom = -123.0
+level_name = "7"
+next_level_down = NodePath("../level_icon6")
+
 [node name="player_icon" parent="." instance=ExtResource("3_n6nib")]
-layout_mode = 0
-rotation = 0.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.0
+offset_left = -64.0
+offset_top = -68.0
+offset_right = 0.0
+offset_bottom = -4.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -464.0
+offset_right = 204.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("7_at478")
+theme_override_font_sizes/font_size = 64
+text = "World 1"
