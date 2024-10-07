@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://dgimfnrec4mn2"]
+[gd_scene load_steps=111 format=3 uid="uid://dgimfnrec4mn2"]
 
 [ext_resource type="Texture2D" uid="uid://beryj7jpp0bbr" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
 [ext_resource type="Texture2D" uid="uid://d2tsavcd0o5d5" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://behavior-tree/cat/is_tired.gd" id="10_fqmc6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/eat.gd" id="11_20a86"]
 [ext_resource type="Script" path="res://behavior-tree/cat/sleep.gd" id="11_ylqhf"]
+[ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
 atlas = ExtResource("2_1nhte")
@@ -755,3 +756,6 @@ script = ExtResource("10_fqmc6")
 
 [node name="sleep" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("11_ylqhf")
+
+[node name="wander" type="Node" parent="behavior_tree/root"]
+script = ExtResource("12_sv6u5")

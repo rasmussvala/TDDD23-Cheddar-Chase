@@ -3,6 +3,8 @@ class_name BTTree extends Node
 enum Status { SUCCESS, FAILURE, RUNNING }
 
 var root: BTSelector
+var actor: CharacterBody2D
+
 var blackboard: Dictionary = {
 	#Hunger 
 	"hunger": 0.0,
@@ -23,6 +25,8 @@ var blackboard: Dictionary = {
 
 func _ready():
 	root = $root
+	actor = get_parent()
+	blackboard["actor"] = actor
 
 func _process(delta):
 	blackboard["delta"] = delta
