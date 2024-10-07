@@ -3,7 +3,6 @@ extends Area2D
 @onready var player: CharacterBody2D = %player
 
 func _on_body_entered(_body) -> void:
-	print("BODY ENTERED")
 	if player.current_health < player.max_health:
 		player.current_health += 1
 		var hud = player.get_node("hud")
