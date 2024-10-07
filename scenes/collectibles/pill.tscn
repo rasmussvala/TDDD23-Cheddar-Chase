@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://d4bboajpgnlfq"]
+
+[ext_resource type="Texture2D" uid="uid://c4uxwp45gteo2" path="res://assets/collectibles/pills/idle.png" id="1_ob80m"]
+[ext_resource type="Script" path="res://scripts/collectibles/pill.gd" id="1_uuhij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgb45"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1ywm"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ddf"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuf4j"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okdsu"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3pwa"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74x4m"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awqvx"]
+atlas = ExtResource("1_ob80m")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kmxvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgb45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1ywm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8ddf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuf4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okdsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3pwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74x4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awqvx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ml5hj"]
+radius = 8.0
+
+[node name="pill" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_uuhij")
+
+[node name="animated_sprite_pill" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kmxvc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ml5hj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

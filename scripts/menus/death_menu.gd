@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var death_label: Label = $window/death_label
 @onready var cheesy_label: Label = $window/cheesy_label
 @onready var restart_button: Button = $window/restart_button
-
+@onready var back_button: Button = $window/back_button
 @export var fade_in_time = 1.5 
 
 func _ready():
@@ -13,6 +13,7 @@ func _ready():
 	death_label.modulate.a = opacity
 	cheesy_label.modulate.a = opacity
 	restart_button.modulate.a = opacity
+	back_button.modulate.a = opacity
 	
 	self.visible = false
 
@@ -26,10 +27,21 @@ func fade_in():
 	tween.parallel().tween_property(death_label, "modulate:a", opacity, fade_in_time)
 	tween.parallel().tween_property(cheesy_label, "modulate:a", opacity, fade_in_time)
 	tween.parallel().tween_property(restart_button, "modulate:a", opacity, fade_in_time)
-	
-	
+	tween.parallel().tween_property(back_button, "modulate:a", opacity, fade_in_time)
 
 func _on_restart_button_pressed() -> void:
 	Engine.time_scale = 1.0
-	var game_scene = load("res://scenes/levels/game.tscn")  
-	get_tree().change_scene_to_packed(game_scene)
+	var current_level = game_data.get_current_level()
+	if current_level != "":
+		game_data.transition_to_level(current_level)
+	else:
+		print("Current level path not set")
+
+func _on_back_button_pressed() -> void:
+	Engine.time_scale = 1.0
+	var level_select = game_data.get_level_select_scene()
+	
+	if level_select:
+		game_data.transition_to_level_select(game_data.get_current_world(), level_select)
+	else:
+		print("Failed to load level select menu")

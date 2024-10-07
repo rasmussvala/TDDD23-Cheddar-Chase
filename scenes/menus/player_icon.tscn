@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://beqv3mlfudjby"]
+
+[ext_resource type="Texture2D" uid="uid://dj537hlvk6t80" path="res://assets/characters/mouse/icon.png" id="1_j26h3"]
+
+[node name="player_icon" type="TextureRect"]
+offset_right = 64.0
+offset_bottom = 64.0
+rotation = 1.5708
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("1_j26h3")
+expand_mode = 3

@@ -15,7 +15,8 @@ func _ready() -> void:
 	call_deferred("update_initial_hud") 
 	
 func update_initial_hud() -> void:
-	player.hud.update_score(score, max_score)
+	if player:
+		player.hud.update_score(score, max_score)
 
 # Add a point for collected cheese and update HUD
 func add_point() -> void:

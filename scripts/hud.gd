@@ -19,11 +19,14 @@ func update_health(new_health) -> void:
 	for i in range(hearts.size()):
 		if i < new_health:
 			hearts[i].texture = heart_filled
-		elif i == new_health:
+			# Bounce the heart when gaining health
+			if i == new_health - 1:
+				bounce_heart(hearts[i])
+		elif i >= new_health:
 			hearts[i].texture = heart_empty
-			bounce_heart(hearts[i])
-		else: 
-			hearts[i].texture = heart_empty
+			# Bounce the heart when losing health
+			if i == new_health:
+				bounce_heart(hearts[i])
 
 # Give a visual feedback on which heart is being removed
 func bounce_heart(heart: Sprite2D) -> void:

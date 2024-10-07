@@ -34,5 +34,8 @@ func _on_return_button_pressed() -> void:
 	# Unpause the game when pressing the button
 	get_tree().paused = false
 
-	var main_menu = load("res://scenes/menus/main_menu.tscn")
-	get_tree().change_scene_to_packed(main_menu)
+	var level_select = game_data.get_level_select_scene()
+	if level_select:
+		game_data.transition_to_level_select(game_data.get_current_world(), level_select)
+	else:
+		print("Failed to load level select menu")
