@@ -2,11 +2,13 @@ extends Control
 class_name LevelSelect
 
 @onready var current_level: LevelIcon = $level_icon1
+@onready var animation_player: AnimationPlayer = $clouds/animation_player
 @onready var world_select_scene = load("res://scenes/menus/world_select.tscn")
 var move_tween: Tween
 
 func _ready() -> void:
 	$player_icon.global_position = current_level.global_position
+	animation_player.play("cloud")
 
 func _input(event: InputEvent) -> void:
 	if move_tween and move_tween.is_running():
@@ -39,4 +41,4 @@ func _input(event: InputEvent) -> void:
 
 func tween_icon():
 	move_tween = get_tree().create_tween()
-	move_tween.tween_property($player_icon, "global_position", current_level.global_position, 0.5).set_trans(Tween.TRANS_SINE)
+	move_tween.tween_property($player_icon, "global_position", current_level.global_position, 0.6).set_trans(Tween.TRANS_SINE)

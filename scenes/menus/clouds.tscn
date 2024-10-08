@@ -1,19 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://pckx6wtppot6"]
+[gd_scene load_steps=6 format=3 uid="uid://btlxp5p38vcpo"]
 
-[ext_resource type="Script" path="res://scripts/menus/level_select.gd" id="1_uc3rh"]
-[ext_resource type="Texture2D" uid="uid://c2r4abkrwo2nl" path="res://assets/testlevel/world_1.png" id="2_cmu4o"]
-[ext_resource type="PackedScene" uid="uid://xkbgidfk0x0m" path="res://scenes/menus/level_icon.tscn" id="2_m0ttj"]
-[ext_resource type="Texture2D" uid="uid://nhxa3p4tv2vc" path="res://assets/testlevel/world_background_cloud_1.png" id="2_rgnvd"]
-[ext_resource type="Texture2D" uid="uid://bsv2qiiranrxq" path="res://assets/testlevel/world_background_cloud_2.png" id="3_c1wrh"]
-[ext_resource type="PackedScene" uid="uid://beqv3mlfudjby" path="res://scenes/menus/player_icon.tscn" id="3_n6nib"]
-[ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="7_at478"]
-
-[sub_resource type="Gradient" id="Gradient_c6kcu"]
-offsets = PackedFloat32Array(0.612903, 0.870968)
-colors = PackedColorArray(0, 0.48823, 0.917034, 1, 0.753727, 0.863497, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vjilj"]
-gradient = SubResource("Gradient_c6kcu")
+[ext_resource type="Texture2D" uid="uid://nhxa3p4tv2vc" path="res://assets/testlevel/world_background_cloud_1.png" id="1_ww43p"]
+[ext_resource type="Texture2D" uid="uid://bsv2qiiranrxq" path="res://assets/testlevel/world_background_cloud_2.png" id="2_wttvf"]
 
 [sub_resource type="Animation" id="Animation_aw4gv"]
 length = 0.001
@@ -244,50 +232,20 @@ _data = {
 "cloud": SubResource("Animation_d3vwq")
 }
 
-[node name="level_select" type="Control"]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_uc3rh")
-
-[node name="sky" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 2656.0
-offset_top = -1460.0
-offset_right = 3122.0
-offset_bottom = -415.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.5708
-scale = Vector2(5, 5)
-texture = SubResource("GradientTexture1D_vjilj")
-
-[node name="clouds" type="Control" parent="."]
+[node name="clouds" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -688.0
-offset_top = -620.0
-offset_right = -648.0
-offset_bottom = -580.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="animation_player" type="AnimationPlayer" parent="clouds"]
+[node name="animation_player" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_ypkah")
 }
 speed_scale = 0.05
 
-[node name="cloud_9" type="TextureRect" parent="clouds"]
+[node name="cloud_9" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -301,9 +259,9 @@ offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_rgnvd")
+texture = ExtResource("1_ww43p")
 
-[node name="cloud_8" type="TextureRect" parent="clouds"]
+[node name="cloud_8" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -317,9 +275,9 @@ offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_rgnvd")
+texture = ExtResource("1_ww43p")
 
-[node name="cloud_7" type="TextureRect" parent="clouds"]
+[node name="cloud_7" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -333,9 +291,9 @@ offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("3_c1wrh")
+texture = ExtResource("2_wttvf")
 
-[node name="cloud_6" type="TextureRect" parent="clouds"]
+[node name="cloud_6" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -349,9 +307,9 @@ offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("3_c1wrh")
+texture = ExtResource("2_wttvf")
 
-[node name="cloud_5" type="TextureRect" parent="clouds"]
+[node name="cloud_5" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -365,9 +323,9 @@ offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("3_c1wrh")
+texture = ExtResource("2_wttvf")
 
-[node name="cloud_4" type="TextureRect" parent="clouds"]
+[node name="cloud_4" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -381,9 +339,9 @@ offset_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("3_c1wrh")
+texture = ExtResource("2_wttvf")
 
-[node name="cloud_3" type="TextureRect" parent="clouds"]
+[node name="cloud_3" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -397,9 +355,9 @@ offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_rgnvd")
+texture = ExtResource("1_ww43p")
 
-[node name="cloud_2" type="TextureRect" parent="clouds"]
+[node name="cloud_2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -413,9 +371,9 @@ offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_rgnvd")
+texture = ExtResource("1_ww43p")
 
-[node name="cloud_1" type="TextureRect" parent="clouds"]
+[node name="cloud_1" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -429,169 +387,4 @@ offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture = ExtResource("2_rgnvd")
-
-[node name="house" type="TextureRect" parent="."]
-layout_mode = 1
-offset_left = -568.0
-offset_top = -316.0
-offset_right = 568.0
-offset_bottom = 316.0
-texture = ExtResource("2_cmu4o")
-
-[node name="level_icon1" parent="." node_paths=PackedStringArray("next_level_up") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -416.0
-offset_top = 92.0
-offset_right = -352.0
-offset_bottom = 156.0
-next_scene_path = "res://scenes/levels/game.tscn"
-next_level_up = NodePath("../level_icon2")
-
-[node name="level_icon2" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_right") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -417.0
-offset_top = -33.0
-offset_right = -353.0
-offset_bottom = 31.0
-level_name = "2"
-next_scene_path = "res://scenes/levels/demo_level.tscn"
-next_level_up = NodePath("../level_icon2B")
-next_level_down = NodePath("../level_icon1")
-next_level_right = NodePath("../level_icon3")
-
-[node name="level_icon2B" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -415.0
-offset_top = -188.0
-offset_right = -351.0
-offset_bottom = -124.0
-level_name = "2B"
-next_level_down = NodePath("../level_icon2")
-
-[node name="level_icon3" parent="." node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -240.0
-offset_top = -35.0
-offset_right = -176.0
-offset_bottom = 29.0
-level_name = "3"
-next_level_left = NodePath("../level_icon2")
-next_level_right = NodePath("../level_icon4")
-
-[node name="level_icon4" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -72.0
-offset_top = -35.0
-offset_right = -8.0
-offset_bottom = 29.0
-level_name = "4"
-next_level_up = NodePath("../level_icon4B")
-next_level_down = NodePath("../level_icon4C")
-next_level_left = NodePath("../level_icon3")
-next_level_right = NodePath("../level_icon5")
-
-[node name="level_icon4B" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -72.0
-offset_top = -187.0
-offset_right = -8.0
-offset_bottom = -123.0
-level_name = "4B"
-next_level_down = NodePath("../level_icon4")
-
-[node name="level_icon4C" parent="." node_paths=PackedStringArray("next_level_up", "next_level_right") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = -72.0
-offset_top = 92.0
-offset_right = -8.0
-offset_bottom = 156.0
-level_name = "4C"
-next_level_up = NodePath("../level_icon4")
-next_level_right = NodePath("../level_icon5C")
-
-[node name="level_icon5" parent="." node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = 160.0
-offset_top = -35.0
-offset_right = 224.0
-offset_bottom = 29.0
-level_name = "5"
-next_level_up = NodePath("../level_icon5B")
-next_level_down = NodePath("../level_icon5C")
-next_level_left = NodePath("../level_icon4")
-next_level_right = NodePath("../level_icon6")
-
-[node name="level_icon5B" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = 160.0
-offset_top = -187.0
-offset_right = 224.0
-offset_bottom = -123.0
-level_name = "5B"
-next_level_down = NodePath("../level_icon5")
-
-[node name="level_icon5C" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = 160.0
-offset_top = 92.0
-offset_right = 224.0
-offset_bottom = 156.0
-level_name = "5C"
-next_level_up = NodePath("../level_icon5")
-next_level_left = NodePath("../level_icon4C")
-next_level_right = NodePath("../level_icon5D")
-
-[node name="level_icon5D" parent="." node_paths=PackedStringArray("next_level_left") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = 383.0
-offset_top = 92.0
-offset_right = 447.0
-offset_bottom = 156.0
-level_name = "5D"
-next_level_left = NodePath("../level_icon5C")
-
-[node name="level_icon6" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = 383.0
-offset_top = -35.0
-offset_right = 447.0
-offset_bottom = 29.0
-level_name = "6"
-next_level_up = NodePath("../level_icon7")
-next_level_left = NodePath("../level_icon5")
-
-[node name="level_icon7" parent="." node_paths=PackedStringArray("next_level_down") instance=ExtResource("2_m0ttj")]
-layout_mode = 1
-offset_left = 384.0
-offset_top = -187.0
-offset_right = 448.0
-offset_bottom = -123.0
-level_name = "7"
-next_level_down = NodePath("../level_icon6")
-
-[node name="player_icon" parent="." instance=ExtResource("3_n6nib")]
-layout_mode = 1
-anchors_preset = -1
-offset_left = -64.0
-offset_top = -68.0
-offset_right = 0.0
-offset_bottom = -4.0
-scale = Vector2(2, 2)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -204.0
-offset_top = -321.0
-offset_right = 204.0
-offset_bottom = -257.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_fonts/font = ExtResource("7_at478")
-theme_override_font_sizes/font_size = 64
-text = "World 1"
+texture = ExtResource("1_ww43p")
