@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://bdomcq316jv0m"]
+[gd_scene load_steps=128 format=3 uid="uid://cjvvuyiy06fv6"]
 
 [ext_resource type="Texture2D" uid="uid://beryj7jpp0bbr" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
 [ext_resource type="Texture2D" uid="uid://d2tsavcd0o5d5" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
@@ -8,12 +8,10 @@
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
-[ext_resource type="Script" path="res://behavior-tree/cat/is_bed_available.gd" id="10_1fgmj"]
-[ext_resource type="Script" path="res://behavior-tree/cat/is_hungry.gd" id="10_3ljsi"]
-[ext_resource type="Script" path="res://behavior-tree/cat/is_tired.gd" id="10_fqmc6"]
-[ext_resource type="Script" path="res://behavior-tree/cat/eat.gd" id="11_20a86"]
-[ext_resource type="Script" path="res://behavior-tree/cat/walk_to_bed.gd" id="11_j8rw6"]
-[ext_resource type="Script" path="res://behavior-tree/cat/sleep.gd" id="11_ylqhf"]
+[ext_resource type="Script" path="res://behavior-tree/cat/check_need.gd" id="9_qm48p"]
+[ext_resource type="Script" path="res://behavior-tree/cat/is_target_available.gd" id="10_1fgmj"]
+[ext_resource type="Script" path="res://behavior-tree/cat/walk_to_target.gd" id="11_j8rw6"]
+[ext_resource type="Script" path="res://behavior-tree/cat/do_need.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
@@ -675,7 +673,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tur4n")
 }],
 "loop": true,
-"name": &"sleep",
+"name": &"sleeping",
 "speed": 5.0
 }, {
 "frames": [{
@@ -846,8 +844,7 @@ radius = 5.59017
 [node name="animated_sprite_cat" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_86umi")
-animation = &"sleep"
-frame_progress = 0.885251
+animation = &"walk"
 
 [node name="collsion_shape_cat" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -863,25 +860,51 @@ script = ExtResource("6_wa3x3")
 script = ExtResource("7_k3i1t")
 
 [node name="is_tired" type="Node" parent="behavior_tree/root/check_tiredness"]
-script = ExtResource("10_fqmc6")
+script = ExtResource("9_qm48p")
+need = "tiredness"
+threshold = "tiredness_threshold"
+action = "sleeping"
 
 [node name="is_bed_available" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("10_1fgmj")
+target = "bed"
 
 [node name="walk_to_bed" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("11_j8rw6")
+target = "bed"
+action = "sleeping"
+min_distance_to_target = 0.3
 
 [node name="sleep" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("11_ylqhf")
+need = "tiredness"
+rate = "sleeping_rate"
+action = "sleeping"
 
 [node name="check_hunger" type="Node" parent="behavior_tree/root"]
 script = ExtResource("7_k3i1t")
 
 [node name="is_hungry" type="Node" parent="behavior_tree/root/check_hunger"]
-script = ExtResource("10_3ljsi")
+script = ExtResource("9_qm48p")
+need = "hunger"
+threshold = "hunger_threshold"
+action = "eating"
+
+[node name="is_food_available" type="Node" parent="behavior_tree/root/check_hunger"]
+script = ExtResource("10_1fgmj")
+target = "food"
+
+[node name="walk_to_food" type="Node" parent="behavior_tree/root/check_hunger"]
+script = ExtResource("11_j8rw6")
+target = "food"
+action = "eating"
+min_distance_to_target = 25.0
 
 [node name="eat" type="Node" parent="behavior_tree/root/check_hunger"]
-script = ExtResource("11_20a86")
+script = ExtResource("11_ylqhf")
+need = "hunger"
+rate = "eating_rate"
+action = "eating"
 
 [node name="wander" type="Node" parent="behavior_tree/root"]
 script = ExtResource("12_sv6u5")

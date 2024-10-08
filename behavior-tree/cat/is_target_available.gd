@@ -1,9 +1,11 @@
 extends BTCondition
 
+@export var target: String
+
 func tick(blackboard: Dictionary) -> int:
-	var bed_sprite = blackboard.get("bed")
+	var sprite = blackboard.get(target)
 	
-	if bed_sprite != null:
+	if sprite != null:
 		return SUCCESS
 	else:
 		return FAILURE

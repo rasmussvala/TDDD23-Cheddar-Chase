@@ -9,20 +9,20 @@ var food: Sprite2D
 
 var blackboard: Dictionary = {
 	#Hunger 
-	"hunger": 0.0,
+	"hunger": 0.0,					# Need
 	"max_hunger": 100,
-	"hunger_threshold": 80,
-	"eating_rate": 30,
+	"hunger_threshold": 80,			# Threshold
+	"eating_rate": 30,				# Rate
 	"hunger_increase_rate": 5,
-	"is_eating": false  ,
+	"eating": false,				# Action
 	
 	# Tiredness
-	"tiredness": 0.0,
+	"tiredness": 0.0,				# Need
 	"max_tiredness": 100,
-	"tiredness_threshold": 95,
-	"sleeping_rate": 10,
+	"tiredness_threshold": 95,		# Threshold
+	"sleeping_rate": 10,			# Rate
 	"tiredness_increase_rate": 4,
-	"is_sleeping": false
+	"sleeping": false				# Action
 }
 
 func _ready():

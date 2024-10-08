@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5ph67clwjoux"]
+[gd_scene load_steps=6 format=3 uid="uid://disgxe6gr7crf"]
 
 [ext_resource type="Texture2D" uid="uid://c6q3yhntsacro" path="res://assets/characters/enemies/cat/plate-food.png" id="1_1jhr4"]
-[ext_resource type="PackedScene" uid="uid://bdomcq316jv0m" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
+[ext_resource type="PackedScene" uid="uid://cjvvuyiy06fv6" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
 [ext_resource type="Texture2D" uid="uid://c6vwuci5rbpr8" path="res://assets/characters/enemies/cat/bed.png" id="2_pw22j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xb7db"]
