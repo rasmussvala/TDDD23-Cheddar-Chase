@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://sku0kefliyju" path="res://assets/testlevel/level_icon.png" id="4_il0ua"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ybx1b"]
-shadow_size = 10
+shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="world_icon" type="Control"]
