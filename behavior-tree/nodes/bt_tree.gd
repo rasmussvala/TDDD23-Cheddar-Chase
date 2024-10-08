@@ -4,6 +4,8 @@ enum Status { SUCCESS, FAILURE, RUNNING }
 
 var root: BTSelector
 var actor: CharacterBody2D
+var bed: Sprite2D
+var food: Sprite2D
 
 var blackboard: Dictionary = {
 	#Hunger 
@@ -24,9 +26,18 @@ var blackboard: Dictionary = {
 }
 
 func _ready():
+	# Init variables 
 	root = $root
 	actor = get_parent()
+	
+	# Find things in the scene
+	bed = get_tree().get_first_node_in_group("beds")
+	food = get_tree().get_first_node_in_group("foods")
+	
+	# Add things to blackboard
 	blackboard["actor"] = actor
+	blackboard["bed"] = bed
+	blackboard["food"] = food
 
 func _process(delta):
 	blackboard["delta"] = delta

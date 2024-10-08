@@ -1,8 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://bludxlvphttuh"]
+[gd_scene load_steps=6 format=3 uid="uid://b5ph67clwjoux"]
 
-[ext_resource type="PackedScene" uid="uid://dgimfnrec4mn2" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
+[ext_resource type="Texture2D" uid="uid://c6q3yhntsacro" path="res://assets/characters/enemies/cat/plate-food.png" id="1_1jhr4"]
+[ext_resource type="PackedScene" uid="uid://bdomcq316jv0m" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
+[ext_resource type="Texture2D" uid="uid://c6vwuci5rbpr8" path="res://assets/characters/enemies/cat/bed.png" id="2_pw22j"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xb7db"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grqb0"]
+
+[node name="scene" type="Node2D"]
+
+[node name="food" type="Sprite2D" parent="." groups=["foods"]]
+position = Vector2(311, 117)
+texture = ExtResource("1_1jhr4")
+
+[node name="Area2D" type="Area2D" parent="food"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="food/Area2D"]
+shape = SubResource("CircleShape2D_xb7db")
+
+[node name="bed" type="Sprite2D" parent="." groups=["beds"]]
+position = Vector2(78, 114)
+texture = ExtResource("2_pw22j")
+
+[node name="Area2D" type="Area2D" parent="bed"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed/Area2D"]
+shape = SubResource("CircleShape2D_grqb0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(196, 113)
@@ -10,4 +34,4 @@ zoom = Vector2(3, 3)
 
 [node name="cat" parent="." instance=ExtResource("1_m1wqp")]
 unique_name_in_owner = true
-position = Vector2(197, 116)
+position = Vector2(192, 51)

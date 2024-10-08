@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://dgimfnrec4mn2"]
+[gd_scene load_steps=130 format=3 uid="uid://bdomcq316jv0m"]
 
 [ext_resource type="Texture2D" uid="uid://beryj7jpp0bbr" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
 [ext_resource type="Texture2D" uid="uid://d2tsavcd0o5d5" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
@@ -8,9 +8,11 @@
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
+[ext_resource type="Script" path="res://behavior-tree/cat/is_bed_available.gd" id="10_1fgmj"]
 [ext_resource type="Script" path="res://behavior-tree/cat/is_hungry.gd" id="10_3ljsi"]
 [ext_resource type="Script" path="res://behavior-tree/cat/is_tired.gd" id="10_fqmc6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/eat.gd" id="11_20a86"]
+[ext_resource type="Script" path="res://behavior-tree/cat/walk_to_bed.gd" id="11_j8rw6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/sleep.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
 
@@ -862,6 +864,12 @@ script = ExtResource("7_k3i1t")
 
 [node name="is_tired" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("10_fqmc6")
+
+[node name="is_bed_available" type="Node" parent="behavior_tree/root/check_tiredness"]
+script = ExtResource("10_1fgmj")
+
+[node name="walk_to_bed" type="Node" parent="behavior_tree/root/check_tiredness"]
+script = ExtResource("11_j8rw6")
 
 [node name="sleep" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("11_ylqhf")
