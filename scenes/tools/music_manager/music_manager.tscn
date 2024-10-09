@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5hrdo8tnlgt6"]
+
+[ext_resource type="Script" path="res://scripts/tools/music_manager/music_manager.gd" id="1_558ds"]
+[ext_resource type="AudioStream" uid="uid://b1k4xcfx2qfsi" path="res://assets/music/Cheese_on_the_moon.wav" id="2_wlu7h"]
+
+[node name="music_manager" type="Node"]
+script = ExtResource("1_558ds")
+
+[node name="audio_stream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wlu7h")
+volume_db = -1.14
+
+[connection signal="finished" from="audio_stream" to="." method="_on_music_finished"]
