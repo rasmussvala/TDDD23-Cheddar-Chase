@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://cjvvuyiy06fv6"]
+[gd_scene load_steps=129 format=3 uid="uid://cjvvuyiy06fv6"]
 
 [ext_resource type="Texture2D" uid="uid://beryj7jpp0bbr" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
 [ext_resource type="Texture2D" uid="uid://d2tsavcd0o5d5" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://behavior-tree/cat/walk_to_target.gd" id="11_j8rw6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/do_need.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
+[ext_resource type="Script" path="res://behavior-tree/cat/remove_food.gd" id="13_rtby5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
 atlas = ExtResource("2_1nhte")
@@ -906,6 +907,9 @@ script = ExtResource("11_ylqhf")
 need = "hunger"
 rate = "eating_rate"
 action = "eating"
+
+[node name="remove_food" type="Node" parent="behavior_tree/root/check_hunger"]
+script = ExtResource("13_rtby5")
 
 [node name="wander" type="Node" parent="behavior_tree/root"]
 script = ExtResource("12_sv6u5")
