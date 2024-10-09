@@ -5,13 +5,15 @@ extends BTAction
 @export var action: String
 
 func tick(blackboard: Dictionary) -> int:
-	if blackboard[need] > 0:
-		blackboard[need] -= blackboard["delta"] * blackboard[rate]
-		
-		var animated_sprite = blackboard["actor"].get_node("animated_sprite_cat")
-		animated_sprite.play(action)
-		
-		return RUNNING
-	else:
+	blackboard[need] -= blackboard["delta"] * blackboard[rate]
+	
+	# Cat is satisfied with need
+	if blackboard[need] < 0:
+		blackboard[need] = 0
 		blackboard[action] = false
 		return SUCCESS
+	
+	var animated_sprite = blackboard["actor"].get_node("animated_sprite_cat")
+	animated_sprite.play(action)
+	
+	return RUNNING

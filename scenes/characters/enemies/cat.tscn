@@ -836,8 +836,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6raqv"]
-radius = 5.59017
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6x4n"]
+radius = 6.0
+height = 24.0
 
 [node name="cat" type="CharacterBody2D"]
 
@@ -847,8 +848,8 @@ sprite_frames = SubResource("SpriteFrames_86umi")
 animation = &"walk"
 
 [node name="collsion_shape_cat" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("CircleShape2D_6raqv")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d6x4n")
 
 [node name="behavior_tree" type="Node" parent="."]
 script = ExtResource("6_iwl8f")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://disgxe6gr7crf"]
+[gd_scene load_steps=7 format=3 uid="uid://disgxe6gr7crf"]
 
 [ext_resource type="Texture2D" uid="uid://c6q3yhntsacro" path="res://assets/characters/enemies/cat/plate-food.png" id="1_1jhr4"]
 [ext_resource type="PackedScene" uid="uid://cjvvuyiy06fv6" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
 [ext_resource type="Texture2D" uid="uid://c6vwuci5rbpr8" path="res://assets/characters/enemies/cat/bed.png" id="2_pw22j"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="4_hnd5r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xb7db"]
 
@@ -28,10 +29,9 @@ texture = ExtResource("2_pw22j")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bed/Area2D"]
 shape = SubResource("CircleShape2D_grqb0")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(196, 113)
-zoom = Vector2(3, 3)
-
 [node name="cat" parent="." instance=ExtResource("1_m1wqp")]
 unique_name_in_owner = true
 position = Vector2(192, 51)
+
+[node name="player" parent="." instance=ExtResource("4_hnd5r")]
+position = Vector2(195, 89)

@@ -13,6 +13,5 @@ func tick(blackboard: Dictionary) -> int:
 	elif blackboard[action] and blackboard[need] > 0:
 		return SUCCESS
 	
-	# Need is satisfied and we don't want to do the action anymore
-	blackboard[action] = false
+	# Need is satisfied and we don't want to do the action
 	return FAILURE
