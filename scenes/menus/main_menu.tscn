@@ -1,28 +1,81 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnvkpndk0p0c3"]
+[gd_scene load_steps=10 format=3 uid="uid://bnvkpndk0p0c3"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_q11qb"]
 [ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="2_x5xsa"]
 [ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="3_idsb0"]
 
+[sub_resource type="Gradient" id="Gradient_rovui"]
+interpolation_mode = 2
+colors = PackedColorArray(0.289074, 0.383136, 0.856045, 1, 0.460825, 0.895118, 0.985488, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cafb1"]
+gradient = SubResource("Gradient_rovui")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tftrp"]
+font = ExtResource("2_x5xsa")
+font_size = 44
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nlf4"]
+bg_color = Color(0.7, 0.439717, 0.021, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.7, 0.5089, 0.154, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdqh1"]
+bg_color = Color(0.6, 0.372549, 0.0156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu7by"]
+bg_color = Color(0.88, 0.654133, 0.264, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.742127, 0.467024, 0.0233432, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource("1_q11qb")
 
-[node name="message" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -561.5
-offset_top = -83.0
-offset_right = 561.5
-offset_bottom = 17.0
+[node name="background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("GradientTexture1D_cafb1")
+
+[node name="message" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -561.5
+offset_top = 92.0
+offset_right = 561.5
+offset_bottom = 192.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_x5xsa")
 theme_override_font_sizes/font_size = 64
-text = "Collect the cheese!"
+text = "Project Stilton"
+label_settings = SubResource("LabelSettings_tftrp")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -33,14 +86,75 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.0
-offset_top = 20.0
-offset_right = 136.0
-offset_bottom = 92.0
+offset_left = -211.0
+offset_top = -124.0
+offset_right = 211.0
+offset_bottom = -52.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_idsb0")
-theme_override_font_sizes/font_size = 64
-text = "Start"
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_6nlf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mdqh1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hu7by")
+text = "Start game"
+
+[node name="load_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -24.0
+offset_right = 211.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_idsb0")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_6nlf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mdqh1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hu7by")
+text = "Load game"
+
+[node name="options_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 76.0
+offset_right = 211.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_idsb0")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_6nlf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mdqh1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hu7by")
+text = "Options"
+
+[node name="exit_button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 176.0
+offset_right = 211.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_idsb0")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_6nlf4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mdqh1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hu7by")
+text = "Exit game"
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

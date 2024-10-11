@@ -24,6 +24,7 @@ var max_health = 3
 var current_health = max_health
 var is_dead = false
 signal trigger_death_menu
+signal player_take_damage
 
 # Knockback variables
 var knockback_velocity = Vector2.ZERO
@@ -174,6 +175,9 @@ func take_damage(amount: int, attacker_position: Vector2):
 	
 	current_health -= amount
 	hud.update_health(current_health)
+	
+	# Emit signal when damage is taken
+	player_take_damage.emit()
 	
 	if current_health <= 0:
 		die()
