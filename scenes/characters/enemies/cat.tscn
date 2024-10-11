@@ -1,10 +1,10 @@
-[gd_scene load_steps=129 format=3 uid="uid://cjvvuyiy06fv6"]
+[gd_scene load_steps=130 format=3 uid="uid://tspy04gfoqh8"]
 
-[ext_resource type="Texture2D" uid="uid://beryj7jpp0bbr" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
-[ext_resource type="Texture2D" uid="uid://d2tsavcd0o5d5" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
-[ext_resource type="Texture2D" uid="uid://djprbsm2pe5w8" path="res://assets/characters/enemies/cat/sleep.png" id="3_oifql"]
-[ext_resource type="Texture2D" uid="uid://cv6ky538ea482" path="res://assets/characters/enemies/cat/stretch.png" id="4_1wgy5"]
-[ext_resource type="Texture2D" uid="uid://dwajow6bn638" path="res://assets/characters/enemies/cat/walk.png" id="5_wdolk"]
+[ext_resource type="Texture2D" uid="uid://daq4bviamg1x0" path="res://assets/characters/enemies/cat/eating.png" id="2_1nhte"]
+[ext_resource type="Texture2D" uid="uid://dlafii6fo7prn" path="res://assets/characters/enemies/cat/idle_sit.png" id="2_cmdkj"]
+[ext_resource type="Texture2D" uid="uid://dhfvbtjgowh14" path="res://assets/characters/enemies/cat/sleep.png" id="3_oifql"]
+[ext_resource type="Texture2D" uid="uid://l7nuscuglyhw" path="res://assets/characters/enemies/cat/stretch.png" id="4_1wgy5"]
+[ext_resource type="Texture2D" uid="uid://1utpfadajssq" path="res://assets/characters/enemies/cat/walk.png" id="5_wdolk"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://behavior-tree/cat/walk_to_target.gd" id="11_j8rw6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/do_need.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
+[ext_resource type="Script" path="res://behavior-tree/cat/is_food_in_bowl.gd" id="13_4v030"]
 [ext_resource type="Script" path="res://behavior-tree/cat/remove_food.gd" id="13_rtby5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
@@ -875,7 +876,7 @@ target = "bed"
 script = ExtResource("11_j8rw6")
 target = "bed"
 action = "sleeping"
-min_distance_to_target = 0.3
+min_distance_to_target = 1.0
 
 [node name="sleep" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("11_ylqhf")
@@ -892,9 +893,12 @@ need = "hunger"
 threshold = "hunger_threshold"
 action = "eating"
 
-[node name="is_food_available" type="Node" parent="behavior_tree/root/check_hunger"]
+[node name="is_food_bowl_available" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("10_1fgmj")
 target = "food"
+
+[node name="is_food_in_bowl" type="Node" parent="behavior_tree/root/check_hunger"]
+script = ExtResource("13_4v030")
 
 [node name="walk_to_food" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("11_j8rw6")
