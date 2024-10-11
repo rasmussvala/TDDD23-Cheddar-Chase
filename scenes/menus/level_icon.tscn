@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xkbgidfk0x0m"]
+[gd_scene load_steps=7 format=3 uid="uid://xkbgidfk0x0m"]
 
 [ext_resource type="Script" path="res://scripts/menus/level_icon.gd" id="1_tru2s"]
 [ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="2_6dorg"]
 [ext_resource type="Texture2D" uid="uid://sku0kefliyju" path="res://assets/testlevel/level_icon.png" id="3_u7auv"]
+[ext_resource type="Texture2D" uid="uid://cgv6rv2xnnj05" path="res://assets/testlevel/star_filled.png" id="4_4gx2h"]
 
 [sub_resource type="Theme" id="Theme_nad0m"]
 
@@ -28,17 +29,17 @@ script = ExtResource("1_tru2s")
 
 [node name="label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -33.0
-offset_top = -26.0
-offset_right = 99.0
-offset_bottom = -2.0
+offset_left = -34.0
+offset_top = -27.0
+offset_right = 98.0
+offset_bottom = -3.0
 theme = SubResource("Theme_nad0m")
 theme_override_fonts/font = ExtResource("2_6dorg")
 theme_override_font_sizes/font_size = 16
 text = "Level 1"
 label_settings = SubResource("LabelSettings_dbju3")
 
-[node name="texture_rect" type="TextureRect" parent="."]
+[node name="level_icon" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,8 +47,57 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = -64.0
+offset_top = -33.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 texture = ExtResource("3_u7auv")
+
+[node name="star_1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -72.0
+offset_right = -66.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("4_4gx2h")
+
+[node name="star_2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -72.0
+offset_right = -22.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("4_4gx2h")
+
+[node name="star_3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -72.0
+offset_right = 22.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("4_4gx2h")

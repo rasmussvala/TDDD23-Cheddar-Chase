@@ -1,76 +1,51 @@
-[gd_scene load_steps=14 format=4 uid="uid://dni2huswsn7rp"]
+[gd_scene load_steps=15 format=4 uid="uid://dni2huswsn7rp"]
 
-[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="1_3im0l"]
-[ext_resource type="Script" path="res://scripts/levels/demo_level.gd" id="1_bkpxm"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_k3ck1"]
-[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="1_v7lt3"]
-[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="2_38877"]
-[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="2_y8u5l"]
-[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="3_7hcgq"]
-[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="4_82wxn"]
-[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="5_4bd2v"]
-[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="5_5gdem"]
-[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="5_jdct3"]
-[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="5_pey20"]
-[ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="6_itwjh"]
+[ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_yu346"]
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_ctq8h"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_ehnw3"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="3_06by1"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_yfy0u"]
+[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="5_sjk8s"]
+[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="6_odnj8"]
+[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_ma6rg"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="8_khwp8"]
+[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="9_eaesg"]
+[ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="10_6dbjf"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="11_vw18i"]
+[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="12_gnqvo"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="13_3g2b7"]
 
-[node name="demo_level" type="Node2D"]
-script = ExtResource("1_bkpxm")
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_yu346")
 
-[node name="win_menu" parent="." instance=ExtResource("1_v7lt3")]
-unique_name_in_owner = true
-
-[node name="death_menu" parent="." instance=ExtResource("2_y8u5l")]
+[node name="level_time" parent="." instance=ExtResource("2_ctq8h")]
 unique_name_in_owner = true
 
 [node name="game_manager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("1_k3ck1")
+script = ExtResource("4_yfy0u")
+
+[node name="win_menu" parent="." instance=ExtResource("2_ehnw3")]
+unique_name_in_owner = true
+visible = false
+
+[node name="death_menu" parent="." instance=ExtResource("3_06by1")]
+unique_name_in_owner = true
+visible = false
 
 [node name="level_layers" type="Node" parent="."]
 
-[node name="room_layer" parent="level_layers" instance=ExtResource("1_3im0l")]
+[node name="room_layer" parent="level_layers" instance=ExtResource("5_sjk8s")]
 tile_map_data = PackedByteArray("AAAEAP//AAACAAYAAAD//wAAAAAAAAIAAAAAAAAAAAACAAIAAAADAP//AAABAAYAAAACAP//AAABAAYAAAABAP//AAABAAYAAAAAAP//AAAGAAEAAAD/////AAAAAAEAAAD///7/AAAAAAAAAAAAAP7/AAACAAAAAAAFAP//AAABAAYAAAAGAP//AAABAAYAAAAHAP//AAACAAYAAAAJAP7/AAAAAAEAAAAJAP3/AAAAAAEAAAAJAPz/AAAAAAAAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAIAP//AAABAAYAAAAJAP//AAAIAAEAAAAJAAAAAAAAAAEAAAAKAPz/AAABAAAAAAALAPz/AAABAAAAAAAMAPz/AAABAAAAAAANAPz/AAABAAAAAAAOAPz/AAABAAAAAAAKAAIAAAABAAIAAAALAAIAAAABAAIAAAAMAAIAAAABAAIAAAANAAIAAAABAAIAAAAOAAIAAAABAAIAAAAPAAIAAAACAAIAAAAPAPz/AAACAAAAAAAMAP//AAAEAAQAAAANAAAAAAAIAAUAAAAMAAAAAAAHAAUAAAALAAAAAAAGAAUAAAALAP//AAAGAAQAAAALAP7/AAAGAAMAAAAMAP7/AAAHAAMAAAANAP7/AAAIAAMAAAANAP//AAAIAAQAAAAKAAAAAAAHAAEAAAALAAEAAAAHAAEAAAAKAP7/AAAHAAEAAAALAP3/AAAHAAEAAAANAP3/AAAHAAEAAAAOAP7/AAAHAAEAAAAOAAAAAAAHAAEAAAANAAEAAAAHAAEAAAAPAAAAAAACAAEAAAAPAP3/AAACAAEAAAAPAP7/AAACAAEAAAAPAP//AAAGAAEAAAAMAP3/AAABAAEAAAAOAP3/AAABAAEAAAAOAP//AAABAAEAAAAOAAEAAAABAAEAAAAMAAEAAAABAAEAAAAKAAEAAAABAAEAAAAKAP//AAABAAEAAAAKAP3/AAABAAEAAAAQAP//AAABAAYAAAAPAAEAAAACAAEAAAARAP//AAAJAAoAAAARAP7/AAAAAAoAAAARAP3/AAAAAAkAAAARAAEAAAAAAAsAAAARAAAAAAAAAAoAAAASAAEAAAABAAsAAAATAAEAAAABAAsAAAAUAAEAAAABAAsAAAAVAAEAAAACAAsAAAASAP3/AAABAAkAAAATAP3/AAABAAkAAAAUAP3/AAABAAkAAAAVAP3/AAACAAkAAAAVAP7/AAACAAoAAAAVAP//AAACAAoAAAAVAAAAAAACAAoAAAASAAAAAAABAAoAAAASAP//AAABAAoAAAASAP7/AAABAAoAAAATAP7/AAABAAoAAAATAP//AAABAAoAAAATAAAAAAABAAoAAAAUAAAAAAABAAoAAAAUAP//AAABAAoAAAAUAP7/AAABAAoAAAA=")
 
-[node name="furniture_layer" parent="level_layers" instance=ExtResource("2_38877")]
+[node name="furniture_layer" parent="level_layers" instance=ExtResource("6_odnj8")]
 
-[node name="decoration_layer" parent="level_layers" instance=ExtResource("3_7hcgq")]
+[node name="decoration_layer" parent="level_layers" instance=ExtResource("7_ma6rg")]
 tile_map_data = PackedByteArray("AAAUAP//AQAEAAMAAAAJAAIAAQAGAAMAAAAKAP3/AQAAAAQAAAAOAAIAAQACAAQAAAANAAAAAQAEAAQAAAAKAAEAAQADAAQAAFAOAPz/AQACAAMAAAASAP7/AQAFAAQAAAAUAAAAAQAEAAQAAAA=")
-
-[node name="enemies" type="Node" parent="."]
-
-[node name="bug_red_1" parent="enemies" instance=ExtResource("5_4bd2v")]
-position = Vector2(169, -16)
-
-[node name="bug_blue_1" parent="enemies" instance=ExtResource("5_jdct3")]
-position = Vector2(336, -80)
-
-[node name="bug_blue_2" parent="enemies" instance=ExtResource("5_jdct3")]
-position = Vector2(464, -80)
-
-[node name="bug_blue_3" parent="enemies" instance=ExtResource("5_jdct3")]
-position = Vector2(464, 48)
-
-[node name="bug_blue_4" parent="enemies" instance=ExtResource("5_jdct3")]
-position = Vector2(336, 48)
-
-[node name="bug_green_1" parent="enemies" instance=ExtResource("6_itwjh")]
-position = Vector2(656, -48)
-
-[node name="bug_green_2" parent="enemies" instance=ExtResource("6_itwjh")]
-position = Vector2(656, 16)
-
-[node name="cheeses" type="Node" parent="."]
-
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("5_5gdem")]
-position = Vector2(400, -16)
-
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("5_5gdem")]
-position = Vector2(656, -16)
 
 [node name="obstacles" type="Node" parent="."]
 
-[node name="pits" parent="obstacles" instance=ExtResource("5_pey20")]
+[node name="pits" parent="obstacles" instance=ExtResource("12_gnqvo")]
 position = Vector2(80, -64)
 
 [node name="pit_shape_1" type="CollisionPolygon2D" parent="obstacles/pits"]
@@ -117,9 +92,40 @@ polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
 position = Vector2(328, -8)
 polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
 
+[node name="cheeses" type="Node" parent="."]
+
+[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_vw18i")]
+position = Vector2(400, -16)
+
+[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_vw18i")]
+position = Vector2(656, -16)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="bug_red_1" parent="enemies" instance=ExtResource("8_khwp8")]
+position = Vector2(169, -16)
+
+[node name="bug_blue_1" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(336, -80)
+
+[node name="bug_blue_2" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(464, -80)
+
+[node name="bug_blue_3" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(464, 48)
+
+[node name="bug_blue_4" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(336, 48)
+
+[node name="bug_green_1" parent="enemies" instance=ExtResource("10_6dbjf")]
+position = Vector2(656, -48)
+
+[node name="bug_green_2" parent="enemies" instance=ExtResource("10_6dbjf")]
+position = Vector2(656, 16)
+
 [node name="player" type="Node" parent="."]
 
-[node name="player" parent="player" instance=ExtResource("4_82wxn")]
+[node name="player" parent="player" instance=ExtResource("13_3g2b7")]
 unique_name_in_owner = true
 position = Vector2(0, -16)
 

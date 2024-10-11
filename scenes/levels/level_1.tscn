@@ -1,0 +1,115 @@
+[gd_scene load_steps=20 format=4 uid="uid://dni2huswsn7rp"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_oxshq"]
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_15cmg"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_ydsa1"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="3_y5cru"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="4_5fmyo"]
+[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="5_k1bs0"]
+[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="6_wgxv6"]
+[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_audga"]
+[ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="8_fm7l0"]
+[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="9_udjdq"]
+[ext_resource type="PackedScene" uid="uid://d4bboajpgnlfq" path="res://scenes/collectibles/pill.tscn" id="10_jq64k"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="11_lbb3u"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="12_vwfu5"]
+[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="13_jvws1"]
+[ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="14_ck47h"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="15_ba35b"]
+[ext_resource type="PackedScene" uid="uid://bw5xityvbf8d2" path="res://scenes/characters/enemies/bug_flying.tscn" id="16_sxnn5"]
+[ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="17_68epc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
+size = Vector2(32, 32)
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_oxshq")
+
+[node name="level_time" parent="." instance=ExtResource("2_15cmg")]
+unique_name_in_owner = true
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_ydsa1")
+
+[node name="win_menu" parent="." instance=ExtResource("3_y5cru")]
+unique_name_in_owner = true
+visible = false
+
+[node name="death_menu" parent="." instance=ExtResource("4_5fmyo")]
+unique_name_in_owner = true
+visible = false
+
+[node name="level_layers" type="Node" parent="."]
+
+[node name="room_layer" parent="level_layers" instance=ExtResource("5_k1bs0")]
+tile_map_data = PackedByteArray("AAD7//v/AAAAAAAAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAABAPv/AAAHAAIAAAACAPv/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAACAAAAAAAEAPz/AAACAAEAAAAEAP3/AAACAAEAAAAEAP7/AAAGAAEAAAAEAP//AAACAAEAAAD7//z/AAAAAAEAAAD7//3/AAAAAAEAAAD7//7/AAAIAAEAAAD7////AAAAAAEAAAAEAAQAAAACAAsAAAD7/wQAAAAAAAsAAAD7/wMAAAAAAAoAAAD7/wIAAAAAAAoAAAD7/wEAAAAAAAoAAAD7/wAAAAAAAAoAAAAEAAMAAAACAAoAAAAEAAIAAAACAAoAAAAEAAEAAAACAAoAAAAEAAAAAAACAAoAAAADAAQAAAABAAsAAAACAAQAAAABAAsAAAABAAQAAAABAAsAAAAAAAQAAAABAAsAAAD//wQAAAABAAsAAAD+/wQAAAABAAsAAAD9/wQAAAABAAsAAAD8/wQAAAABAAsAAAADAAMAAAABAAoAAAACAAMAAAABAAoAAAABAAMAAAABAAoAAAAAAAMAAAABAAoAAAD//wMAAAABAAoAAAD+/wMAAAABAAoAAAD9/wMAAAABAAoAAAD8/wMAAAABAAoAAAD8/wIAAAABAAoAAAD9/wIAAAABAAoAAAD+/wIAAAABAAoAAAD//wIAAAABAAoAAAAAAAIAAAABAAoAAAABAAIAAAABAAoAAAACAAIAAAABAAoAAAADAAIAAAABAAoAAAADAAEAAAABAAoAAAACAAEAAAABAAoAAAABAAEAAAABAAoAAAAAAAEAAAABAAoAAAD//wEAAAABAAoAAAD+/wEAAAABAAoAAAD9/wEAAAABAAoAAAD8/wEAAAABAAoAAAD8/wAAAAABAAoAAAD9/wAAAAABAAoAAAD+/wAAAAABAAoAAAD//wAAAAABAAoAAAAAAAAAAAABAAoAAAABAAAAAAABAAoAAAACAAAAAAABAAoAAAADAAAAAAABAAoAAAADAP//AAAIAAUAAAACAP//AAAHAAUAAAABAP//AAAGAAUAAAAAAP//AAABAAEAAAD/////AAABAAEAAAD+////AAABAAEAAAD9////AAABAAEAAAD8////AAABAAEAAAD8//7/AAABAAEAAAD9//7/AAABAAEAAAD+//7/AAABAAEAAAD///7/AAABAAEAAAAAAP7/AAABAAEAAAABAP7/AAAGAAQAAAACAP7/AAAHAAQAAAADAP7/AAAIAAQAAAADAP3/AAAIAAMAAAACAP3/AAAHAAMAAAABAP3/AAAGAAMAAAAAAP3/AAABAAEAAAD///3/AAABAAEAAAD+//3/AAABAAEAAAD9//3/AAABAAEAAAD8//3/AAABAAEAAAD8//z/AAABAAEAAAD9//z/AAABAAEAAAD+//z/AAABAAEAAAD///z/AAABAAEAAAAAAPz/AAABAAEAAAABAPz/AAABAAEAAAACAPz/AAABAAEAAAADAPz/AAABAAEAAAD6//7/AAADAAIAAAD6//3/AAAJAAEAAAD6//z/AAAJAAEAAAD6//v/AAAJAAEAAAD6//r/AAADAAAAAAD7//r/AAABAAYAAAD8//r/AAABAAYAAAD9//r/AAABAAYAAAD+//r/AAABAAYAAAD///r/AAABAAYAAAAAAPr/AAABAAYAAAABAPr/AAAFAAAAAAA=")
+
+[node name="furniture_layer" parent="level_layers" instance=ExtResource("6_wgxv6")]
+tile_map_data = PackedByteArray("AAD8//z/AAADAAMAAAD///z/AAAAAAMAAAA=")
+
+[node name="decoration_layer" parent="level_layers" instance=ExtResource("7_audga")]
+
+[node name="obstacles" type="Node" parent="."]
+
+[node name="mouse_trap" parent="obstacles" instance=ExtResource("8_fm7l0")]
+position = Vector2(40, 0)
+
+[node name="pit" parent="obstacles" instance=ExtResource("9_udjdq")]
+
+[node name="pit_collision" type="CollisionShape2D" parent="obstacles/pit"]
+position = Vector2(80, -48)
+shape = SubResource("RectangleShape2D_yseke")
+debug_color = Color(0.961248, 0, 0.511433, 0.42)
+
+[node name="cheeses" type="Node" parent="."]
+
+[node name="pill_1" parent="cheeses" instance=ExtResource("10_jq64k")]
+position = Vector2(48, -176)
+
+[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_lbb3u")]
+position = Vector2(-16, -48)
+
+[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_lbb3u")]
+position = Vector2(-80, 112)
+
+[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_lbb3u")]
+position = Vector2(112, 80)
+
+[node name="cheese_4" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_lbb3u")]
+position = Vector2(112, -112)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="bug_red_1" parent="enemies" instance=ExtResource("12_vwfu5")]
+position = Vector2(112, -16)
+
+[node name="bug_red_2" parent="enemies" instance=ExtResource("12_vwfu5")]
+position = Vector2(-112, -16)
+
+[node name="bug_red_3" parent="enemies" instance=ExtResource("12_vwfu5")]
+position = Vector2(-112, 80)
+
+[node name="bug_red_4" parent="enemies" instance=ExtResource("12_vwfu5")]
+position = Vector2(112, 80)
+
+[node name="bug_blue_1" parent="enemies" instance=ExtResource("13_jvws1")]
+position = Vector2(0, 144)
+
+[node name="bug_green_1" parent="enemies" instance=ExtResource("14_ck47h")]
+position = Vector2(-88, 144)
+
+[node name="player" type="Node" parent="."]
+
+[node name="player" parent="player" instance=ExtResource("15_ba35b")]
+unique_name_in_owner = true
+
+[node name="flying_enemies" type="Node" parent="."]
+
+[node name="bug_flying_1" parent="flying_enemies" instance=ExtResource("16_sxnn5")]
+position = Vector2(136, -96)
+
+[node name="bug_flying_shooter_1" parent="flying_enemies" instance=ExtResource("17_68epc")]
+position = Vector2(-64, -120)
+
+[connection signal="trigger_death_menu" from="player/player" to="game_manager" method="_on_player_trigger_death_menu"]
