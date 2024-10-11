@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://dni2huswsn7rp"]
+[gd_scene load_steps=15 format=4 uid="uid://dni2huswsn7rp"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_yu346"]
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_ctq8h"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="2_ehnw3"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="3_06by1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_yfy0u"]
@@ -14,18 +15,23 @@
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="12_gnqvo"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="13_3g2b7"]
 
-[node name="demo_level" type="Node2D"]
+[node name="level_2" type="Node2D"]
 script = ExtResource("1_yu346")
 
-[node name="win_menu" parent="." instance=ExtResource("2_ehnw3")]
-unique_name_in_owner = true
-
-[node name="death_menu" parent="." instance=ExtResource("3_06by1")]
+[node name="level_time" parent="." instance=ExtResource("2_ctq8h")]
 unique_name_in_owner = true
 
 [node name="game_manager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_yfy0u")
+
+[node name="win_menu" parent="." instance=ExtResource("2_ehnw3")]
+unique_name_in_owner = true
+visible = false
+
+[node name="death_menu" parent="." instance=ExtResource("3_06by1")]
+unique_name_in_owner = true
+visible = false
 
 [node name="level_layers" type="Node" parent="."]
 
@@ -36,37 +42,6 @@ tile_map_data = PackedByteArray("AAAEAP//AAACAAYAAAD//wAAAAAAAAIAAAAAAAAAAAACAAI
 
 [node name="decoration_layer" parent="level_layers" instance=ExtResource("7_ma6rg")]
 tile_map_data = PackedByteArray("AAAUAP//AQAEAAMAAAAJAAIAAQAGAAMAAAAKAP3/AQAAAAQAAAAOAAIAAQACAAQAAAANAAAAAQAEAAQAAAAKAAEAAQADAAQAAFAOAPz/AQACAAMAAAASAP7/AQAFAAQAAAAUAAAAAQAEAAQAAAA=")
-
-[node name="enemies" type="Node" parent="."]
-
-[node name="bug_red_1" parent="enemies" instance=ExtResource("8_khwp8")]
-position = Vector2(169, -16)
-
-[node name="bug_blue_1" parent="enemies" instance=ExtResource("9_eaesg")]
-position = Vector2(336, -80)
-
-[node name="bug_blue_2" parent="enemies" instance=ExtResource("9_eaesg")]
-position = Vector2(464, -80)
-
-[node name="bug_blue_3" parent="enemies" instance=ExtResource("9_eaesg")]
-position = Vector2(464, 48)
-
-[node name="bug_blue_4" parent="enemies" instance=ExtResource("9_eaesg")]
-position = Vector2(336, 48)
-
-[node name="bug_green_1" parent="enemies" instance=ExtResource("10_6dbjf")]
-position = Vector2(656, -48)
-
-[node name="bug_green_2" parent="enemies" instance=ExtResource("10_6dbjf")]
-position = Vector2(656, 16)
-
-[node name="cheeses" type="Node" parent="."]
-
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_vw18i")]
-position = Vector2(400, -16)
-
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_vw18i")]
-position = Vector2(656, -16)
 
 [node name="obstacles" type="Node" parent="."]
 
@@ -116,6 +91,37 @@ polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
 [node name="pit_shape_11" type="CollisionPolygon2D" parent="obstacles/pits"]
 position = Vector2(328, -8)
 polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
+
+[node name="cheeses" type="Node" parent="."]
+
+[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_vw18i")]
+position = Vector2(400, -16)
+
+[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_vw18i")]
+position = Vector2(656, -16)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="bug_red_1" parent="enemies" instance=ExtResource("8_khwp8")]
+position = Vector2(169, -16)
+
+[node name="bug_blue_1" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(336, -80)
+
+[node name="bug_blue_2" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(464, -80)
+
+[node name="bug_blue_3" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(464, 48)
+
+[node name="bug_blue_4" parent="enemies" instance=ExtResource("9_eaesg")]
+position = Vector2(336, 48)
+
+[node name="bug_green_1" parent="enemies" instance=ExtResource("10_6dbjf")]
+position = Vector2(656, -48)
+
+[node name="bug_green_2" parent="enemies" instance=ExtResource("10_6dbjf")]
+position = Vector2(656, 16)
 
 [node name="player" type="Node" parent="."]
 

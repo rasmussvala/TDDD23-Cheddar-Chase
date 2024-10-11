@@ -7,7 +7,7 @@ class_name LevelSelect
 var move_tween: Tween
 
 func _ready() -> void:
-	# Find the correct level icon based on the stored level number
+	# Find the correct level icon to spawn on
 	var target_level_name = game_data.get_current_level_icon_name()
 	for level in get_tree().get_nodes_in_group("level_icons"):
 		if level is LevelIcon and level.level_name == target_level_name:

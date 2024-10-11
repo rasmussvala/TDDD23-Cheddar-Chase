@@ -14,7 +14,6 @@ var world_select_scene = preload("res://scenes/menus/world_select.tscn")
 func set_current_level(path: String) -> void:
 	current_level_path = path
 
-
 func get_current_level() -> String:
 	return current_level_path
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://dni2huswsn7rp"]
+[gd_scene load_steps=20 format=4 uid="uid://dni2huswsn7rp"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_1.gd" id="1_oxshq"]
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_15cmg"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_ydsa1"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="3_y5cru"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="4_5fmyo"]
@@ -21,8 +22,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yseke"]
 size = Vector2(32, 32)
 
-[node name="game" type="Node2D"]
+[node name="level_1" type="Node2D"]
 script = ExtResource("1_oxshq")
+
+[node name="level_time" parent="." instance=ExtResource("2_15cmg")]
+unique_name_in_owner = true
 
 [node name="game_manager" type="Node" parent="."]
 unique_name_in_owner = true
