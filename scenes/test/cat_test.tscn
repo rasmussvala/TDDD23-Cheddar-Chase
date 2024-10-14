@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwbs3k6te72o6"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_0rnyb"]
-[ext_resource type="Texture2D" uid="uid://cenmcx3p6ut07" path="res://assets/characters/enemies/cat/plate-food.png" id="1_1jhr4"]
-[ext_resource type="PackedScene" uid="uid://tspy04gfoqh8" path="res://scenes/characters/enemies/cat.tscn" id="1_m1wqp"]
-[ext_resource type="Texture2D" uid="uid://s00d015qb6oo" path="res://assets/characters/enemies/cat/bed.png" id="2_pw22j"]
+[ext_resource type="Texture2D" uid="uid://cenmcx3p6ut07" path="res://assets/cat/stuff/plate-food.png" id="1_1jhr4"]
+[ext_resource type="PackedScene" uid="uid://tspy04gfoqh8" path="res://scenes/characters/enemies/cat/cat.tscn" id="1_m1wqp"]
+[ext_resource type="Texture2D" uid="uid://s00d015qb6oo" path="res://assets/cat/stuff/bed.png" id="2_pw22j"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="4_hnd5r"]
 [ext_resource type="PackedScene" uid="uid://dtomxmva8ax4d" path="res://scenes/collectibles/fish.tscn" id="5_cm78y"]
 
