@@ -5,6 +5,7 @@ var max_score = 0
 var time_taken: float = 0.0
 var damage_taken: bool = false
 var stars_earned: int = 0
+var carries_fish: bool = false
 
 @onready var player: CharacterBody2D = %player
 @onready var death_menu: CanvasLayer = %death_menu
@@ -29,6 +30,10 @@ func _process(delta: float) -> void:
 func update_initial_hud() -> void:
 	if player:
 		player.hud.update_score(score, max_score)
+
+func mouse_has_fish(value: bool) -> void: 
+	carries_fish = value
+	print("mouse has fish: %s" % str(carries_fish))
 
 func add_point() -> void:
 	score += 1
