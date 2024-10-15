@@ -135,7 +135,7 @@ func handle_movement_and_actions(delta):
 				animated_sprite_2d.play("idle")
 	
 		# Roll mechanic: Only allow rolling if there is movement input and the roll action is just pressed
-		if Input.is_action_just_pressed("ui_shift") and input_vector.length() > 0:
+		if Input.is_action_just_pressed("ui_jump") and input_vector.length() > 0:
 			is_rolling = true
 			roll_timer = roll_duration
 			velocity = velocity.normalized() * roll_speed
