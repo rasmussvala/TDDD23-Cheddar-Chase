@@ -1,10 +1,10 @@
 [gd_scene load_steps=132 format=3 uid="uid://tspy04gfoqh8"]
 
-[ext_resource type="Texture2D" uid="uid://d31nklwcmjbiq" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
-[ext_resource type="Texture2D" uid="uid://bpbtt7kb345i2" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
-[ext_resource type="Texture2D" uid="uid://cxwvvcbosab42" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
-[ext_resource type="Texture2D" uid="uid://dowwmkmjj60uf" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
-[ext_resource type="Texture2D" uid="uid://2623xhcrqed7" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
+[ext_resource type="Texture2D" uid="uid://bpx3j32akjepw" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
+[ext_resource type="Texture2D" uid="uid://bcyaj8bw6hc53" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
+[ext_resource type="Texture2D" uid="uid://bb0jg5ktjgmfd" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
+[ext_resource type="Texture2D" uid="uid://dyw3ym86eje5p" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
+[ext_resource type="Texture2D" uid="uid://bifrd17ajwylb" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
@@ -847,6 +847,7 @@ height = 24.0
 [node name="cat" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 137
+motion_mode = 1
 
 [node name="animated_sprite_cat" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -939,6 +940,10 @@ collision_mask = 2
 [node name="detection_area_polygon" type="CollisionPolygon2D" parent="detection_area"]
 unique_name_in_owner = true
 polygon = PackedVector2Array(14, -4, -16, -48, 56, -40, 72, -16, 72, 16, 56, 40, -16, 48, 14, 4)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+debug_enabled = true
 
 [connection signal="body_entered" from="detection_area" to="behavior_tree" method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="detection_area" to="behavior_tree" method="_on_DetectionArea_body_exited"]
