@@ -1,5 +1,5 @@
 extends BTAction
 
 func tick(blackboard: Dictionary) -> int:
-	blackboard["food"].texture = load("res://assets/characters/enemies/cat/plate-empty.png")
+	blackboard["food"].texture = load("res://assets/cat/stuff/plate-empty.png")
 	return SUCCESS
