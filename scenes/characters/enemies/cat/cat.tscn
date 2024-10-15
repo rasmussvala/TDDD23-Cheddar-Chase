@@ -1,15 +1,17 @@
-[gd_scene load_steps=130 format=3 uid="uid://tspy04gfoqh8"]
+[gd_scene load_steps=132 format=3 uid="uid://tspy04gfoqh8"]
 
-[ext_resource type="Texture2D" uid="uid://daq4bviamg1x0" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
-[ext_resource type="Texture2D" uid="uid://dlafii6fo7prn" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
-[ext_resource type="Texture2D" uid="uid://dhfvbtjgowh14" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
-[ext_resource type="Texture2D" uid="uid://l7nuscuglyhw" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
-[ext_resource type="Texture2D" uid="uid://1utpfadajssq" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
+[ext_resource type="Texture2D" uid="uid://d31nklwcmjbiq" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
+[ext_resource type="Texture2D" uid="uid://bpbtt7kb345i2" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
+[ext_resource type="Texture2D" uid="uid://cxwvvcbosab42" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
+[ext_resource type="Texture2D" uid="uid://dowwmkmjj60uf" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
+[ext_resource type="Texture2D" uid="uid://2623xhcrqed7" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
+[ext_resource type="Script" path="res://behavior-tree/cat/can_see_player.gd" id="9_g6ms1"]
 [ext_resource type="Script" path="res://behavior-tree/cat/check_need.gd" id="9_qm48p"]
 [ext_resource type="Script" path="res://behavior-tree/cat/is_target_available.gd" id="10_1fgmj"]
+[ext_resource type="Script" path="res://behavior-tree/cat/chase_player.gd" id="10_pxn7j"]
 [ext_resource type="Script" path="res://behavior-tree/cat/walk_to_target.gd" id="11_j8rw6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/do_need.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
@@ -843,6 +845,8 @@ radius = 6.0
 height = 24.0
 
 [node name="cat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 137
 
 [node name="animated_sprite_cat" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -858,6 +862,15 @@ script = ExtResource("6_iwl8f")
 
 [node name="root" type="Node" parent="behavior_tree"]
 script = ExtResource("6_wa3x3")
+
+[node name="check_mouse" type="Node" parent="behavior_tree/root"]
+script = ExtResource("7_k3i1t")
+
+[node name="can_see_player" type="Node" parent="behavior_tree/root/check_mouse"]
+script = ExtResource("9_g6ms1")
+
+[node name="chase_player" type="Node" parent="behavior_tree/root/check_mouse"]
+script = ExtResource("10_pxn7j")
 
 [node name="check_tiredness" type="Node" parent="behavior_tree/root"]
 script = ExtResource("7_k3i1t")
@@ -917,3 +930,15 @@ script = ExtResource("13_rtby5")
 
 [node name="wander" type="Node" parent="behavior_tree/root"]
 script = ExtResource("12_sv6u5")
+
+[node name="detection_area" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 2
+
+[node name="detection_area_polygon" type="CollisionPolygon2D" parent="detection_area"]
+unique_name_in_owner = true
+polygon = PackedVector2Array(14, -4, -16, -48, 56, -40, 72, -16, 72, 16, 56, 40, -16, 48, 14, 4)
+
+[connection signal="body_entered" from="detection_area" to="behavior_tree" method="_on_DetectionArea_body_entered"]
+[connection signal="body_exited" from="detection_area" to="behavior_tree" method="_on_DetectionArea_body_exited"]
