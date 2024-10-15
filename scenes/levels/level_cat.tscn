@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=4 uid="uid://cjrl5e0ndsrpv"]
+
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="1_0ga1j"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_8w1x8"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="3_rdvgf"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="4_8nb7t"]
+[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="5_l8ume"]
+[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="6_d202h"]
+[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_d3gmj"]
+[ext_resource type="PackedScene" uid="uid://tspy04gfoqh8" path="res://scenes/characters/enemies/cat/cat.tscn" id="8_0ryfj"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="8_be6p3"]
+[ext_resource type="Texture2D" uid="uid://dbxmiuwpdjsci" path="res://assets/cat/stuff/bed.png" id="9_hdpm2"]
+[ext_resource type="Texture2D" uid="uid://dg377w3gn3wrn" path="res://assets/cat/stuff/plate-food.png" id="9_s8gfa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cohuy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykq0q"]
+
+[node name="level_cat" type="Node2D"]
+
+[node name="level_time" parent="." instance=ExtResource("1_0ga1j")]
+unique_name_in_owner = true
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_8w1x8")
+
+[node name="win_menu" parent="." instance=ExtResource("3_rdvgf")]
+unique_name_in_owner = true
+visible = false
+
+[node name="death_menu" parent="." instance=ExtResource("4_8nb7t")]
+unique_name_in_owner = true
+visible = false
+
+[node name="level_layers" type="Node" parent="."]
+
+[node name="room_layer" parent="level_layers" instance=ExtResource("5_l8ume")]
+tile_map_data = PackedByteArray("AAD7//v/AAABAAEAAAD8//v/AAABAAEAAAD9//v/AAABAAEAAAD+//v/AAABAAEAAAD///v/AAABAAEAAAAAAPv/AAABAAEAAAABAPv/AAABAAEAAAACAPv/AAABAAEAAAADAPv/AAABAAEAAAAEAPv/AAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAD7//z/AAABAAEAAAD7//3/AAABAAEAAAD7//7/AAABAAEAAAD7////AAABAAEAAAAEAAQAAAABAAEAAAD7/wQAAAABAAEAAAD7/wMAAAABAAEAAAD7/wIAAAABAAEAAAD7/wEAAAABAAEAAAD7/wAAAAABAAEAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAEAAEAAAABAAEAAAAEAAAAAAABAAEAAAADAAQAAAABAAEAAAACAAQAAAABAAEAAAABAAQAAAABAAEAAAAAAAQAAAABAAEAAAD//wQAAAABAAEAAAD+/wQAAAABAAEAAAD9/wQAAAABAAEAAAD8/wQAAAABAAEAAAADAAMAAAABAAEAAAACAAMAAAABAAEAAAABAAMAAAABAAEAAAAAAAMAAAABAAEAAAD//wMAAAABAAEAAAD+/wMAAAABAAEAAAD9/wMAAAABAAEAAAD8/wMAAAABAAEAAAD8/wIAAAABAAEAAAD9/wIAAAABAAEAAAD+/wIAAAABAAEAAAD//wIAAAABAAEAAAAAAAIAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAACAAEAAAABAAEAAAABAAEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD+/wEAAAABAAEAAAD9/wEAAAABAAEAAAD8/wEAAAABAAEAAAD8/wAAAAABAAEAAAD9/wAAAAABAAEAAAD+/wAAAAABAAEAAAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAACAP//AAABAAEAAAABAP//AAABAAEAAAAAAP//AAABAAEAAAD/////AAABAAEAAAD+////AAABAAEAAAD9////AAABAAEAAAD8////AAABAAEAAAD8//7/AAABAAEAAAD9//7/AAABAAEAAAD+//7/AAABAAEAAAD///7/AAABAAEAAAAAAP7/AAABAAEAAAABAP7/AAABAAEAAAACAP7/AAABAAEAAAADAP7/AAABAAEAAAADAP3/AAABAAEAAAACAP3/AAABAAEAAAABAP3/AAABAAEAAAAAAP3/AAABAAEAAAD///3/AAABAAEAAAD+//3/AAABAAEAAAD9//3/AAABAAEAAAD8//3/AAABAAEAAAD8//z/AAABAAEAAAD9//z/AAABAAEAAAD+//z/AAABAAEAAAD///z/AAABAAEAAAAAAPz/AAABAAEAAAABAPz/AAABAAEAAAACAPz/AAABAAEAAAADAPz/AAABAAEAAAD6/wEAAAAAAAEAAAD6/wAAAAAAAAEAAAD6////AAAAAAEAAAD6//7/AAAAAAEAAAD6//3/AAAAAAEAAAD6//z/AAAAAAEAAAD6//v/AAAAAAEAAAD6/wIAAAAAAAEAAAD6/wMAAAAAAAEAAAD6/wUAAAAAAAEAAAD6/wQAAAAAAAEAAAD7/wUAAAABAAEAAAD8/wUAAAABAAEAAAD9/wUAAAABAAEAAAD+/wUAAAABAAEAAAD//wUAAAABAAEAAAAAAAUAAAABAAEAAAABAAUAAAABAAEAAAACAAUAAAABAAEAAAADAAUAAAABAAEAAAAEAAUAAAABAAEAAAAFAAQAAAABAAEAAAAFAAMAAAABAAEAAAAFAAIAAAABAAEAAAAFAAEAAAABAAEAAAAFAAAAAAABAAEAAAAFAP//AAABAAEAAAAFAP7/AAABAAEAAAAFAP3/AAABAAEAAAAFAPz/AAABAAEAAAAFAPv/AAABAAEAAAAEAPr/AAABAAAAAAADAPr/AAABAAAAAAACAPr/AAABAAAAAAABAPr/AAABAAAAAAAAAPr/AAABAAAAAAD///r/AAABAAAAAAD8//r/AAABAAAAAAD7//r/AAABAAAAAAD9//r/AAABAAAAAAD+//r/AAABAAAAAAD6//r/AAAAAAAAAAAFAPr/AAABAAAAAAAFAAUAAAABAAEAAAD7/wYAAAABAAEAAAD8/wYAAAABAAEAAAD9/wYAAAABAAEAAAD+/wYAAAABAAEAAAD//wYAAAABAAEAAAAAAAYAAAABAAEAAAADAAYAAAABAAEAAAACAAYAAAABAAEAAAABAAYAAAABAAEAAAAEAAYAAAABAAEAAAAFAAYAAAABAAEAAAD6/wYAAAAAAAEAAAD6/wcAAAAAAAEAAAD6/wgAAAAAAAIAAAD7/wgAAAABAAIAAAD8/wgAAAABAAIAAAD9/wgAAAABAAIAAAD+/wgAAAABAAIAAAD//wgAAAABAAIAAAAAAAgAAAABAAIAAAABAAgAAAABAAIAAAACAAgAAAABAAIAAAADAAgAAAABAAIAAAAEAAgAAAABAAIAAAAFAAgAAAABAAIAAAAGAAgAAAACAAIAAAAGAAcAAAAGAAEAAAAGAAYAAAACAAEAAAAGAAUAAAACAAEAAAAGAAQAAAACAAEAAAAGAAMAAAACAAEAAAAGAAIAAAACAAEAAAAGAAEAAAACAAEAAAAGAAAAAAACAAEAAAAGAP//AAACAAEAAAAGAP7/AAACAAEAAAAGAP3/AAACAAEAAAAGAPz/AAACAAEAAAAGAPv/AAAGAAEAAAAGAPr/AAACAAAAAAD7/wcAAAABAAEAAAD8/wcAAAABAAEAAAD9/wcAAAABAAEAAAD+/wcAAAABAAEAAAD//wcAAAABAAEAAAAAAAcAAAABAAEAAAABAAcAAAABAAEAAAACAAcAAAABAAEAAAADAAcAAAABAAEAAAAEAAcAAAABAAEAAAAFAAcAAAABAAEAAAAHAAcAAAAFAAIAAAAHAAYAAAAJAAEAAAAHAAUAAAAJAAEAAAAHAAQAAAAJAAEAAAAHAAMAAAAJAAEAAAAHAAIAAAAJAAEAAAAHAAEAAAAJAAEAAAAHAAAAAAAJAAEAAAAHAP//AAAJAAEAAAAHAP7/AAAJAAEAAAAHAP3/AAAJAAEAAAAHAPz/AAAJAAEAAAAHAPv/AAAFAAAAAAA=")
+
+[node name="furniture_layer" parent="level_layers" instance=ExtResource("6_d202h")]
+tile_map_data = PackedByteArray("AAD9//z/AAADAAMAAAAAAPz/AAAGAAMAAAADAPz/AAAAAAMAAAD9/wUAAAADAAAAAAAAAAUAAAAGAAAAAAADAAUAAAAAAAAAAAA=")
+
+[node name="decoration_layer" parent="level_layers" instance=ExtResource("7_d3gmj")]
+tile_map_data = PackedByteArray("AAD9////AQAGAAAAAAD9/wAAAQAGAAEAAAD9/wEAAQAGAAEAAAADAAIAAQAIAAIAAAAAAAIAAQAHAAIAAAD//wIAAQAHAAIAAAADAAAAAQAIAAEAAAABAAEAAQAHAAEAAAD9/wIAAQAGAAIAAAD+/wIAAQAHAAIAAAABAAIAAQAHAAIAAAACAAIAAQAHAAIAAAADAP//AQAIAAAAAAD+////AQAHAAAAAAD/////AQAHAAAAAAAAAP//AQAHAAAAAAABAP//AQAHAAAAAAACAP//AQAHAAAAAAADAAEAAQAIAAEAAAACAAEAAQAHAAEAAAAAAAEAAQAHAAEAAAD//wEAAQAHAAEAAAD+/wEAAQAHAAEAAAD+/wAAAQAHAAEAAAD//wAAAQAHAAEAAAAAAAAAAQAHAAEAAAABAAAAAQAHAAEAAAACAAAAAQAHAAEAAAA=")
+
+[node name="obstacles" type="Node" parent="."]
+
+[node name="bowl" type="Sprite2D" parent="obstacles" groups=["foods"]]
+position = Vector2(-168, 32)
+texture = ExtResource("9_s8gfa")
+
+[node name="bowl_area" type="Area2D" parent="obstacles/bowl"]
+
+[node name="bowl_collsion" type="CollisionShape2D" parent="obstacles/bowl/bowl_area"]
+shape = SubResource("CircleShape2D_cohuy")
+
+[node name="bed" type="Sprite2D" parent="obstacles" groups=["beds"]]
+position = Vector2(192, 32)
+texture = ExtResource("9_hdpm2")
+
+[node name="bed_area" type="Area2D" parent="obstacles/bed"]
+
+[node name="bed_collision" type="CollisionShape2D" parent="obstacles/bed/bed_area"]
+shape = SubResource("CircleShape2D_ykq0q")
+
+[node name="cheeses" type="Node" parent="."]
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="player" type="Node" parent="."]
+
+[node name="player" parent="player" groups=["player"] instance=ExtResource("8_be6p3")]
+unique_name_in_owner = true
+position = Vector2(16, 256)
+
+[node name="cat" type="Node" parent="."]
+
+[node name="cat" parent="cat" instance=ExtResource("8_0ryfj")]
+position = Vector2(16, 32)
+scale = Vector2(2, 2)
+collision_layer = 5
+
+[connection signal="trigger_death_menu" from="player/player" to="game_manager" method="_on_player_trigger_death_menu"]

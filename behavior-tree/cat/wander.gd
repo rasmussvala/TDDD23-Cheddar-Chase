@@ -19,7 +19,19 @@ func wander(blackboard: Dictionary) -> void:
 	# Update wander direction after a short interval
 	if wander_time >= wander_interval:
 		wander_time = 0
-		wander_target = actor.global_position + Vector2(randf_range(-100, 100), randf_range(-100, 100))
+		
+		# Define an angle range for forward movement (in radians)
+		var forward_angle = actor.rotation
+		var max_turn_angle = deg_to_rad(45)  # Limit turn to within 90 degrees forward
+		
+		# Generate a random angle within the forward-facing cone
+		var random_angle = forward_angle + randf_range(-max_turn_angle, max_turn_angle)
+		
+		# Calculate the new forward wander direction
+		var direction = Vector2(cos(random_angle), sin(random_angle)).normalized()
+		
+		# Set the new wander target based on the forward-facing direction
+		wander_target = actor.global_position + direction * randf_range(50, 100)
 	
 	# Go to target
 	if actor.global_position.distance_to(wander_target) > 5:

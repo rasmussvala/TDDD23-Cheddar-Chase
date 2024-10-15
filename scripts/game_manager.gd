@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Increment time taken
 	time_taken += delta
-	print(time_taken)
+	#print(time_taken)
 
 func update_initial_hud() -> void:
 	if player:
