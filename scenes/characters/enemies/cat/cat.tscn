@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://behavior-tree/cat/walk_to_target.gd" id="11_j8rw6"]
 [ext_resource type="Script" path="res://behavior-tree/cat/do_need.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
-[ext_resource type="Script" path="res://behavior-tree/cat/is_food_in_bowl.gd" id="13_4v030"]
+[ext_resource type="Script" path="res://behavior-tree/cat/is_food_on_plate.gd" id="13_4v030"]
 [ext_resource type="Script" path="res://behavior-tree/cat/remove_food.gd" id="13_rtby5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
