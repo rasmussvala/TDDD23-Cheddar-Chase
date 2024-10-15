@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var score_label: Label = $score_label
+@onready var fish_icon: Sprite2D = $anchor_control/fish_icon
 @onready var heart_1: Sprite2D = $anchor_control/heart_1
 @onready var heart_2: Sprite2D = $anchor_control/heart_2
 @onready var heart_3: Sprite2D = $anchor_control/heart_3
@@ -33,3 +34,9 @@ func bounce_heart(heart: Sprite2D) -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property(heart, "scale", Vector2(10.0, 10.0), 0.15).set_trans(Tween.TRANS_BOUNCE)
 	tween.tween_property(heart, "scale", Vector2(8.0, 8.0), 0.15).set_trans(Tween.TRANS_BOUNCE)
+
+func update_fish_icon(has_fish: bool) -> void:
+	if has_fish:
+		fish_icon.visible = true
+	else:
+		fish_icon.visible = false
