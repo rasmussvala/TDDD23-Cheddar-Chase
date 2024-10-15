@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cjrl5e0ndsrpv"]
+[gd_scene load_steps=13 format=4 uid="uid://cjrl5e0ndsrpv"]
 
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="1_0ga1j"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_8w1x8"]
@@ -9,12 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_d3gmj"]
 [ext_resource type="PackedScene" uid="uid://tspy04gfoqh8" path="res://scenes/characters/enemies/cat/cat.tscn" id="8_0ryfj"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="8_be6p3"]
-[ext_resource type="Texture2D" uid="uid://dbxmiuwpdjsci" path="res://assets/cat/stuff/bed.png" id="9_hdpm2"]
-[ext_resource type="Texture2D" uid="uid://dg377w3gn3wrn" path="res://assets/cat/stuff/plate-food.png" id="9_s8gfa"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cohuy"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ykq0q"]
+[ext_resource type="PackedScene" uid="uid://bwbbcnol0agg8" path="res://scenes/characters/enemies/cat/plate.tscn" id="8_y6xvf"]
+[ext_resource type="PackedScene" uid="uid://bektskn8dihsw" path="res://scenes/characters/enemies/cat/bed.tscn" id="9_gioe1"]
+[ext_resource type="PackedScene" uid="uid://dtomxmva8ax4d" path="res://scenes/collectibles/fish.tscn" id="10_4s3yb"]
 
 [node name="level_cat" type="Node2D"]
 
@@ -46,23 +43,16 @@ tile_map_data = PackedByteArray("AAD9////AQAGAAAAAAD9/wAAAQAGAAEAAAD9/wEAAQAGAAE
 
 [node name="obstacles" type="Node" parent="."]
 
-[node name="bowl" type="Sprite2D" parent="obstacles" groups=["foods"]]
-position = Vector2(-168, 32)
-texture = ExtResource("9_s8gfa")
+[node name="cat_accessories" type="Node" parent="."]
 
-[node name="bowl_area" type="Area2D" parent="obstacles/bowl"]
+[node name="plate" parent="cat_accessories" groups=["foods"] instance=ExtResource("8_y6xvf")]
+position = Vector2(-147, 20)
 
-[node name="bowl_collsion" type="CollisionShape2D" parent="obstacles/bowl/bowl_area"]
-shape = SubResource("CircleShape2D_cohuy")
+[node name="bed" parent="cat_accessories" groups=["beds"] instance=ExtResource("9_gioe1")]
+position = Vector2(176, 38)
 
-[node name="bed" type="Sprite2D" parent="obstacles" groups=["beds"]]
-position = Vector2(192, 32)
-texture = ExtResource("9_hdpm2")
-
-[node name="bed_area" type="Area2D" parent="obstacles/bed"]
-
-[node name="bed_collision" type="CollisionShape2D" parent="obstacles/bed/bed_area"]
-shape = SubResource("CircleShape2D_ykq0q")
+[node name="fish" parent="cat_accessories" instance=ExtResource("10_4s3yb")]
+position = Vector2(-119, 71)
 
 [node name="cheeses" type="Node" parent="."]
 
