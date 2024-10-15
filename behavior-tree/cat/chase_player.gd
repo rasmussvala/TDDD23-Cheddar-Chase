@@ -2,10 +2,15 @@ extends BTAction
 
 @export var chase_speed: float = 150.0
 @export var stop_distance: float = 10.0
+@onready var cat_mouth: Area2D = %cat_mouth
+var eat_range = false
 
 func tick(blackboard: Dictionary) -> int:
 	var actor = blackboard["actor"]
 	var player = blackboard.get("player")
+
+	if blackboard["eating_player"]:
+		return SUCCESS
 
 	if player == null or not blackboard["sees_player"]:
 		return FAILURE
@@ -25,9 +30,16 @@ func tick(blackboard: Dictionary) -> int:
 
 		# Play the walking animation
 		actor.get_node("animated_sprite_cat").play("walk")
+		
+		if eat_range:
+			return SUCCESS
+		
 		return RUNNING
 	else:
 		# Stop the actor and play idle animation
 		actor.velocity = Vector2.ZERO
 		actor.get_node("animated_sprite_cat").play("idle")
-		return SUCCESS
+		return FAILURE
+
+func _on_cat_mouth_body_entered(body: Node2D) -> void:
+	eat_range = true
