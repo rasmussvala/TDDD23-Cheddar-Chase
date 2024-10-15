@@ -1,4 +1,4 @@
 class_name BTAction extends BTLeafNode
 
-func tick(blackboard: Dictionary) -> int:
+func tick(_blackboard: Dictionary) -> int:
 	return SUCCESS
