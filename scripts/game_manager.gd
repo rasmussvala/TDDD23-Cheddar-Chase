@@ -35,6 +35,9 @@ func mouse_has_fish(value: bool) -> void:
 	carries_fish = value
 	print("mouse has fish: %s" % str(carries_fish))
 
+func get_value_mouse_has_fish() -> bool:
+	return carries_fish
+
 func add_point() -> void:
 	score += 1
 	player.hud.update_score(score, max_score)
