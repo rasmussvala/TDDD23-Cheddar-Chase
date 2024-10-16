@@ -4,13 +4,10 @@ extends BTAction
 @export var rate: String
 @export var action: String
 @onready var detection_area_polygon: CollisionPolygon2D = %detection_area_polygon
-@onready var cat_mouth_area_polygon: CollisionShape2D = %cat_mouth_area_polygon
 
 func tick(blackboard: Dictionary) -> int:
-	detection_area_polygon.disabled = true
-	cat_mouth_area_polygon.disabled = true
-	
-	blackboard[need] -= blackboard["delta"] * blackboard[rate]
+	blackboard["eating_player"] = true
+	blackboard["hunger_for_player"] -= blackboard["delta"] * blackboard[rate]
 	
 	# Cat is satisfied with need
 	if blackboard[need] < 0:
@@ -19,6 +16,6 @@ func tick(blackboard: Dictionary) -> int:
 		return SUCCESS
 	
 	var animated_sprite = blackboard["actor"].get_node("animated_sprite_cat")
-	animated_sprite.play(action)
+	animated_sprite.play("eating_player")
 	
 	return RUNNING

@@ -1,10 +1,11 @@
-[gd_scene load_steps=132 format=3 uid="uid://tspy04gfoqh8"]
+[gd_scene load_steps=152 format=3 uid="uid://tspy04gfoqh8"]
 
-[ext_resource type="Texture2D" uid="uid://bpx3j32akjepw" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
-[ext_resource type="Texture2D" uid="uid://bcyaj8bw6hc53" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
-[ext_resource type="Texture2D" uid="uid://bb0jg5ktjgmfd" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
-[ext_resource type="Texture2D" uid="uid://dyw3ym86eje5p" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
-[ext_resource type="Texture2D" uid="uid://bifrd17ajwylb" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
+[ext_resource type="Texture2D" uid="uid://d31nklwcmjbiq" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
+[ext_resource type="Texture2D" uid="uid://bpbtt7kb345i2" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
+[ext_resource type="Texture2D" uid="uid://4s4ti8jlln4n" path="res://assets/cat/movement/eating_player.png" id="2_d1qbv"]
+[ext_resource type="Texture2D" uid="uid://cxwvvcbosab42" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
+[ext_resource type="Texture2D" uid="uid://dowwmkmjj60uf" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
+[ext_resource type="Texture2D" uid="uid://2623xhcrqed7" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
@@ -13,10 +14,12 @@
 [ext_resource type="Script" path="res://behavior-tree/cat/is_target_available.gd" id="10_1fgmj"]
 [ext_resource type="Script" path="res://behavior-tree/cat/chase_player.gd" id="10_pxn7j"]
 [ext_resource type="Script" path="res://behavior-tree/cat/walk_to_target.gd" id="11_j8rw6"]
+[ext_resource type="Script" path="res://behavior-tree/cat/eat_player.gd" id="11_xt86y"]
 [ext_resource type="Script" path="res://behavior-tree/cat/do_need.gd" id="11_ylqhf"]
 [ext_resource type="Script" path="res://behavior-tree/cat/wander.gd" id="12_sv6u5"]
 [ext_resource type="Script" path="res://behavior-tree/cat/is_food_on_plate.gd" id="13_4v030"]
 [ext_resource type="Script" path="res://behavior-tree/cat/remove_food.gd" id="13_rtby5"]
+[ext_resource type="Script" path="res://behavior-tree/cat/cat_mouth.gd" id="18_3qynt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
 atlas = ExtResource("2_1nhte")
@@ -81,6 +84,70 @@ region = Rect2(896, 0, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfd8k"]
 atlas = ExtResource("2_1nhte")
 region = Rect2(960, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4wjq"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1024, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnn0d"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1088, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ykg5"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1152, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poi1j"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1216, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx4gb"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1280, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfs12"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1344, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h1ji"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1408, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ecye"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1472, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3noy6"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1536, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlwij"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1600, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq2ra"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1664, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqh6q"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1728, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uuj5"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1792, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu4ju"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1856, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15g3l"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1920, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24ifv"]
+atlas = ExtResource("2_d1qbv")
+region = Rect2(1984, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3jmpl"]
 atlas = ExtResource("2_cmdkj")
@@ -523,6 +590,59 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_u4wjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnn0d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ykg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poi1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx4gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfs12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h1ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ecye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3noy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlwij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq2ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqh6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uuj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu4ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15g3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24ifv")
+}],
+"loop": true,
+"name": &"eating_player",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3jmpl")
 }, {
 "duration": 1.0,
@@ -844,6 +964,9 @@ animations = [{
 radius = 6.0
 height = 24.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhibv"]
+size = Vector2(8, 8)
+
 [node name="cat" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 137
@@ -853,7 +976,7 @@ wall_min_slide_angle = 0.0
 [node name="animated_sprite_cat" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_86umi")
-animation = &"walk"
+animation = &"eating_player"
 
 [node name="collsion_shape_cat" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -873,6 +996,12 @@ script = ExtResource("9_g6ms1")
 
 [node name="chase_player" type="Node" parent="behavior_tree/root/check_mouse"]
 script = ExtResource("10_pxn7j")
+
+[node name="eat_player" type="Node" parent="behavior_tree/root/check_mouse"]
+script = ExtResource("11_xt86y")
+need = "hunger_for_player"
+rate = "eating_rate"
+action = "eating"
 
 [node name="check_tiredness" type="Node" parent="behavior_tree/root"]
 script = ExtResource("7_k3i1t")
@@ -942,10 +1071,18 @@ collision_mask = 2
 unique_name_in_owner = true
 polygon = PackedVector2Array(14, -4, -16, -48, 56, -40, 72, -16, 72, 16, 56, 40, -16, 48, 14, 4)
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="cat_mouth" type="Area2D" parent="."]
 unique_name_in_owner = true
-path_postprocessing = 1
-debug_enabled = true
+collision_mask = 2
+script = ExtResource("18_3qynt")
 
-[connection signal="body_entered" from="detection_area" to="behavior_tree" method="_on_DetectionArea_body_entered"]
-[connection signal="body_exited" from="detection_area" to="behavior_tree" method="_on_DetectionArea_body_exited"]
+[node name="cat_mouth_area_polygon" type="CollisionShape2D" parent="cat_mouth"]
+unique_name_in_owner = true
+position = Vector2(17, 0)
+shape = SubResource("RectangleShape2D_hhibv")
+debug_color = Color(0, 0.636796, 0.400363, 0.42)
+
+[connection signal="body_entered" from="detection_area" to="behavior_tree/root/check_mouse/can_see_player" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="behavior_tree/root/check_mouse/can_see_player" method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="cat_mouth" to="behavior_tree/root/check_mouse/chase_player" method="_on_cat_mouth_body_entered"]
+[connection signal="body_entered" from="cat_mouth" to="cat_mouth" method="_on_body_entered"]
