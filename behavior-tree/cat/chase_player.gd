@@ -41,5 +41,5 @@ func tick(blackboard: Dictionary) -> int:
 		actor.get_node("animated_sprite_cat").play("idle")
 		return FAILURE
 
-func _on_cat_mouth_body_entered(body: Node2D) -> void:
+func _on_cat_mouth_body_entered(_body: Node2D) -> void:
 	eat_range = true

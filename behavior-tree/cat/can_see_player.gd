@@ -5,7 +5,6 @@ var player_dummy
 var player_in_sight = false
 
 func tick(blackboard: Dictionary) -> int:
-	var player = blackboard.get(player_key)
 	
 	if blackboard["eating_player"]:
 		return SUCCESS
