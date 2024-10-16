@@ -1082,6 +1082,9 @@ position = Vector2(17, 0)
 shape = SubResource("RectangleShape2D_hhibv")
 debug_color = Color(0, 0.636796, 0.400363, 0.42)
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="body_entered" from="detection_area" to="behavior_tree/root/check_mouse/can_see_player" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="behavior_tree/root/check_mouse/can_see_player" method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="cat_mouth" to="behavior_tree/root/check_mouse/chase_player" method="_on_cat_mouth_body_entered"]
