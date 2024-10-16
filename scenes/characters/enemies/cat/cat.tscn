@@ -1,11 +1,11 @@
-[gd_scene load_steps=152 format=3 uid="uid://tspy04gfoqh8"]
+[gd_scene load_steps=154 format=3 uid="uid://tspy04gfoqh8"]
 
-[ext_resource type="Texture2D" uid="uid://d31nklwcmjbiq" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
-[ext_resource type="Texture2D" uid="uid://bpbtt7kb345i2" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
-[ext_resource type="Texture2D" uid="uid://4s4ti8jlln4n" path="res://assets/cat/movement/eating_player.png" id="2_d1qbv"]
-[ext_resource type="Texture2D" uid="uid://cxwvvcbosab42" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
-[ext_resource type="Texture2D" uid="uid://dowwmkmjj60uf" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
-[ext_resource type="Texture2D" uid="uid://2623xhcrqed7" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
+[ext_resource type="Texture2D" uid="uid://daq4bviamg1x0" path="res://assets/cat/movement/eating.png" id="2_1nhte"]
+[ext_resource type="Texture2D" uid="uid://dlafii6fo7prn" path="res://assets/cat/movement/idle_sit.png" id="2_cmdkj"]
+[ext_resource type="Texture2D" uid="uid://dy00hc16sm0p1" path="res://assets/cat/movement/eating_player.png" id="2_d1qbv"]
+[ext_resource type="Texture2D" uid="uid://dhfvbtjgowh14" path="res://assets/cat/movement/sleep.png" id="3_oifql"]
+[ext_resource type="Texture2D" uid="uid://l7nuscuglyhw" path="res://assets/cat/movement/stretch.png" id="4_1wgy5"]
+[ext_resource type="Texture2D" uid="uid://1utpfadajssq" path="res://assets/cat/movement/walk.png" id="5_wdolk"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/bt_tree.gd" id="6_iwl8f"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/selector.gd" id="6_wa3x3"]
 [ext_resource type="Script" path="res://behavior-tree/nodes/composites/sequence.gd" id="7_k3i1t"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" path="res://behavior-tree/cat/is_food_on_plate.gd" id="13_4v030"]
 [ext_resource type="Script" path="res://behavior-tree/cat/remove_food.gd" id="13_rtby5"]
 [ext_resource type="Script" path="res://behavior-tree/cat/cat_mouth.gd" id="18_3qynt"]
+[ext_resource type="Script" path="res://behavior-tree/cat/is_cheese_available.gd" id="19_0fh0d"]
+[ext_resource type="Script" path="res://behavior-tree/cat/sit.gd" id="20_fxxet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtp3v"]
 atlas = ExtResource("2_1nhte")
@@ -1019,7 +1021,6 @@ target = "bed"
 [node name="walk_to_bed" type="Node" parent="behavior_tree/root/check_tiredness"]
 script = ExtResource("11_j8rw6")
 target = "bed"
-action = "sleeping"
 min_distance_to_target = 1.0
 
 [node name="sleep" type="Node" parent="behavior_tree/root/check_tiredness"]
@@ -1047,7 +1048,6 @@ script = ExtResource("13_4v030")
 [node name="walk_to_food" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("11_j8rw6")
 target = "food"
-action = "eating"
 min_distance_to_target = 25.0
 
 [node name="eat" type="Node" parent="behavior_tree/root/check_hunger"]
@@ -1058,6 +1058,20 @@ action = "eating"
 
 [node name="remove_food" type="Node" parent="behavior_tree/root/check_hunger"]
 script = ExtResource("13_rtby5")
+
+[node name="check_cheese" type="Node" parent="behavior_tree/root"]
+script = ExtResource("7_k3i1t")
+
+[node name="is_cheese_available" type="Node" parent="behavior_tree/root/check_cheese"]
+script = ExtResource("19_0fh0d")
+
+[node name="walk_to_cheese" type="Node" parent="behavior_tree/root/check_cheese"]
+script = ExtResource("11_j8rw6")
+target = "cheese"
+min_distance_to_target = 50.0
+
+[node name="sit" type="Node" parent="behavior_tree/root/check_cheese"]
+script = ExtResource("20_fxxet")
 
 [node name="wander" type="Node" parent="behavior_tree/root"]
 script = ExtResource("12_sv6u5")

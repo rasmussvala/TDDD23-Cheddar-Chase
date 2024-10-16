@@ -13,7 +13,7 @@ var carries_fish: bool = false
 @onready var level_time: Node = %level_time
 
 func _ready() -> void:
-	max_score = get_tree().get_node_count_in_group("Cheeses")
+	max_score = get_tree().get_node_count_in_group("cheeses")
 	time_taken = 0.0
 	damage_taken = false
 	call_deferred("update_initial_hud")
