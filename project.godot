@@ -24,6 +24,7 @@ save_manager="*res://scripts/tools/save_manager.gd"
 
 folder_colors={
 "res://assets/": "red",
+"res://behavior-tree/": "purple",
 "res://scenes/": "yellow",
 "res://scripts/": "teal"
 }

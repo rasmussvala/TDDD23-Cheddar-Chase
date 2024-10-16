@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://y16vsgpfcas8"]
 
-[ext_resource type="Texture2D" uid="uid://cuqwg8ely2sp7" path="res://assets/testlevel/tile_map_floor.png" id="1_cqqf8"]
-[ext_resource type="Texture2D" uid="uid://c170gtgkqeth0" path="res://assets/furnishings/couch.png" id="2_y3s62"]
+[ext_resource type="Texture2D" uid="uid://ppryewt8hahj" path="res://assets/testlevel/tile_map_floor.png" id="1_cqqf8"]
+[ext_resource type="Texture2D" uid="uid://51dmsgv7itok" path="res://assets/furnishings/couch.png" id="2_y3s62"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ltqg"]
 texture = ExtResource("1_cqqf8")
