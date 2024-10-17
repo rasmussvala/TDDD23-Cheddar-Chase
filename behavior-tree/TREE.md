@@ -17,7 +17,10 @@ graph TD
 	D --> M{Hungry?}
 	D --> N{Plate Available?}
 	D --> O{Food on Plate?}
-	D --> P(Walk to Food)
-	D --> Q(Eat)
-	D --> R(Remove Food)
+
+	D --> P[Eat Sequence]
+
+	P --> Q(Walk to Food)
+	P --> R(Eat)
+	P --> S(Remove Food)
 ```
