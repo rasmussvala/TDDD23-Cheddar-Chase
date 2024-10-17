@@ -18,8 +18,8 @@ func tick(blackboard: Dictionary) -> int:
 		# Rotate ray in the same direction as the cat because it isn't at the right angle already??? 
 		var rotated_direction = direction.rotated(-detection_ray.global_rotation)
 		
-		# Divid by 4 because it's four times as big as it should???? 
-		detection_ray.target_position = rotated_direction / 4
+		# Divide by two because it's two times as big as it should???? 
+		detection_ray.target_position = rotated_direction / 2
 	
 		if not detection_ray.is_colliding():
 			return SUCCESS
