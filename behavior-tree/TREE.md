@@ -1,23 +1,23 @@
 ```mermaid
 graph TD
-	A[Root: Selector] --> B[Check Mouse: Sequence]
-	A --> C[Check Tiredness: Sequence]
-	A --> D[Check Hunger: Sequence]
-	A --> E[Wander: Action]
+	A((Root)) --> B[Check Mouse]
+	A --> C[Check Tiredness]
+	A --> D[Check Hunger]
+	A --> E(Wander)
 
-	B --> F{Can See Player?: Condition}
-	B --> G[Chase Player: Action]
-	B --> H[Eat Player: Action]
+	B --> F{See Player?}
+	B --> G(Chase Player)
+	B --> H(Eat Player)
 
-	C --> I{Is Tired?: Condition}
-	C --> J{Is Bed Available?: Condition}
-	C --> K[Walk to Bed: Action]
-	C --> L[Sleep: Action]
+	C --> I{Tired?}
+	C --> J{Bed Available?}
+	C --> K(Walk to Bed)
+	C --> L(Sleep)
 
-	D --> M{Is Hungry?: Condition}
-	D --> N{Is Food Bowl Available?: Condition}
-	D --> O{Is Food in Bowl?: Condition}
-	D --> P[Walk to Food: Action]
-	D --> Q[Eat: Action]
-	D --> R[Remove Food: Action]
+	D --> M{Hungry?}
+	D --> N{Plate Available?}
+	D --> O{Food on Plate?}
+	D --> P(Walk to Food)
+	D --> Q(Eat)
+	D --> R(Remove Food)
 ```
