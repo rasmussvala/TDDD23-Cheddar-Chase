@@ -66,7 +66,7 @@ position = Vector2(-119, 71)
 [node name="cheeses" type="Node" parent="."]
 
 [node name="cheese" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
-position = Vector2(-155, 140)
+position = Vector2(-121, 113)
 
 [node name="cheese2" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
 position = Vector2(-86, -1)
