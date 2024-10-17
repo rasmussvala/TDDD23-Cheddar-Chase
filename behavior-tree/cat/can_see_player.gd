@@ -8,11 +8,10 @@ func tick(blackboard: Dictionary) -> int:
 	if blackboard["eating_player"]:
 		return SUCCESS
 	elif player != null:
-		blackboard["sees_player"] = true
 		blackboard["player"] = player
 		return SUCCESS
 	else:
-		blackboard["sees_player"] = false
+		blackboard["player"] = null
 		return FAILURE
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
