@@ -1,7 +1,6 @@
 extends BTAction
 
 @export var target: String
-@export var action: String
 @export var min_distance_to_target: float
 @onready var nav_agent: NavigationAgent2D = %NavigationAgent2D
 
@@ -32,6 +31,5 @@ func tick(blackboard: Dictionary) -> int:
 		actor.rotation = actor.velocity.angle()
 		return RUNNING
 	# At bed, continue to next node
-	else: 
-		blackboard[action] = true
+	else:
 		return SUCCESS
