@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cjrl5e0ndsrpv"]
+[gd_scene load_steps=15 format=4 uid="uid://cjrl5e0ndsrpv"]
 
 [ext_resource type="PackedScene" path="res://scenes/tools/level_time.tscn" id="1_0ga1j"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_8w1x8"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bwbbcnol0agg8" path="res://scenes/characters/enemies/cat/plate.tscn" id="8_y6xvf"]
 [ext_resource type="PackedScene" uid="uid://bektskn8dihsw" path="res://scenes/characters/enemies/cat/bed.tscn" id="9_gioe1"]
 [ext_resource type="PackedScene" uid="uid://dtomxmva8ax4d" path="res://scenes/collectibles/fish.tscn" id="10_4s3yb"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="11_bx637"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uv1d8"]
 vertices = PackedVector2Array(170, -54, 170, -170, 210, -142, 210, 238, 242, -146, 242, 242, 238, 238, 238, -142, 210, -146, 210, 242, 210, -178, -178, -178, -138, -170, -178, 274, -138, -54, 210, 274, 170, 234, -138, 234, 170, 118, -138, 118)
@@ -63,6 +64,12 @@ position = Vector2(88, 248)
 position = Vector2(-119, 71)
 
 [node name="cheeses" type="Node" parent="."]
+
+[node name="cheese" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
+position = Vector2(-121, 113)
+
+[node name="cheese2" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
+position = Vector2(-86, -1)
 
 [node name="enemies" type="Node" parent="."]
 

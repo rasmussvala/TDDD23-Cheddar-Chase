@@ -12,7 +12,7 @@ func tick(blackboard: Dictionary) -> int:
 	if blackboard["eating_player"]:
 		return SUCCESS
 
-	if player == null or not blackboard["sees_player"]:
+	if player == null:
 		return FAILURE
 
 	var distance_to_player = (player.global_position - actor.global_position).length()

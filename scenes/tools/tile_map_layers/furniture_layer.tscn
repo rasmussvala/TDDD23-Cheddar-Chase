@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c74xlu0of2unm"]
 
-[ext_resource type="Texture2D" uid="uid://c170gtgkqeth0" path="res://assets/furnishings/couch.png" id="1_y285a"]
+[ext_resource type="Texture2D" uid="uid://51dmsgv7itok" path="res://assets/furnishings/couch.png" id="1_y285a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s54fx"]
 texture = ExtResource("1_y285a")
@@ -32,7 +32,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_ai4nm"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 128
+physics_layer_0/collision_layer = 129
 physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_s54fx")
 

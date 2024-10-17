@@ -7,6 +7,8 @@ extends BTAction
 @onready var cat_mouth_area_polygon: CollisionShape2D = %cat_mouth_area_polygon
 
 func tick(blackboard: Dictionary) -> int:
+	blackboard[action] = true
+
 	detection_area_polygon.disabled = true
 	cat_mouth_area_polygon.disabled = true
 	
