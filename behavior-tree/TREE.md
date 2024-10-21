@@ -3,6 +3,7 @@ graph TD
 	A((Root)) --> B[Check Mouse]
 	A --> C[Check Tiredness]
 	A --> D[Check Hunger]
+	A --> T[Check Cheese]
 	A --> E(Wander)
 
 	B --> F{See Player?}
@@ -23,4 +24,8 @@ graph TD
 	P --> Q(Walk to Food)
 	P --> R(Eat)
 	P --> S(Remove Food)
+
+	T --> U{Cheese in Scene}
+	T --> V(Walk to Cheese)
+	T --> W(Watch Cheese)
 ```
