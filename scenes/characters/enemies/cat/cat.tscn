@@ -1051,7 +1051,7 @@ script = ExtResource("7_k3i1t")
 [node name="walk_to_food" type="Node" parent="behavior_tree/root/check_hunger/eat_sequence"]
 script = ExtResource("11_j8rw6")
 target = "food"
-min_distance_to_target = 25.0
+min_distance_to_target = 40.0
 
 [node name="eat" type="Node" parent="behavior_tree/root/check_hunger/eat_sequence"]
 script = ExtResource("11_ylqhf")
