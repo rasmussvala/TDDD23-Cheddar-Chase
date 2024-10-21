@@ -1,0 +1,355 @@
+[gd_scene load_steps=18 format=4 uid="uid://c77o6o8vwsqnh"]
+
+[ext_resource type="Script" path="res://scripts/levels/level_5.gd" id="1_8dojf"]
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_ndrm0"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_3k5wn"]
+[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="4_863mh"]
+[ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="5_sdjqf"]
+[ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="6_dscki"]
+[ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="7_m5ox6"]
+[ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="8_s6am7"]
+[ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="9_de3m1"]
+[ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="9_iiflb"]
+[ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="10_c1ftl"]
+[ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="11_hlyle"]
+[ext_resource type="PackedScene" uid="uid://bw5xityvbf8d2" path="res://scenes/characters/enemies/bug_flying.tscn" id="12_i2eeh"]
+[ext_resource type="PackedScene" uid="uid://d4bboajpgnlfq" path="res://scenes/collectibles/heart.tscn" id="12_ydf7f"]
+[ext_resource type="PackedScene" uid="uid://be61rj1jagrum" path="res://scenes/characters/enemies/bug_blue.tscn" id="13_fmpub"]
+[ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="15_iwpi7"]
+[ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="15_s0aoh"]
+
+[node name="level_5" type="Node2D"]
+script = ExtResource("1_8dojf")
+
+[node name="level_time" parent="." instance=ExtResource("2_ndrm0")]
+unique_name_in_owner = true
+
+[node name="game_manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_3k5wn")
+
+[node name="win_menu" parent="." instance=ExtResource("4_863mh")]
+unique_name_in_owner = true
+visible = false
+
+[node name="death_menu" parent="." instance=ExtResource("5_sdjqf")]
+unique_name_in_owner = true
+visible = false
+
+[node name="level_layers" type="Node" parent="."]
+
+[node name="room_layer" parent="level_layers" instance=ExtResource("6_dscki")]
+tile_map_data = PackedByteArray("AAD4/wkAAAAAAAIAAAD4/wgAAAAAAAEAAAD4/wcAAAAAAAEAAAD4/wYAAAAAAAEAAAD4/wUAAAAAAAEAAAD4/wQAAAAAAAEAAAD4/wMAAAAAAAEAAAD4/wIAAAAAAAEAAAD4/wEAAAAAAAEAAAD4/wAAAAAAAAEAAAD4////AAAAAAEAAAD4//7/AAAAAAEAAAD4//3/AAAAAAEAAAD4//z/AAAAAAEAAAD4//n/AAAAAAAAAAALAPn/AAACAAAAAAALAAkAAAACAAIAAAD5//n/AAABAAAAAAD6//n/AAABAAAAAAD7//n/AAABAAAAAAD8//n/AAABAAAAAAD9//n/AAABAAAAAAD+//n/AAABAAAAAAD///n/AAABAAAAAAAAAPn/AAABAAAAAAABAPn/AAABAAAAAAACAPn/AAABAAAAAAADAPn/AAABAAAAAAAFAPn/AAABAAAAAAAGAPn/AAABAAAAAAAHAPn/AAABAAAAAAAIAPn/AAABAAAAAAAJAPn/AAABAAAAAAAKAPn/AAABAAAAAAAEAPn/AAABAAAAAAD4//r/AAAAAAEAAAD4//v/AAAAAAEAAAD5/wkAAAABAAIAAAD6/wkAAAABAAIAAAD7/wkAAAABAAIAAAD8/wkAAAABAAIAAAD9/wkAAAABAAIAAAD+/wkAAAABAAIAAAD//wkAAAABAAIAAAAAAAkAAAABAAIAAAABAAkAAAABAAIAAAACAAkAAAABAAIAAAADAAkAAAABAAIAAAAEAAkAAAABAAIAAAAFAAkAAAABAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAIAAAAJAAkAAAABAAIAAAAKAAkAAAABAAIAAAALAAgAAAACAAEAAAALAAcAAAACAAEAAAALAAYAAAACAAEAAAALAAUAAAACAAEAAAALAAQAAAACAAEAAAALAAMAAAACAAEAAAALAAIAAAACAAEAAAALAAEAAAACAAEAAAALAAAAAAACAAEAAAALAP//AAACAAEAAAALAP7/AAACAAEAAAALAP3/AAACAAEAAAALAPz/AAACAAEAAAALAPv/AAACAAEAAAALAPr/AAACAAEAAAD5//r/AAABAAEAAAD5//v/AAABAAEAAAD5//z/AAABAAEAAAD5//3/AAABAAEAAAD5//7/AAABAAEAAAD5////AAABAAEAAAD5/wAAAAABAAEAAAD5/wEAAAABAAEAAAD5/wIAAAAHAAEAAAD5/wMAAAABAAEAAAD5/wQAAAABAAEAAAD5/wUAAAABAAEAAAD5/wYAAAABAAEAAAD5/wcAAAAHAAEAAAD5/wgAAAABAAEAAAD6//r/AAABAAEAAAD6//v/AAABAAEAAAD6//z/AAABAAEAAAD6//3/AAABAAEAAAD6//7/AAABAAEAAAD6////AAABAAEAAAD6/wAAAAABAAEAAAD6/wEAAAABAAEAAAD6/wIAAAABAAEAAAD6/wMAAAABAAEAAAD6/wQAAAABAAEAAAD6/wUAAAABAAEAAAD6/wYAAAABAAEAAAD6/wcAAAABAAEAAAD6/wgAAAABAAEAAAD7//r/AAAHAAEAAAD7//v/AAABAAEAAAD7//z/AAABAAEAAAD7//3/AAABAAEAAAD7//7/AAABAAEAAAD7////AAABAAEAAAD7/wAAAAABAAEAAAD7/wEAAAABAAEAAAD7/wIAAAABAAEAAAD7/wMAAAABAAEAAAD7/wQAAAABAAEAAAD7/wUAAAABAAEAAAD7/wYAAAABAAEAAAD7/wcAAAABAAEAAAD7/wgAAAABAAEAAAD8//r/AAABAAEAAAD8//v/AAABAAEAAAD8//z/AAABAAEAAAD8//3/AAABAAEAAAD8//7/AAABAAEAAAD8////AAABAAEAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD8/wMAAAABAAEAAAD8/wQAAAABAAEAAAD8/wUAAAABAAEAAAD8/wYAAAABAAEAAAD8/wcAAAABAAEAAAD8/wgAAAABAAEAAAD9//r/AAABAAEAAAD9//v/AAABAAEAAAD9//z/AAABAAEAAAD9//3/AAABAAEAAAD9//7/AAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wEAAAABAAEAAAD9/wIAAAABAAEAAAD9/wMAAAABAAEAAAD9/wQAAAABAAEAAAD9/wUAAAABAAEAAAD9/wYAAAABAAEAAAD9/wcAAAABAAEAAAD9/wgAAAABAAEAAAD+//r/AAABAAEAAAD+//v/AAABAAEAAAD+//z/AAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD+////AAABAAEAAAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD+/wQAAAABAAEAAAD+/wUAAAABAAEAAAD+/wYAAAABAAEAAAD+/wcAAAABAAEAAAD+/wgAAAABAAEAAAD///r/AAABAAEAAAD///v/AAABAAEAAAD///z/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAD//wQAAAABAAEAAAD//wUAAAABAAEAAAD//wYAAAABAAEAAAD//wcAAAABAAEAAAD//wgAAAAHAAEAAAAAAPr/AAABAAEAAAAAAPv/AAABAAEAAAAAAPz/AAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAAAAAQAAAABAAEAAAAAAAUAAAABAAEAAAAAAAYAAAABAAEAAAAAAAcAAAABAAEAAAAAAAgAAAABAAEAAAABAPr/AAABAAEAAAABAPv/AAABAAEAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAABAAUAAAABAAEAAAABAAYAAAABAAEAAAABAAcAAAABAAEAAAABAAgAAAABAAEAAAACAPr/AAABAAEAAAACAPv/AAABAAEAAAACAPz/AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAEAAAACAAUAAAABAAEAAAACAAYAAAABAAEAAAACAAcAAAABAAEAAAACAAgAAAABAAEAAAADAPr/AAABAAEAAAADAPv/AAABAAEAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAADAAUAAAABAAEAAAADAAYAAAABAAEAAAADAAcAAAABAAEAAAADAAgAAAABAAEAAAAEAPr/AAABAAEAAAAEAPv/AAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAEAAgAAAABAAEAAAAFAPr/AAABAAEAAAAFAPv/AAABAAEAAAAFAPz/AAABAAEAAAAFAP3/AAABAAEAAAAFAP7/AAABAAEAAAAFAP//AAABAAEAAAAFAAAAAAABAAEAAAAFAAEAAAABAAEAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAFAAQAAAABAAEAAAAFAAUAAAABAAEAAAAFAAYAAAABAAEAAAAFAAcAAAABAAEAAAAFAAgAAAAHAAEAAAAGAPr/AAABAAEAAAAGAPv/AAABAAEAAAAGAPz/AAABAAEAAAAGAP3/AAABAAEAAAAGAP7/AAABAAEAAAAGAP//AAABAAEAAAAGAAAAAAABAAEAAAAGAAEAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAGAAcAAAABAAEAAAAGAAgAAAABAAEAAAAHAPr/AAABAAEAAAAHAPv/AAABAAEAAAAHAPz/AAABAAEAAAAHAP3/AAABAAEAAAAHAP7/AAABAAEAAAAHAP//AAABAAEAAAAHAAAAAAABAAEAAAAHAAEAAAABAAEAAAAHAAIAAAABAAEAAAAHAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAHAAcAAAABAAEAAAAHAAgAAAABAAEAAAAIAPr/AAAHAAEAAAAIAPv/AAABAAEAAAAIAPz/AAABAAEAAAAIAP3/AAABAAEAAAAIAP7/AAABAAEAAAAIAP//AAABAAEAAAAIAAAAAAABAAEAAAAIAAEAAAABAAEAAAAIAAIAAAABAAEAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAIAAYAAAABAAEAAAAIAAcAAAABAAEAAAAIAAgAAAABAAEAAAAJAPr/AAABAAEAAAAJAPv/AAABAAEAAAAJAPz/AAABAAEAAAAJAP3/AAABAAEAAAAJAP7/AAABAAEAAAAJAP//AAABAAEAAAAJAAAAAAABAAEAAAAJAAEAAAABAAEAAAAJAAIAAAABAAEAAAAJAAMAAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAJAAgAAAABAAEAAAAKAPr/AAABAAEAAAAKAPv/AAABAAEAAAAKAPz/AAABAAEAAAAKAP3/AAABAAEAAAAKAP7/AAABAAEAAAAKAP//AAABAAEAAAAKAAAAAAABAAEAAAAKAAEAAAAHAAEAAAAKAAIAAAABAAEAAAAKAAMAAAABAAEAAAAKAAQAAAABAAEAAAAKAAUAAAABAAEAAAAKAAYAAAAHAAEAAAAKAAcAAAABAAEAAAAKAAgAAAABAAEAAAA=")
+
+[node name="decoration_layer" parent="level_layers" instance=ExtResource("8_s6am7")]
+tile_map_data = PackedByteArray("AAD6/wcAAQAPAAIAAAD6/wYAAQAPAAEAAAD6/wUAAQAPAAEAAAD6/wQAAQAPAAEAAAD6/wMAAQAPAAEAAAD6/wIAAQAPAAEAAAD6/wEAAQAPAAEAAAD6/wAAAQAPAAEAAAD6////AQAPAAEAAAD6//7/AQAPAAEAAAD6//3/AQAPAAEAAAD6//z/AQAPAAEAAAD6//v/AQAPAAAAAAD7//v/AQAQAAAAAAD8//v/AQAQAAAAAAD9//v/AQAQAAAAAAD+//v/AQAQAAAAAAD///v/AQAQAAAAAAAAAPv/AQAQAAAAAAABAPv/AQAQAAAAAAACAPv/AQAQAAAAAAADAPv/AQAQAAAAAAAEAPv/AQAQAAAAAAAFAPv/AQAQAAAAAAAGAPv/AQAQAAAAAAAHAPv/AQAQAAAAAAAIAPv/AQAQAAAAAAAJAPv/AQARAAAAAAAJAPz/AQARAAEAAAAJAP3/AQARAAEAAAAJAP7/AQARAAEAAAAJAP//AQARAAEAAAAJAAAAAQARAAEAAAAJAAEAAQARAAEAAAAJAAIAAQARAAEAAAAJAAMAAQARAAEAAAAJAAQAAQARAAEAAAAJAAUAAQARAAEAAAAJAAYAAQARAAEAAAAJAAcAAQARAAIAAAAIAAcAAQAQAAIAAAAHAAcAAQAQAAIAAAAGAAcAAQAQAAIAAAAFAAcAAQAQAAIAAAAEAAcAAQAQAAIAAAADAAcAAQAQAAIAAAACAAcAAQAQAAIAAAABAAcAAQAQAAIAAAAAAAcAAQAQAAIAAAD//wcAAQAQAAIAAAD+/wcAAQAQAAIAAAD9/wcAAQAQAAIAAAD8/wcAAQAQAAIAAAD7/wcAAQAQAAIAAAD7//z/AQAEAAEAAAD7//3/AQAEAAEAAAD7//7/AQAEAAEAAAD7////AQAEAAEAAAD7/wAAAQAEAAEAAAD7/wEAAQAEAAEAAAD7/wIAAQAEAAEAAAD7/wMAAQAEAAEAAAD7/wQAAQAEAAEAAAD7/wUAAQAEAAEAAAD7/wYAAQAEAAEAAAD8//z/AQAEAAEAAAD8//3/AQAKAAEAAAD8//7/AQAKAAEAAAD8////AQAKAAEAAAD8/wAAAQAKAAEAAAD8/wEAAQAKAAEAAAD8/wIAAQAKAAEAAAD8/wMAAQAKAAEAAAD8/wQAAQAKAAEAAAD8/wUAAQAKAAEAAAD8/wYAAQAEAAEAAAD9//z/AQAEAAEAAAD9//3/AQAKAAEAAAD9//7/AQAQAAEAAAD9////AQAQAAEAAAD9/wAAAQAQAAEAAAD9/wEAAQAQAAEAAAD9/wIAAQAQAAEAAAD9/wMAAQAQAAEAAAD9/wQAAQAQAAEAAAD9/wUAAQAKAAEAAAD9/wYAAQAEAAEAAAD+//z/AQAEAAEAAAD+//3/AQAKAAEAAAD+//7/AQAQAAEAAAD+////AQAEAAEAAAD+/wAAAQAEAAEAAAD+/wEAAQAEAAEAAAD+/wIAAQAEAAEAAAD+/wMAAQAEAAEAAAD+/wQAAQAQAAEAAAD+/wUAAQAKAAEAAAD+/wYAAQAEAAEAAAD///z/AQAEAAEAAAD///3/AQAKAAEAAAD///7/AQAQAAEAAAD/////AQAEAAEAAAD//wAAAQAKAAEAAAD//wEAAQAKAAEAAAD//wIAAQAKAAEAAAD//wMAAQAEAAEAAAD//wQAAQAQAAEAAAD//wUAAQAKAAEAAAD//wYAAQAEAAEAAAAAAPz/AQAEAAEAAAAAAP3/AQAKAAEAAAAAAP7/AQAQAAEAAAAAAP//AQAEAAEAAAAAAAAAAQAKAAEAAAAAAAEAAQAQAAEAAAAAAAIAAQAKAAEAAAAAAAMAAQAEAAEAAAAAAAQAAQAQAAEAAAAAAAUAAQAKAAEAAAAAAAYAAQAEAAEAAAABAPz/AQAEAAEAAAABAP3/AQAKAAEAAAABAP7/AQAQAAEAAAABAP//AQAEAAEAAAABAAAAAQAKAAEAAAABAAEAAQAQAAEAAAABAAIAAQAKAAEAAAABAAMAAQAEAAEAAAABAAQAAQAQAAEAAAABAAUAAQAKAAEAAAABAAYAAQAEAAEAAAACAPz/AQAEAAEAAAACAP3/AQAKAAEAAAACAP7/AQAQAAEAAAACAP//AQAEAAEAAAACAAAAAQAKAAEAAAACAAEAAQAQAAEAAAACAAIAAQAKAAEAAAACAAMAAQAEAAEAAAACAAQAAQAQAAEAAAACAAUAAQAKAAEAAAACAAYAAQAEAAEAAAADAPz/AQAEAAEAAAADAP3/AQAKAAEAAAADAP7/AQAQAAEAAAADAP//AQAEAAEAAAADAAAAAQAKAAEAAAADAAEAAQAQAAEAAAADAAIAAQAKAAEAAAADAAMAAQAEAAEAAAADAAQAAQAQAAEAAAADAAUAAQAKAAEAAAADAAYAAQAEAAEAAAAEAPz/AQAEAAEAAAAEAP3/AQAKAAEAAAAEAP7/AQAQAAEAAAAEAP//AQAEAAEAAAAEAAAAAQAKAAEAAAAEAAEAAQAKAAEAAAAEAAIAAQAKAAEAAAAEAAMAAQAEAAEAAAAEAAQAAQAQAAEAAAAEAAUAAQAKAAEAAAAEAAYAAQAEAAEAAAAFAPz/AQAEAAEAAAAFAP3/AQAKAAEAAAAFAP7/AQAQAAEAAAAFAP//AQAEAAEAAAAFAAAAAQAEAAEAAAAFAAEAAQAEAAEAAAAFAAIAAQAEAAEAAAAFAAMAAQAEAAEAAAAFAAQAAQAQAAEAAAAFAAUAAQAKAAEAAAAFAAYAAQAEAAEAAAAGAPz/AQAEAAEAAAAGAP3/AQAKAAEAAAAGAP7/AQAQAAEAAAAGAP//AQAQAAEAAAAGAAAAAQAQAAEAAAAGAAEAAQAQAAEAAAAGAAIAAQAQAAEAAAAGAAMAAQAQAAEAAAAGAAQAAQAQAAEAAAAGAAUAAQAKAAEAAAAGAAYAAQAEAAEAAAAHAPz/AQAEAAEAAAAHAP3/AQAKAAEAAAAHAP7/AQAKAAEAAAAHAP//AQAKAAEAAAAHAAAAAQAKAAEAAAAHAAEAAQAKAAEAAAAHAAIAAQAKAAEAAAAHAAMAAQAKAAEAAAAHAAQAAQAKAAEAAAAHAAUAAQAKAAEAAAAHAAYAAQAEAAEAAAAIAPz/AQAEAAEAAAAIAP3/AQAEAAEAAAAIAP7/AQAEAAEAAAAIAP//AQAEAAEAAAAIAAAAAQAEAAEAAAAIAAEAAQAEAAEAAAAIAAIAAQAEAAEAAAAIAAMAAQAEAAEAAAAIAAQAAQAEAAEAAAAIAAUAAQAEAAEAAAAIAAYAAQAEAAEAAAD5//r/AQAEAAMAAAAKAPr/AQAEAAMAAAAKAAgAAQAEAAMAAAD5/wgAAQAEAAMAAAD7/wgAAQAFAAQAAAD5////AQAFAAMAAAAGAAgAAQACAAMAAAD///r/AQAAAAMAAAAFAPr/AQABAAQAAAD5//7/AQADAAQAAAD5//z/AQACAAQAAAAKAPz/AQABAAQAAAAKAAAAAQAGAAMAAAAKAAMAAQAGAAMAAAANAAMAAQAGAAMAAAA=")
+
+[node name="furniture_layer" parent="level_layers" instance=ExtResource("7_m5ox6")]
+tile_map_data = PackedByteArray("AAD9/wQAAAADAAAAAAAAAAQAAAAGAAAAAAADAAQAAAAGAAAAAAAGAAQAAAAAAAAAAAAGAAEAAAAJAAAAAAD9/wEAAAAJAAMAAAD9//7/AAAJAAMAAAAGAP7/AAAJAAAAAAA=")
+
+[node name="obstacles" type="Node" parent="."]
+
+[node name="mouse_trap_1" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-16, -112)
+
+[node name="mouse_trap_2" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-104, -168)
+
+[node name="mouse_trap_3" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-152, -96)
+
+[node name="mouse_trap_4" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-232, -80)
+
+[node name="mouse_trap_5" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-176, -8)
+
+[node name="mouse_trap_6" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-224, 32)
+
+[node name="mouse_trap_7" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-168, 64)
+
+[node name="mouse_trap_8" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-144, 152)
+
+[node name="mouse_trap_9" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-200, 120)
+
+[node name="mouse_trap_10" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-232, 216)
+
+[node name="mouse_trap_11" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-160, 240)
+
+[node name="mouse_trap_12" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-176, 288)
+
+[node name="mouse_trap_13" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-96, 288)
+
+[node name="mouse_trap_14" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(-32, 224)
+
+[node name="mouse_trap_15" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(32, 264)
+
+[node name="mouse_trap_16" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(128, 224)
+
+[node name="mouse_trap_17" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(104, 296)
+
+[node name="mouse_trap_18" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(216, 232)
+
+[node name="mouse_trap_19" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(272, 296)
+
+[node name="mouse_trap_20" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(312, 216)
+
+[node name="mouse_trap_21" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(360, 152)
+
+[node name="mouse_trap_22" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(288, 88)
+
+[node name="mouse_trap_23" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(352, 8)
+
+[node name="mouse_trap_24" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(312, -24)
+
+[node name="mouse_trap_25" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(360, -120)
+
+[node name="mouse_trap_26" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(256, -136)
+
+[node name="mouse_trap_27" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(208, -192)
+
+[node name="mouse_trap_28" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(144, -136)
+
+[node name="mouse_trap_29" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(112, -168)
+
+[node name="mouse_trap_30" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(24, -184)
+
+[node name="mouse_trap_31" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(72, -88)
+
+[node name="mouse_trap_32" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(112, -24)
+
+[node name="mouse_trap_33" parent="obstacles" instance=ExtResource("9_iiflb")]
+position = Vector2(8, -24)
+
+[node name="pit" parent="obstacles" instance=ExtResource("10_c1ftl")]
+
+[node name="pit_shape_1" type="CollisionPolygon2D" parent="obstacles/pit"]
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_2" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(-64, 256)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_3" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(-64, 416)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_4" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(128, 448)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_5" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(320, 448)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_6" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(480, 384)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_7" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(480, 223)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="pit_shape_8" type="CollisionPolygon2D" parent="obstacles/pit"]
+position = Vector2(416, 0)
+polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
+
+[node name="cheeses" type="Node" parent="."]
+
+[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+position = Vector2(-208, -176)
+
+[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+position = Vector2(-208, 272)
+
+[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+position = Vector2(336, 272)
+
+[node name="cheese_4" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+position = Vector2(336, -176)
+
+[node name="pill_1" parent="cheeses" instance=ExtResource("12_ydf7f")]
+position = Vector2(368, 304)
+
+[node name="pill_2" parent="cheeses" instance=ExtResource("12_ydf7f")]
+position = Vector2(-240, 304)
+
+[node name="pill_3" parent="cheeses" instance=ExtResource("12_ydf7f")]
+position = Vector2(-240, -208)
+
+[node name="pill_4" parent="cheeses" instance=ExtResource("12_ydf7f")]
+position = Vector2(368, -208)
+
+[node name="enemies" type="Node" parent="."]
+
+[node name="bug_flying_1" parent="enemies" instance=ExtResource("12_i2eeh")]
+position = Vector2(-80, -48)
+
+[node name="bug_flying_2" parent="enemies" instance=ExtResource("12_i2eeh")]
+position = Vector2(208, -56)
+
+[node name="bug_flying_3" parent="enemies" instance=ExtResource("12_i2eeh")]
+position = Vector2(-80, 40)
+
+[node name="bug_flying_4" parent="enemies" instance=ExtResource("12_i2eeh")]
+position = Vector2(208, 40)
+
+[node name="bug_blue_1" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-42, -194)
+
+[node name="bug_blue_2" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-191, -111)
+
+[node name="bug_blue_3" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-149, 25)
+
+[node name="bug_blue_4" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-231, -5)
+
+[node name="bug_blue_5" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-239, 171)
+
+[node name="bug_blue_6" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-136, 206)
+
+[node name="bug_blue_7" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(-134, 294)
+
+[node name="bug_blue_8" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(27, 216)
+
+[node name="bug_blue_9" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(45, 297)
+
+[node name="bug_blue_10" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(133, 265)
+
+[node name="bug_blue_11" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(210, 301)
+
+[node name="bug_blue_12" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(284, 253)
+
+[node name="bug_blue_13" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(362, 302)
+
+[node name="bug_blue_14" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(366, 204)
+
+[node name="bug_blue_15" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(308, 135)
+
+[node name="bug_blue_16" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(359, 78)
+
+[node name="bug_blue_17" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(285, 14)
+
+[node name="bug_blue_18" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(358, -59)
+
+[node name="bug_blue_19" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(285, -113)
+
+[node name="bug_blue_20" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(351, -196)
+
+[node name="bug_blue_21" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(194, -141)
+
+[node name="bug_blue_22" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(135, -190)
+
+[node name="bug_blue_23" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(62, -173)
+
+[node name="bug_blue_24" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(23, -83)
+
+[node name="bug_blue_25" parent="enemies" instance=ExtResource("13_fmpub")]
+position = Vector2(119, -91)
+
+[node name="bug_red_1" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-240, 96)
+
+[node name="bug_red_2" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-208, -40)
+
+[node name="bug_red_3" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-104, -136)
+
+[node name="bug_red_4" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(56, -144)
+
+[node name="bug_red_5" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(240, -208)
+
+[node name="bug_red_6" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(320, -56)
+
+[node name="bug_red_7" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(336, 96)
+
+[node name="bug_red_8" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(336, 248)
+
+[node name="bug_red_9" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(208, 280)
+
+[node name="bug_red_10" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(72, 280)
+
+[node name="bug_red_11" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-56, 296)
+
+[node name="bug_red_12" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-240, 288)
+
+[node name="bug_red_13" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-224, 144)
+
+[node name="bug_red_14" parent="enemies" instance=ExtResource("15_s0aoh")]
+position = Vector2(-232, -192)
+
+[node name="player" type="Node" parent="."]
+
+[node name="player" parent="player" instance=ExtResource("9_de3m1")]
+unique_name_in_owner = true
+position = Vector2(64, 48)
+
+[node name="flying_enemies" type="Node" parent="."]
+
+[node name="bug_flying_shooter_1" parent="flying_enemies" instance=ExtResource("15_iwpi7")]
+position = Vector2(-72, 136)
+
+[node name="bug_flying_shooter_2" parent="flying_enemies" instance=ExtResource("15_iwpi7")]
+position = Vector2(208, 136)
+
+[connection signal="trigger_death_menu" from="player/player" to="game_manager" method="_on_player_trigger_death_menu"]

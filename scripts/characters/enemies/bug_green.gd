@@ -16,8 +16,8 @@ var is_falling = false
 var is_flying = false
 
 # Variables for Health
-var max_health = 20
-var current_health = 20
+var max_health = 10
+var current_health = 10
 var is_dead = false
 
 # Variables for Knockback

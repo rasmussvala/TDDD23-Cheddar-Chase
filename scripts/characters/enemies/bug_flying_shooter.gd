@@ -17,8 +17,8 @@ var is_flying = true
 var can_rotate_sprite = true
 
 # Variables for Health
-var max_health = 10
-var current_health = 10
+var max_health = 5
+var current_health = 5
 var is_dead = false
 
 # Variables for Knockback

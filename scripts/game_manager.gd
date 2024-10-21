@@ -17,13 +17,10 @@ func _ready() -> void:
 	time_taken = 0.0
 	damage_taken = false
 	call_deferred("update_initial_hud")
-
-	# Connect the signal from the player to the game manager
 	if player:
 		player.connect("player_take_damage", Callable(self, "_on_player_take_damage"))
 
 func _process(delta: float) -> void:
-	# Increment time taken
 	time_taken += delta
 	#print(time_taken)
 
@@ -47,39 +44,56 @@ func add_point() -> void:
 	if score >= max_score:
 		var progress_data = save_manager.load_progress()
 		var level_stars = progress_data["level_stars"]
-
-		# Ensure current_level is handled consistently as a string or integer
-		var current_level = str(int(game_data.get_current_level().get_basename().trim_prefix("level_")))
-
+		
+		# Get the current level name (e.g., "1" or "2B")
+		var current_level = extract_level_name(game_data.get_current_level())
+		
 		# Calculate stars earned for the current playthrough
-		calculate_stars()  # Make sure this returns the correct stars earned
-
-		# If the level already exists in level_stars, update its value
-		if not level_stars.has(current_level):
-			# If the level isn't already present, create a new entry
+		calculate_stars()
+		
+		# Update stars for the current level
+		if not level_stars.has(current_level) or stars_earned > level_stars[current_level]:
 			level_stars[current_level] = stars_earned
-		else:
-			# If it's present, only update if new stars earned are greater than the existing stars
-			if stars_earned > level_stars[current_level]:
-				level_stars[current_level] = stars_earned
-
+		
 		# Update the highest level unlocked if necessary
-		if progress_data["highest_level"] <= int(current_level):
-			progress_data["highest_level"] = int(current_level) + 1
-
+		var current_level_number = extract_level_number(current_level)
+		if progress_data["highest_level"] <= current_level_number:
+			progress_data["highest_level"] = current_level_number + 1
+		
 		# Save the updated progress data
 		if save_manager.save_progress(progress_data["highest_level"], level_stars):
 			print("Stars saved successfully for level: ", current_level, " Stars: ", level_stars[current_level])
 		else:
 			print("Failed to save stars!")
-
+		
 		# Update all level icons to reflect the new star status
 		for level in get_tree().get_nodes_in_group("level_icons"):
 			if level is LevelIcon:
-				level.update_level_state()  # Refresh the level icons to display the correct stars
+				level.update_level_state()
 		
 		win()  # Proceed with the victory/win flow
 
+func extract_level_name(level_path: String) -> String:
+	var regex = RegEx.new()
+	regex.compile("level_(\\d+[A-Za-z]?)")
+	var result = regex.search(level_path)
+	
+	if result:
+		return result.get_string(1)
+	else:
+		push_error("Invalid level path format: " + level_path)
+		return "1"
+
+func extract_level_number(level_name: String) -> int:
+	var regex = RegEx.new()
+	regex.compile("^(\\d+)")
+	var result = regex.search(level_name)
+	
+	if result:
+		return int(result.get_string(1))
+	else:
+		push_error("Invalid level name format: " + level_name)
+		return 1
 
 func calculate_stars() -> void:
 	stars_earned = 1  # Always get 1 star for completion
