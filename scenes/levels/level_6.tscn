@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://cjrl5e0ndsrpv"]
+[gd_scene load_steps=16 format=4 uid="uid://bjytbc38mspvb"]
 
-[ext_resource type="PackedScene" path="res://scenes/tools/level_time.tscn" id="1_0ga1j"]
+[ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="1_0ga1j"]
+[ext_resource type="Script" path="res://scripts/levels/level_6.gd" id="1_pb2bi"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_8w1x8"]
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="3_rdvgf"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="4_8nb7t"]
@@ -10,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://tspy04gfoqh8" path="res://scenes/characters/enemies/cat/cat.tscn" id="8_0ryfj"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="8_be6p3"]
 [ext_resource type="PackedScene" uid="uid://bwbbcnol0agg8" path="res://scenes/characters/enemies/cat/plate.tscn" id="8_y6xvf"]
-[ext_resource type="PackedScene" uid="uid://dtomxmva8ax4d" path="res://scenes/collectibles/fish.tscn" id="10_4s3yb"]
+[ext_resource type="PackedScene" path="res://scenes/collectibles/fish.tscn" id="10_4s3yb"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="11_bx637"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="11_xw5qr"]
 
@@ -19,7 +20,8 @@ vertices = PackedVector2Array(170, -54, 170, -170, 210, -142, 210, 238, 242, -14
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 2), PackedInt32Array(6, 5, 9, 3), PackedInt32Array(8, 2, 1), PackedInt32Array(10, 8, 1), PackedInt32Array(11, 10, 1, 12), PackedInt32Array(13, 11, 12, 14), PackedInt32Array(15, 13, 14, 0), PackedInt32Array(9, 16, 17, 18, 19), PackedInt32Array(3, 9, 19, 20), PackedInt32Array(20, 21, 22, 0), PackedInt32Array(22, 23, 15, 0), PackedInt32Array(20, 0, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-160, -192, -160, -32, -128, -32, -128, 288, 224, 288, 224, 256, 256, 256, 256, -160, 224, -160, 224, -192)])
 
-[node name="level_cat" type="Node2D"]
+[node name="level_6" type="Node2D"]
+script = ExtResource("1_pb2bi")
 
 [node name="level_time" parent="." instance=ExtResource("1_0ga1j")]
 unique_name_in_owner = true
@@ -62,27 +64,27 @@ position = Vector2(-72, 257)
 
 [node name="cheeses" type="Node" parent="."]
 
-[node name="cheese" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
+[node name="cheese_1" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
 position = Vector2(149, 110)
 
-[node name="cheese3" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
+[node name="cheese_2" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
 position = Vector2(241, 58)
 
-[node name="cheese4" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
+[node name="cheese_3" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
 position = Vector2(78, -43)
 
-[node name="cheese5" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
+[node name="cheese_4" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_bx637")]
 position = Vector2(-140, -169)
 
 [node name="enemies" type="Node" parent="."]
 
-[node name="bug_red" parent="enemies" instance=ExtResource("11_xw5qr")]
+[node name="bug_red_1" parent="enemies" instance=ExtResource("11_xw5qr")]
 position = Vector2(200, -144)
 
-[node name="bug_red2" parent="enemies" instance=ExtResource("11_xw5qr")]
+[node name="bug_red_2" parent="enemies" instance=ExtResource("11_xw5qr")]
 position = Vector2(-50, -173)
 
-[node name="bug_red3" parent="enemies" instance=ExtResource("11_xw5qr")]
+[node name="bug_red_3" parent="enemies" instance=ExtResource("11_xw5qr")]
 position = Vector2(6, -22)
 
 [node name="player" type="Node" parent="."]
