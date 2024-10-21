@@ -222,10 +222,10 @@ shape = SubResource("RectangleShape2D_hhibv")
 
 [node name="cheeses" type="Node" parent="."]
 
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_j577l")]
+[node name="cheese_1" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_j577l")]
 position = Vector2(464, -48)
 
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_j577l")]
+[node name="cheese_2" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_j577l")]
 position = Vector2(432, 176)
 
 [node name="enemies" type="Node" parent="."]

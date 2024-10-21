@@ -68,16 +68,16 @@ debug_color = Color(0.961248, 0, 0.511433, 0.42)
 [node name="pill_1" parent="cheeses" instance=ExtResource("11_wlhg5")]
 position = Vector2(48, -176)
 
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("12_kj6f3")]
+[node name="cheese_1" parent="cheeses" groups=["cheeses"] instance=ExtResource("12_kj6f3")]
 position = Vector2(-16, -48)
 
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("12_kj6f3")]
+[node name="cheese_2" parent="cheeses" groups=["cheeses"] instance=ExtResource("12_kj6f3")]
 position = Vector2(-80, 112)
 
-[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("12_kj6f3")]
+[node name="cheese_3" parent="cheeses" groups=["cheeses"] instance=ExtResource("12_kj6f3")]
 position = Vector2(112, 80)
 
-[node name="cheese_4" parent="cheeses" groups=["Cheeses"] instance=ExtResource("12_kj6f3")]
+[node name="cheese_4" parent="cheeses" groups=["cheeses"] instance=ExtResource("12_kj6f3")]
 position = Vector2(112, -112)
 
 [node name="enemies" type="Node" parent="."]

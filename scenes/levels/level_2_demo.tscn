@@ -94,10 +94,10 @@ polygon = PackedVector2Array(18, -14, 30, -14, 30, -2, 18, -2)
 
 [node name="cheeses" type="Node" parent="."]
 
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_tmu5b")]
+[node name="cheese_1" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_tmu5b")]
 position = Vector2(400, -16)
 
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_tmu5b")]
+[node name="cheese_2" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_tmu5b")]
 position = Vector2(656, -16)
 
 [node name="enemies" type="Node" parent="."]

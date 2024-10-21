@@ -72,13 +72,13 @@ polygon = PackedVector2Array(136, 264, 392, 264, 392, 424, 312, 424, 312, 360, 3
 [node name="pill" parent="cheeses" instance=ExtResource("9_751qf")]
 position = Vector2(784, -16)
 
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_js6c0")]
+[node name="cheese_1" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_js6c0")]
 position = Vector2(336, -16)
 
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_js6c0")]
+[node name="cheese_2" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_js6c0")]
 position = Vector2(1040, 48)
 
-[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("10_js6c0")]
+[node name="cheese_3" parent="cheeses" groups=["cheeses"] instance=ExtResource("10_js6c0")]
 position = Vector2(1520, -16)
 
 [node name="enemies" type="Node" parent="."]

@@ -300,10 +300,10 @@ position = Vector2(1562, 37)
 
 [node name="cheeses" type="Node" parent="."]
 
-[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("16_bcfp8")]
+[node name="cheese_3" parent="cheeses" groups=["cheeses"] instance=ExtResource("16_bcfp8")]
 position = Vector2(1616, -144)
 
-[node name="cheese_4" parent="cheeses" groups=["Cheeses"] instance=ExtResource("16_bcfp8")]
+[node name="cheese_4" parent="cheeses" groups=["cheeses"] instance=ExtResource("16_bcfp8")]
 position = Vector2(1616, 144)
 
 [node name="enemies" type="Node" parent="."]

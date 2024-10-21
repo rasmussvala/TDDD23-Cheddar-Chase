@@ -183,16 +183,16 @@ polygon = PackedVector2Array(-150, -170, -138, -170, -138, -182, -150, -182)
 
 [node name="cheeses" type="Node" parent="."]
 
-[node name="cheese_1" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+[node name="cheese_1" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_hlyle")]
 position = Vector2(-208, -176)
 
-[node name="cheese_2" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+[node name="cheese_2" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_hlyle")]
 position = Vector2(-208, 272)
 
-[node name="cheese_3" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+[node name="cheese_3" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_hlyle")]
 position = Vector2(336, 272)
 
-[node name="cheese_4" parent="cheeses" groups=["Cheeses"] instance=ExtResource("11_hlyle")]
+[node name="cheese_4" parent="cheeses" groups=["cheeses"] instance=ExtResource("11_hlyle")]
 position = Vector2(336, -176)
 
 [node name="pill_1" parent="cheeses" instance=ExtResource("12_ydf7f")]
