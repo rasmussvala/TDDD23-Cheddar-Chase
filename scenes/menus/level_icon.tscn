@@ -1,9 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://xkbgidfk0x0m"]
+[gd_scene load_steps=12 format=3 uid="uid://xkbgidfk0x0m"]
 
 [ext_resource type="Script" path="res://scripts/menus/level_icon.gd" id="1_tru2s"]
 [ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="2_6dorg"]
 [ext_resource type="Texture2D" uid="uid://sku0kefliyju" path="res://assets/testlevel/level_icon.png" id="3_u7auv"]
 [ext_resource type="Texture2D" uid="uid://cgv6rv2xnnj05" path="res://assets/testlevel/star_filled.png" id="4_4gx2h"]
+
+[sub_resource type="Theme" id="Theme_k8b5q"]
+
+[sub_resource type="Gradient" id="Gradient_6ujbv"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pxkn5"]
+gradient = SubResource("Gradient_6ujbv")
+
+[sub_resource type="Gradient" id="Gradient_2v4yl"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.478431, 0.670588, 1, 0.784314)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2bcaj"]
+gradient = SubResource("Gradient_2v4yl")
 
 [sub_resource type="Theme" id="Theme_nad0m"]
 
@@ -27,12 +43,53 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tru2s")
 
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -71.0
+offset_right = 85.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k8b5q")
+texture = SubResource("GradientTexture1D_pxkn5")
+expand_mode = 2
+
+[node name="background_shadow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -69.0
+offset_right = 83.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k8b5q")
+texture = SubResource("GradientTexture1D_2bcaj")
+expand_mode = 2
+
 [node name="label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -34.0
-offset_top = -27.0
-offset_right = 98.0
-offset_bottom = -3.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -65.0
+offset_right = 66.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_nad0m")
 theme_override_fonts/font = ExtResource("2_6dorg")
 theme_override_font_sizes/font_size = 16
