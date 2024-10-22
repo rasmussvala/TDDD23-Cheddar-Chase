@@ -533,6 +533,7 @@ offset_top = -187.0
 offset_right = 224.0
 offset_bottom = -123.0
 level_name = "5B"
+next_scene_path = "res://scenes/levels/level_5B.tscn"
 next_level_down = NodePath("../level_icon5")
 
 [node name="level_icon5C" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("2_m0ttj")]
