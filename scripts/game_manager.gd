@@ -6,6 +6,7 @@ var time_taken: float = 0.0
 var damage_taken: bool = false
 var stars_earned: int = 0
 var carries_fish: bool = false
+var removed_time_star: bool = false
 
 @onready var player: CharacterBody2D = %player
 @onready var death_menu: CanvasLayer = %death_menu
@@ -22,7 +23,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	time_taken += delta
-	#print(time_taken)
+	player.hud.update_timer(time_taken, level_time.star_time)
+	var star_time = level_time.star_time
+	if time_taken >= level_time.star_time and not removed_time_star:
+		removed_time_star = true # Make sure we calc stars only one time
+		calculate_stars()
 
 func update_initial_hud() -> void:
 	if player:
@@ -101,9 +106,13 @@ func calculate_stars() -> void:
 		stars_earned += 1
 	if not damage_taken:  # No damage taken
 		stars_earned += 1
+	
+	player.hud.update_stars(stars_earned)
 
 func _on_player_take_damage() -> void:
-	damage_taken = true
+	if not damage_taken:
+		damage_taken = true
+		calculate_stars()
 
 func _on_player_trigger_death_menu() -> void:
 	death_menu.fade_in()
