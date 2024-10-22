@@ -533,6 +533,7 @@ offset_top = 92.0
 offset_right = 224.0
 offset_bottom = 156.0
 level_name = "5C"
+next_scene_path = "res://scenes/levels/level_5C.tscn"
 next_level_up = NodePath("../level_icon5")
 next_level_right = NodePath("../level_icon5D")
 
@@ -543,6 +544,7 @@ offset_top = 92.0
 offset_right = 447.0
 offset_bottom = 156.0
 level_name = "5D"
+next_scene_path = "res://scenes/levels/level_5D.tscn"
 next_level_left = NodePath("../level_icon5C")
 
 [node name="level_icon6" parent="." node_paths=PackedStringArray("next_level_up", "next_level_left") instance=ExtResource("2_m0ttj")]
