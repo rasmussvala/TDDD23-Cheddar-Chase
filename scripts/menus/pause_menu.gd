@@ -3,6 +3,7 @@ extends CanvasLayer
 var is_paused: bool = false
 
 func _ready() -> void:
+	visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS # Make sure we can process this scene when paused
 
 func _input(event: InputEvent) -> void:

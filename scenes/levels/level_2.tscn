@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dni2huswsn7rp"]
+[gd_scene load_steps=16 format=4 uid="uid://dni2huswsn7rp"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_2.gd" id="1_yu346"]
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_ctq8h"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="3_06by1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="4_yfy0u"]
 [ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="5_sjk8s"]
+[ext_resource type="PackedScene" uid="uid://d2pfb0pw6f7ps" path="res://scenes/menus/pause_menu.tscn" id="6_d17wr"]
 [ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="6_odnj8"]
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_ma6rg"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="8_khwp8"]
@@ -32,6 +33,8 @@ visible = false
 [node name="death_menu" parent="." instance=ExtResource("3_06by1")]
 unique_name_in_owner = true
 visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource("6_d17wr")]
 
 [node name="level_layers" type="Node" parent="."]
 
