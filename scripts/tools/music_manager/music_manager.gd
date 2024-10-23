@@ -1,6 +1,8 @@
 extends Node
 
 @onready var music_player: AudioStreamPlayer = $audio_stream
+@onready var cheese_on_the_moon = load("res://assets/music/Cheese_on_the_moon.wav")
+@onready var lactose = load("res://assets/music/Lactose.wav")
 
 func _ready():
 	music_player.play()
