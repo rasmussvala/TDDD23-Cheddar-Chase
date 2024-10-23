@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://doxu1wbw651md"]
+
+[ext_resource type="Script" path="res://scripts/tools/level_time.gd" id="1_or02d"]
+
+[node name="level_time" type="Node"]
+script = ExtResource("1_or02d")

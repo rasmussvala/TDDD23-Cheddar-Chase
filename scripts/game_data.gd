@@ -2,6 +2,7 @@ extends Node
 
 # Scene paths
 var current_level_path: String = ""
+var current_level_icon_name: String = "1"
 var current_world_index: int = 0
 var current_level_select_scene: PackedScene = null
 
@@ -50,3 +51,7 @@ func transition_to_world_select() -> void:
 func transition_to_main_menu() -> void:
 	reset_level_select_scene()
 	get_tree().change_scene_to_packed(main_menu_scene)
+
+# Level Icon management
+func get_current_level_icon_name() -> String:
+	return current_level_icon_name
