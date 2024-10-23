@@ -18,7 +18,9 @@ func _on_resume_button_pressed() -> void:
 	toggle()
 
 func _on_restart_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().paused = false  # Unpause the game first
+	get_tree().reload_current_scene()  # Restart the current scene
 
 func _on_menu_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().paused = false  # Unpause before changing scenes
+	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
