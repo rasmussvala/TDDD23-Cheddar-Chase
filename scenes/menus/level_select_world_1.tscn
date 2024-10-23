@@ -565,6 +565,7 @@ offset_top = -187.0
 offset_right = 448.0
 offset_bottom = -123.0
 level_name = "7"
+next_scene_path = "res://scenes/levels/level_7.tscn"
 next_level_down = NodePath("../level_icon6")
 
 [node name="player_icon" parent="." instance=ExtResource("3_n6nib")]
