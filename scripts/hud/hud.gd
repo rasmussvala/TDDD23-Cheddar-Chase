@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var score_label: Label = $score_label
 @onready var timer_label: Label = $timer_label
+@onready var star_time_label: Label = $star_time_label
 @onready var fish_icon: Sprite2D = $anchor_control/fish_icon
 @onready var heart_1: Sprite2D = $anchor_control/heart_1
 @onready var heart_2: Sprite2D = $anchor_control/heart_2
@@ -21,14 +22,18 @@ func update_timer(time_passed: float, level_star_time: int) -> void:
 	var seconds = int(time_passed) % 60
 	var milliseconds = int((time_passed - int(time_passed)) * 100)
 	
-	# Format the text as MM:SS.MS / SS
-	timer_label.text = "%02d:%02d.%02d / %02d" % [minutes, seconds, milliseconds, level_star_time]
+	# Format the text as MM:SS.MS
+	timer_label.text = "%02d:%02d.%02d" % [minutes, seconds, milliseconds]
 	
-	pass
+	# Convert level star time to MM:SS format
+	var star_minutes = int(level_star_time / 60)
+	var star_seconds = level_star_time % 60
+	star_time_label.text = "%02d:%02d" % [star_minutes, star_seconds]
+
 
 func update_stars(stars_earned: int) -> void:
 	# Save all star sprites in an array
-	var stars = [star_1, star_2, star_3]
+	var stars = [star_3, star_2, star_1]
 	
 	# Loop through all stars and update sprites according to earned stars
 	for i in range(stars.size()):

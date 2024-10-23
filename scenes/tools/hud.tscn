@@ -29,7 +29,17 @@ offset_right = 640.0
 offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("1_2if4o")
 theme_override_font_sizes/font_size = 64
-text = "00:00.00 / 00"
+text = "00:00.00"
+
+[node name="star_time_label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 640.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("1_2if4o")
+theme_override_font_sizes/font_size = 32
+text = "/00:00
+"
 
 [node name="anchor_control" type="Control" parent="."]
 layout_mode = 3
