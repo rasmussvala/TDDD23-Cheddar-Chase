@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="3_y5cru"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="4_5fmyo"]
 [ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="5_k1bs0"]
+[ext_resource type="PackedScene" uid="uid://d2pfb0pw6f7ps" path="res://scenes/menus/pause_menu.tscn" id="6_t3yyc"]
 [ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="6_wgxv6"]
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_audga"]
 [ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="9_fu6ql"]
@@ -48,6 +49,10 @@ unique_name_in_owner = true
 visible = false
 
 [node name="death_menu" parent="." instance=ExtResource("4_5fmyo")]
+unique_name_in_owner = true
+visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource("6_t3yyc")]
 unique_name_in_owner = true
 visible = false
 
