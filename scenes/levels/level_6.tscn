@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bjytbc38mspvb"]
+[gd_scene load_steps=17 format=4 uid="uid://bjytbc38mspvb"]
 
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="1_0ga1j"]
 [ext_resource type="Script" path="res://scripts/levels/level_6.gd" id="1_pb2bi"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="4_8nb7t"]
 [ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="5_l8ume"]
 [ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="6_d202h"]
+[ext_resource type="PackedScene" uid="uid://d2pfb0pw6f7ps" path="res://scenes/menus/pause_menu.tscn" id="6_vtbeg"]
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="7_d3gmj"]
 [ext_resource type="PackedScene" uid="uid://tspy04gfoqh8" path="res://scenes/characters/enemies/cat/cat.tscn" id="8_0ryfj"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="8_be6p3"]
 [ext_resource type="PackedScene" uid="uid://bwbbcnol0agg8" path="res://scenes/characters/enemies/cat/plate.tscn" id="8_y6xvf"]
-[ext_resource type="PackedScene" path="res://scenes/collectibles/fish.tscn" id="10_4s3yb"]
+[ext_resource type="PackedScene" uid="uid://dtomxmva8ax4d" path="res://scenes/collectibles/fish.tscn" id="10_4s3yb"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="11_bx637"]
 [ext_resource type="PackedScene" uid="uid://ct4xnrb6ua7pq" path="res://scenes/characters/enemies/bug_red.tscn" id="11_xw5qr"]
 
@@ -37,6 +38,8 @@ visible = false
 [node name="death_menu" parent="." instance=ExtResource("4_8nb7t")]
 unique_name_in_owner = true
 visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource("6_vtbeg")]
 
 [node name="level_layers" type="Node" parent="."]
 

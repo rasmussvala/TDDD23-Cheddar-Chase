@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2pfb0pw6f7ps"]
+
+[ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_a0g6p"]
+[ext_resource type="FontFile" uid="uid://bos2geotawcoj" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_hsk0x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d5j5"]
+bg_color = Color(0.7, 0.439717, 0.021, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.7, 0.5089, 0.154, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo5pn"]
+bg_color = Color(0.6, 0.372549, 0.0156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab6x"]
+bg_color = Color(0.88, 0.654133, 0.264, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.742127, 0.467024, 0.0233432, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="pause_menu" type="CanvasLayer"]
+script = ExtResource("1_a0g6p")
+
+[node name="window" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -494.0
+offset_top = -228.5
+offset_right = 494.0
+offset_bottom = 228.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.74902)
+
+[node name="pause_label" type="Label" parent="window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -153.0
+offset_right = 210.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hsk0x")
+theme_override_font_sizes/font_size = 96
+text = "Pause"
+
+[node name="resume_button" type="Button" parent="window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -438.0
+offset_top = -36.0
+offset_right = -16.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hsk0x")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_0d5j5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lo5pn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ab6x")
+text = "Resume"
+
+[node name="restart_button" type="Button" parent="window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -36.0
+offset_right = 438.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hsk0x")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_0d5j5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lo5pn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ab6x")
+text = "Restart"
+
+[node name="menu_button" type="Button" parent="window"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = 67.0
+offset_right = 211.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hsk0x")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_0d5j5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lo5pn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4ab6x")
+text = "Main Menu"
+
+[connection signal="pressed" from="window/resume_button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="window/restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="window/menu_button" to="." method="_on_menu_button_pressed"]
