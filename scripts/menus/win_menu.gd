@@ -36,6 +36,8 @@ func _on_return_button_pressed() -> void:
 
 	var level_select = game_data.get_level_select_scene()
 	if level_select:
+		var music = load("res://assets/music/Cheese_on_the_moon.wav")
+		music_manager.change_music(music)
 		game_data.transition_to_level_select(game_data.get_current_world(), level_select)
 	else:
 		print("Failed to load level select menu")

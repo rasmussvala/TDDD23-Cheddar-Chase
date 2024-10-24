@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 game_data="*res://scripts/game_data.gd"
 functions="*res://scripts/functions.gd"
+music_manager="*res://scenes/tools/music_manager/music_manager.tscn"
 save_manager="*res://scripts/tools/save_manager.gd"
 
 [file_customization]
