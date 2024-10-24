@@ -118,4 +118,5 @@ func _on_player_trigger_death_menu() -> void:
 	death_menu.fade_in()
 
 func win() -> void:
-	win_menu.fade_in()
+	win_menu.update_stars(damage_taken, time_taken, level_time.star_time)
+	win_menu.fade_in(time_taken, level_time.star_time)
