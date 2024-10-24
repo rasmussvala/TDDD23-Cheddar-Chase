@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2pfb0pw6f7ps"]
+[gd_scene load_steps=6 format=3 uid="uid://cbh0v2p385ld2"]
 
 [ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_a0g6p"]
-[ext_resource type="FontFile" uid="uid://bos2geotawcoj" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_hsk0x"]
+[ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_hsk0x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d5j5"]
 bg_color = Color(0.7, 0.439717, 0.021, 1)

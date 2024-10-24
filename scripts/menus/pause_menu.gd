@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var cheese_on_the_moon = load("res://assets/music/Cheese_on_the_moon.wav")
 var is_paused: bool = false
 
 func _ready() -> void:
@@ -25,3 +26,4 @@ func _on_restart_button_pressed() -> void:
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false  # Unpause before changing scenes
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	music_manager.change_music(cheese_on_the_moon)
