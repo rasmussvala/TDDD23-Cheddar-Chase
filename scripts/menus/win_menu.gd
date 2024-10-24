@@ -3,13 +3,14 @@ extends CanvasLayer
 @onready var window: ColorRect = $window
 @onready var return_button: Button = $window/return_button
 @onready var win_label: Label = $window/win_label
+@onready var background: TextureRect = $background
 
 @export var fade_in_time = 0.2 
 
 func _ready() -> void:
 	var opacity = 0
 
-	window.color.a = opacity
+	background.modulate.a = opacity
 	return_button.modulate.a = opacity
 	win_label.modulate.a = opacity
 	
@@ -26,7 +27,7 @@ func fade_in():
 	var opacity = 1.0
 	
 	var tween = create_tween()
-	tween.tween_property(window, "color:a", opacity, fade_in_time)
+	tween.tween_property(background, "modulate:a", opacity, fade_in_time)
 	tween.parallel().tween_property(win_label, "modulate:a", opacity, fade_in_time)
 	tween.parallel().tween_property(return_button, "modulate:a", opacity, fade_in_time)
 
