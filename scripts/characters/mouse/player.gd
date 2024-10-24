@@ -11,6 +11,8 @@ var attack_duration = 0.5
 var is_falling = false
 var is_flying = false
 var attack_switch = false
+var is_invincible = false
+
 
 # Cooldown variables
 var attack_cooldown = 0.7 
@@ -37,6 +39,7 @@ var knockback_strength = 220
 @onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_mouse
 @onready var hit_box: HitBox = $hit_box
 @onready var hurt_box: HurtBox = $hurt_box
+@onready var invincibility_timer: Timer = %invincibility_timer
 
 func _ready():
 	spawn_point = global_position
@@ -170,23 +173,36 @@ func is_colliding() -> bool:
 
 # Function to handle taking damage
 func take_damage(amount: int, attacker_position: Vector2):
-	if is_dead:
+	if is_dead or is_invincible:
 		return
 	
+	# Update health
 	current_health -= amount
 	hud.update_health(current_health)
+
+	start_invincibility()
 	
 	# Emit signal when damage is taken
 	player_take_damage.emit()
 	
+	# Calculate knockback direction here
+	var direction = (position - attacker_position).normalized()
+	knockback_velocity = direction * knockback_strength
+	knockback_timer = knockback_duration
+	animated_sprite_2d.play("damaged")
+	
 	if current_health <= 0:
 		die()
-	else:
-		# Calculate knockback direction here
-		var direction = (position - attacker_position).normalized()
-		knockback_velocity = direction * knockback_strength
-		knockback_timer = knockback_duration
-		animated_sprite_2d.play("damaged")
+
+func start_invincibility() -> void:
+	is_invincible = true
+	
+	var tween = create_tween()
+	tween.set_loops(4) # Flash 4 times
+	tween.tween_property(animated_sprite_2d, "modulate:a", 0.2, 0.1)
+	tween.tween_property(animated_sprite_2d, "modulate:a", 1.0, 0.1)
+	
+	invincibility_timer.start(1.0)
 
 # Function to handle player death
 func die():	
@@ -234,3 +250,7 @@ func fall_in_pit():
 	await tween.finished
 	
 	is_falling = false
+
+
+func _on_invincibility_timer_timeout() -> void:
+	is_invincible = false
