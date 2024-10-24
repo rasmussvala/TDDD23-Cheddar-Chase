@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dvfmphr6otr10"]
+[gd_scene load_steps=16 format=4 uid="uid://dh03amr8su4y4"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_4b.gd" id="1_3uufx"]
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_h0qws"]
@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="4_15px1"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="5_65whv"]
 [ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="6_8b8mv"]
-[ext_resource type="PackedScene" uid="uid://d2pfb0pw6f7ps" path="res://scenes/menus/pause_menu.tscn" id="6_jw84u"]
+[ext_resource type="PackedScene" uid="uid://cbh0v2p385ld2" path="res://scenes/menus/pause_menu.tscn" id="6_jw84u"]
 [ext_resource type="PackedScene" uid="uid://c74xlu0of2unm" path="res://scenes/tools/tile_map_layers/furniture_layer.tscn" id="7_10x6e"]
 [ext_resource type="PackedScene" uid="uid://cagii1m6affwl" path="res://scenes/tools/tile_map_layers/decoration_layer.tscn" id="8_70udd"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="9_iigok"]
 [ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="9_nhp7l"]
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="10_mf686"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="10_w8avf"]
-[ext_resource type="PackedScene" path="res://scenes/collectibles/heart.tscn" id="12_lefc8"]
+[ext_resource type="PackedScene" uid="uid://d4bboajpgnlfq" path="res://scenes/collectibles/heart.tscn" id="12_lefc8"]
 [ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="12_mr111"]
 
 [node name="level_4B" type="Node2D"]
@@ -35,6 +35,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="pause_menu" parent="." instance=ExtResource("6_jw84u")]
+visible = false
 
 [node name="level_layers" type="Node" parent="."]
 
