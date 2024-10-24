@@ -658,3 +658,8 @@ debug_color = Color(1, 0, 0.0999999, 0.682353)
 [node name="hit_box_collision" type="CollisionShape2D" parent="hit_box"]
 shape = SubResource("CircleShape2D_vktk8")
 debug_color = Color(0, 0.64181, 0.328266, 0.42)
+
+[node name="invincibility_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]
