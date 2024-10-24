@@ -6,6 +6,7 @@ extends Node
 
 func _ready():
 	music_player.play()
+	process_mode = Node.PROCESS_MODE_ALWAYS # Make sure music doesn't pause in win menu
 
 # Function to switch the currently playing music
 func change_music(new_music: AudioStream):

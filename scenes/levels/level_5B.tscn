@@ -170,12 +170,6 @@ position = Vector2(142, 117)
 [node name="mouse_trap_19" parent="obstacles" instance=ExtResource("9_r673d")]
 position = Vector2(66, 133)
 
-[node name="mouse_trap_70" parent="obstacles" instance=ExtResource("9_r673d")]
-position = Vector2(71, -99)
-
-[node name="mouse_trap_77" parent="obstacles" instance=ExtResource("9_r673d")]
-position = Vector2(-39, -34)
-
 [node name="mouse_trap_78" parent="obstacles" instance=ExtResource("9_r673d")]
 position = Vector2(-39, -9)
 
