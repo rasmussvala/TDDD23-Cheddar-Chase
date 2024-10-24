@@ -1,26 +1,45 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnvkpndk0p0c3"]
+[gd_scene load_steps=12 format=3 uid="uid://bnvkpndk0p0c3"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_q11qb"]
-[ext_resource type="FontFile" uid="uid://co7nycwx35e6j" path="res://assets/tools/fonts/PixelOperator8-Bold.ttf" id="2_x5xsa"]
 [ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="3_idsb0"]
 [ext_resource type="Texture2D" uid="uid://1lqunki8hrbb" path="res://assets/testlevel/Cheddar chase.png" id="4_igaen"]
 [ext_resource type="StyleBox" uid="uid://0nld3ov2auk4" path="res://scenes/tools/button_style_hover.tres" id="4_w5o2c"]
 [ext_resource type="StyleBox" uid="uid://cipk5xsyhtm1c" path="res://scenes/tools/button_stye_pressed.tres" id="5_2s3lw"]
 [ext_resource type="StyleBox" uid="uid://dfvf14wsxhcja" path="res://scenes/tools/button_style_normal.tres" id="6_2gbhv"]
 
-[sub_resource type="Gradient" id="Gradient_rovui"]
+[sub_resource type="Gradient" id="Gradient_7yi8r"]
 interpolation_mode = 2
-colors = PackedColorArray(0.213266, 0.286712, 0.732177, 1, 0.632813, 0.714148, 0.907973, 1)
+colors = PackedColorArray(0.289074, 0.383136, 0.856045, 1, 0.460825, 0.895118, 0.985488, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_cafb1"]
-gradient = SubResource("Gradient_rovui")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_emat8"]
+gradient = SubResource("Gradient_7yi8r")
 
-[sub_resource type="LabelSettings" id="LabelSettings_tftrp"]
-font = ExtResource("2_x5xsa")
-font_size = 44
-shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(4, 4)
+[sub_resource type="Animation" id="Animation_y4pqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("logo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
 
 [sub_resource type="Animation" id="Animation_gl70e"]
 resource_name = "logo"
@@ -50,33 +69,6 @@ tracks/1/keys = {
 "values": [Vector2(4, 4), Vector2(4.1, 4.1), Vector2(4, 4)]
 }
 
-[sub_resource type="Animation" id="Animation_y4pqk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("logo:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(512, 120)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("logo:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k5l8y"]
 _data = {
 "RESET": SubResource("Animation_y4pqk"),
@@ -92,26 +84,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_cafb1")
-
-[node name="message" type="Label" parent="."]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -561.5
-offset_top = 92.0
-offset_right = 561.5
-offset_bottom = 192.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_x5xsa")
-theme_override_font_sizes/font_size = 64
-text = "Project Stilton"
-label_settings = SubResource("LabelSettings_tftrp")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+texture = SubResource("GradientTexture1D_emat8")
 
 [node name="start_button" type="Button" parent="."]
 anchors_preset = 8

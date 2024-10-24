@@ -2,39 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_a0g6p"]
 [ext_resource type="FontFile" uid="uid://dwxiyviu3pln4" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_hsk0x"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d5j5"]
-bg_color = Color(0.7, 0.439717, 0.021, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.7, 0.5089, 0.154, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo5pn"]
-bg_color = Color(0.6, 0.372549, 0.0156863, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ab6x"]
-bg_color = Color(0.88, 0.654133, 0.264, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.742127, 0.467024, 0.0233432, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[ext_resource type="StyleBox" uid="uid://0nld3ov2auk4" path="res://scenes/tools/button_style_hover.tres" id="3_2clks"]
+[ext_resource type="StyleBox" uid="uid://cipk5xsyhtm1c" path="res://scenes/tools/button_stye_pressed.tres" id="4_2jajv"]
+[ext_resource type="StyleBox" uid="uid://dfvf14wsxhcja" path="res://scenes/tools/button_style_normal.tres" id="5_b7xok"]
 
 [node name="pause_menu" type="CanvasLayer"]
 script = ExtResource("1_a0g6p")
@@ -83,11 +53,13 @@ offset_right = -16.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hsk0x")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/hover = SubResource("StyleBoxFlat_0d5j5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lo5pn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4ab6x")
+theme_override_styles/hover = ExtResource("3_2clks")
+theme_override_styles/pressed = ExtResource("4_2jajv")
+theme_override_styles/normal = ExtResource("5_b7xok")
 text = "Resume"
 
 [node name="restart_button" type="Button" parent="window"]
@@ -103,11 +75,13 @@ offset_right = 438.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hsk0x")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/hover = SubResource("StyleBoxFlat_0d5j5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lo5pn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4ab6x")
+theme_override_styles/hover = ExtResource("3_2clks")
+theme_override_styles/pressed = ExtResource("4_2jajv")
+theme_override_styles/normal = ExtResource("5_b7xok")
 text = "Restart"
 
 [node name="menu_button" type="Button" parent="window"]
@@ -123,11 +97,13 @@ offset_right = 211.0
 offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_hsk0x")
 theme_override_font_sizes/font_size = 48
-theme_override_styles/hover = SubResource("StyleBoxFlat_0d5j5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lo5pn")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4ab6x")
+theme_override_styles/hover = ExtResource("3_2clks")
+theme_override_styles/pressed = ExtResource("4_2jajv")
+theme_override_styles/normal = ExtResource("5_b7xok")
 text = "Main Menu"
 
 [connection signal="pressed" from="window/resume_button" to="." method="_on_resume_button_pressed"]
