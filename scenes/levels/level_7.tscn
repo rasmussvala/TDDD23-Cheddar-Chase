@@ -39,7 +39,6 @@ script = ExtResource("3_4bd0m")
 [node name="win_menu" parent="." instance=ExtResource("4_soire")]
 unique_name_in_owner = true
 visible = false
-fade_in_time = null
 
 [node name="death_menu" parent="." instance=ExtResource("5_hivey")]
 unique_name_in_owner = true
