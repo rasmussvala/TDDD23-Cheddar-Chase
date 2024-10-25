@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca7scphy8lqlb"]
+[gd_scene load_steps=19 format=3 uid="uid://ca7scphy8lqlb"]
 
 [ext_resource type="FontFile" uid="uid://bos2geotawcoj" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_3tl86"]
 [ext_resource type="Script" path="res://scripts/menus/options_menu.gd" id="1_52ppb"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" path="res://scenes/tools/button_stye_pressed.tres" id="3_5uf0h"]
 [ext_resource type="StyleBox" path="res://scenes/tools/button_style_normal.tres" id="4_fk6p5"]
 [ext_resource type="Texture2D" uid="uid://cbiablq6ous60" path="res://assets/tools/slider-grabber.png" id="6_uj7s8"]
+[ext_resource type="Script" path="res://scripts/tools/volume_slider.gd" id="7_64xbp"]
 
 [sub_resource type="Gradient" id="Gradient_7yi8r"]
 interpolation_mode = 2
@@ -153,6 +154,7 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_aveqo")
 max_value = 1.0
 step = 0.001
 value = 1.0
+script = ExtResource("7_64xbp")
 
 [node name="music_label" type="Label" parent="background"]
 layout_mode = 1
@@ -195,6 +197,7 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_v5hc4")
 max_value = 1.0
 step = 0.001
 value = 1.0
+script = ExtResource("7_64xbp")
 
 [node name="sfx_label" type="Label" parent="background"]
 layout_mode = 1
@@ -236,6 +239,7 @@ theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_in7ql")
 max_value = 1.0
 step = 0.001
 value = 1.0
+script = ExtResource("7_64xbp")
 
 [node name="you_sure_screen" type="ColorRect" parent="background"]
 unique_name_in_owner = true
@@ -362,8 +366,11 @@ text = "Close"
 
 [connection signal="pressed" from="background/back_button" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="background/reset_progress_button" to="." method="_on_reset_progress_button_pressed"]
+[connection signal="mouse_exited" from="background/master_label/master_volume_slider" to="background/master_label/master_volume_slider" method="_on_mouse_exited"]
 [connection signal="value_changed" from="background/master_label/master_volume_slider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="mouse_exited" from="background/music_label/music_volume_slider" to="background/music_label/music_volume_slider" method="_on_mouse_exited"]
 [connection signal="value_changed" from="background/music_label/music_volume_slider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="mouse_exited" from="background/sfx_label/sfx_volume_slider" to="background/sfx_label/sfx_volume_slider" method="_on_mouse_exited"]
 [connection signal="value_changed" from="background/sfx_label/sfx_volume_slider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="pressed" from="background/you_sure_screen/yes_button" to="." method="_on_yes_button_pressed"]
 [connection signal="pressed" from="background/you_sure_screen/no_button" to="." method="_on_no_button_pressed"]
