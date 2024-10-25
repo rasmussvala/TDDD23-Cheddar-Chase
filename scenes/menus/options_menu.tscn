@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca7scphy8lqlb"]
+[gd_scene load_steps=18 format=3 uid="uid://ca7scphy8lqlb"]
 
 [ext_resource type="FontFile" uid="uid://bos2geotawcoj" path="res://assets/tools/fonts/PixelOperator8.ttf" id="1_3tl86"]
 [ext_resource type="Script" path="res://scripts/menus/options_menu.gd" id="1_52ppb"]
 [ext_resource type="StyleBox" path="res://scenes/tools/button_style_hover.tres" id="2_r63em"]
 [ext_resource type="StyleBox" path="res://scenes/tools/button_stye_pressed.tres" id="3_5uf0h"]
 [ext_resource type="StyleBox" path="res://scenes/tools/button_style_normal.tres" id="4_fk6p5"]
+[ext_resource type="Texture2D" uid="uid://cbiablq6ous60" path="res://assets/tools/slider-grabber.png" id="6_uj7s8"]
 
 [sub_resource type="Gradient" id="Gradient_7yi8r"]
 interpolation_mode = 2
@@ -12,6 +13,39 @@ colors = PackedColorArray(0.289074, 0.383136, 0.856045, 1, 0.460825, 0.895118, 0
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_151n7"]
 gradient = SubResource("Gradient_7yi8r")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_psj77"]
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ff3t8"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_aveqo"]
+color = Color(0.909804, 0.784314, 0.184314, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uwshx"]
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_573gr"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_v5hc4"]
+color = Color(0.909804, 0.784314, 0.184314, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hhgwl"]
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_4vmjh"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_in7ql"]
+color = Color(0.909804, 0.784314, 0.184314, 1)
+thickness = 8
 
 [node name="options_menu" type="CanvasLayer"]
 script = ExtResource("1_52ppb")
@@ -109,6 +143,13 @@ offset_right = 529.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("6_uj7s8")
+theme_override_icons/grabber_highlight = ExtResource("6_uj7s8")
+theme_override_icons/grabber_disabled = ExtResource("6_uj7s8")
+theme_override_icons/tick = ExtResource("6_uj7s8")
+theme_override_styles/slider = SubResource("StyleBoxLine_psj77")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ff3t8")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_aveqo")
 max_value = 1.0
 step = 0.001
 value = 1.0
@@ -144,6 +185,13 @@ offset_right = 529.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("6_uj7s8")
+theme_override_icons/grabber_highlight = ExtResource("6_uj7s8")
+theme_override_icons/grabber_disabled = ExtResource("6_uj7s8")
+theme_override_icons/tick = ExtResource("6_uj7s8")
+theme_override_styles/slider = SubResource("StyleBoxLine_uwshx")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_573gr")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_v5hc4")
 max_value = 1.0
 step = 0.001
 value = 1.0
@@ -178,6 +226,13 @@ offset_right = 529.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_icons/grabber = ExtResource("6_uj7s8")
+theme_override_icons/grabber_highlight = ExtResource("6_uj7s8")
+theme_override_icons/grabber_disabled = ExtResource("6_uj7s8")
+theme_override_icons/tick = ExtResource("6_uj7s8")
+theme_override_styles/slider = SubResource("StyleBoxLine_hhgwl")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_4vmjh")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_in7ql")
 max_value = 1.0
 step = 0.001
 value = 1.0
