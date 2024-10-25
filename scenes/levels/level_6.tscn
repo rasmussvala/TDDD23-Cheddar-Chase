@@ -61,7 +61,7 @@ tile_map_data = PackedByteArray("AAD8/wEAAQAAAAMAAFD9////AQAGAAAAAAD9/wAAAQAGAAE
 [node name="cat_accessories" type="Node" parent="."]
 
 [node name="plate" parent="cat_accessories" groups=["foods"] instance=ExtResource("8_y6xvf")]
-position = Vector2(-91, -25)
+position = Vector2(-98, -34)
 
 [node name="fish" parent="cat_accessories" instance=ExtResource("10_4s3yb")]
 position = Vector2(-72, 257)
