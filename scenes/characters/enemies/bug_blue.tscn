@@ -209,6 +209,7 @@ debug_color = Color(0.65, 0, 0, 0.470588)
 
 [node name="audio_damaged" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("7_16jct")
+volume_db = 10.0
 bus = &"SFX"
 
 [node name="audio_death" type="AudioStreamPlayer2D" parent="audio"]

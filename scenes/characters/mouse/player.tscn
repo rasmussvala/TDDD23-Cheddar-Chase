@@ -674,6 +674,7 @@ unique_name_in_owner = true
 
 [node name="audio_walk" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("14_x6vs6")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="audio_fall" type="AudioStreamPlayer2D" parent="audio"]
@@ -682,18 +683,23 @@ bus = &"SFX"
 
 [node name="audio_attack_left" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("16_k66u4")
+volume_db = 20.0
 bus = &"SFX"
 
 [node name="audio_attack_right" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("17_5gtr8")
+volume_db = 20.0
 bus = &"SFX"
 
 [node name="audio_damaged" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("18_0o1sa")
+volume_db = 20.0
 bus = &"SFX"
 
 [node name="audio_rolling" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("19_qeqmh")
+volume_db = -10.0
+bus = &"SFX"
 
 [node name="audio_eaten" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("20_82v0j")
