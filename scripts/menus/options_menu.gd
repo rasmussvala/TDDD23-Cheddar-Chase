@@ -20,11 +20,23 @@ func _on_yes_button_pressed() -> void:
 	
 	data_deleted_screen.visible = true
 
-
 func _on_no_button_pressed() -> void:
 	you_sure_screen.visible = false
-
 
 func _on_ok_button_pressed() -> void:
 	data_deleted_screen.visible = false
 	you_sure_screen.visible = false
+
+func _on_master_volume_slider_value_changed(value: float) -> void:
+	var index = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+
+func _on_music_volume_slider_value_changed(value: float) -> void:
+	#var index = AudioServer.get_bus_index("Master")
+	#AudioServer.set_bus_volume_db(index, linear_to_db(value))
+	pass 
+
+func _on_sfx_volume_slider_value_changed(value: float) -> void:
+	#var index = AudioServer.get_bus_index("Master")
+	#AudioServer.set_bus_volume_db(index, linear_to_db(value))
+	pass
