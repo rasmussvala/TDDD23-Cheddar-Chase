@@ -34,9 +34,7 @@ func _on_master_volume_slider_value_changed(value: float) -> void:
 func _on_music_volume_slider_value_changed(value: float) -> void:
 	var index = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
-	pass 
 
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	var index = AudioServer.get_bus_index("SFX")
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
-	pass
