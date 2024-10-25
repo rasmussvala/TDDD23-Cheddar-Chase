@@ -2,10 +2,17 @@ extends CanvasLayer
 
 @onready var you_sure_screen: ColorRect = %you_sure_screen
 @onready var data_deleted_screen: ColorRect = %data_deleted_screen
+@onready var master_volume_slider: HSlider = %master_volume_slider
+@onready var music_volume_slider: HSlider = %music_volume_slider
+@onready var sfx_volume_slider: HSlider = %sfx_volume_slider
 
 func _ready() -> void:
 	you_sure_screen.visible = false
 	data_deleted_screen.visible = false
+	
+	master_volume_slider.value = get_master_volume()
+	music_volume_slider.value = get_music_volume()
+	sfx_volume_slider.value = get_sfx_volume()
 
 func _on_reset_progress_button_pressed() -> void:
 	you_sure_screen.visible = true
@@ -27,14 +34,55 @@ func _on_ok_button_pressed() -> void:
 	data_deleted_screen.visible = false
 	you_sure_screen.visible = false
 
+# ---------- AUDIO ----------
+
+const SAVE_FILE_PATH = "user://volume_data.json"
+
 func _on_master_volume_slider_value_changed(value: float) -> void:
 	var index = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+	save_volumes(value, get_music_volume(), get_sfx_volume())
 
 func _on_music_volume_slider_value_changed(value: float) -> void:
 	var index = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+	save_volumes(get_master_volume(), value, get_sfx_volume())
 
 func _on_sfx_volume_slider_value_changed(value: float) -> void:
 	var index = AudioServer.get_bus_index("SFX")
 	AudioServer.set_bus_volume_db(index, linear_to_db(value))
+	save_volumes(get_master_volume(), get_music_volume(), value)
+
+# Helper functions to get current volumes
+func get_master_volume() -> float:
+	var index = AudioServer.get_bus_index("Master")
+	return db_to_linear(AudioServer.get_bus_volume_db(index))
+
+func get_music_volume() -> float:
+	var index = AudioServer.get_bus_index("Music")
+	return db_to_linear(AudioServer.get_bus_volume_db(index))
+
+func get_sfx_volume() -> float:
+	var index = AudioServer.get_bus_index("SFX")
+	return db_to_linear(AudioServer.get_bus_volume_db(index))
+
+func save_volumes(master: float, music: float, sfx: float) -> void:
+	# First load existing data
+	var save_data = {}
+	if FileAccess.file_exists(SAVE_FILE_PATH):
+		var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
+		if file:
+			var json_string = file.get_as_text()
+			var json = JSON.parse_string(json_string)
+			if json:
+				save_data = json
+	
+	# Update only the volume data
+	save_data["master_volume"] = master
+	save_data["music_volume"] = music
+	save_data["sfx_volume"] = sfx
+	
+	# Save everything back to file
+	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(save_data))
