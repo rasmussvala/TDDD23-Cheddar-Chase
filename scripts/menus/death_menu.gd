@@ -49,7 +49,7 @@ func _on_back_button_pressed() -> void:
 		print("Failed to load level select menu")
 
 func _input(event):
-	# Detect spacebar press
-	if event.is_action_pressed("ui_jump"):  # "ui_accept" is often bound to the spacebar
+	# Restart with R
+	if event.is_action_pressed("ui_reset"):
 		if self.visible:
 			_on_restart_button_pressed()
