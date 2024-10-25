@@ -47,3 +47,9 @@ func _on_back_button_pressed() -> void:
 		game_data.transition_to_level_select(game_data.get_current_world(), level_select)
 	else:
 		print("Failed to load level select menu")
+
+func _input(event):
+	# Detect spacebar press
+	if event.is_action_pressed("ui_jump"):  # "ui_accept" is often bound to the spacebar
+		if self.visible:
+			_on_restart_button_pressed()

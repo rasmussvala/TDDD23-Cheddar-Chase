@@ -27,6 +27,10 @@ var knockback_duration = 0.2
 var knockback_timer = 0.0
 var knockback_strength = 150
 
+# Audio references
+@onready var audio_damaged: AudioStreamPlayer2D = $audio/audio_damaged
+@onready var audio_death: AudioStreamPlayer2D = $audio/audio_death
+
 # Variables for Shooting
 var can_shoot = true
 var shoot_interval = 2.0
@@ -172,11 +176,13 @@ func take_damage(amount: int, attacker_position: Vector2):
 		knockback_timer = knockback_duration
 		
 		animated_sprite_2d.play("damaged")
+		audio_damaged.play()
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.play("walk")
 
 func die():
 	is_dead = true
 	animated_sprite_2d.play("death")
+	audio_death.play()
 	await animated_sprite_2d.animation_finished
 	queue_free()

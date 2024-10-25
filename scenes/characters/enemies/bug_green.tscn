@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b6pkedphn6qas"]
+[gd_scene load_steps=32 format=3 uid="uid://b6pkedphn6qas"]
 
 [ext_resource type="Texture2D" uid="uid://ib22scr52slf" path="res://assets/characters/enemies/bug_green/damaged.png" id="1_8jink"]
 [ext_resource type="Script" path="res://scripts/characters/enemies/bug_green.gd" id="1_8ke32"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dcsi5qgitv7it" path="res://assets/characters/enemies/bug_green/death.png" id="2_p3tki"]
 [ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/hurt_box.tscn" id="4_2ds8n"]
 [ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="5_mxiun"]
+[ext_resource type="AudioStream" uid="uid://b5tvabuxmmmar" path="res://assets/characters/enemies/bug_damaged.wav" id="7_iqoqm"]
+[ext_resource type="AudioStream" uid="uid://dxcehxdnqeofc" path="res://assets/characters/enemies/bug_death.wav" id="8_vr43r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri3ia"]
 atlas = ExtResource("1_8jink")
@@ -205,6 +207,16 @@ collision_layer = 32
 [node name="hit_box_collision" type="CollisionShape2D" parent="hit_box"]
 shape = SubResource("CircleShape2D_4rk1w")
 debug_color = Color(0.65, 0, 0, 0.470588)
+
+[node name="audio" type="Node" parent="."]
+
+[node name="audio_damaged" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("7_iqoqm")
+bus = &"SFX"
+
+[node name="audio_death" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("8_vr43r")
+bus = &"SFX"
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
