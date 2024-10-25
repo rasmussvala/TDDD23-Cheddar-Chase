@@ -21,19 +21,6 @@ func _input(event: InputEvent) -> void:
 	if move_tween and move_tween.is_running():
 		return
 	
-	# Resets savefile progress
-	if event.is_action_pressed("ui_reset"):
-		save_manager.delete_save()
-		save_manager.initialize_save()
-		game_data.current_level_icon_name = "1"
-		for level in get_tree().get_nodes_in_group("level_icons"):
-			if level is LevelIcon:
-				level.update_level_state()
-		
-		# Move player icon back to world starting level 
-		current_level = $level_icon1
-		$player_icon.global_position = current_level.global_position
-	
 	if event.is_action_pressed("ui_left") and current_level.next_level_left and not current_level.next_level_left.is_locked:
 		current_level = current_level.next_level_left
 		tween_icon()

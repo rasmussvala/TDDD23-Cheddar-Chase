@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://ck6x63rc0v7qn"]
+[gd_scene load_steps=34 format=4 uid="uid://ck6x63rc0v7qn"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_3.gd" id="1_gjciy"]
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="2_wpr3q"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dp8ue34i5iu0l" path="res://assets/characters/enemies/mouse_trap/trapped.png" id="13_xewnx"]
 [ext_resource type="Texture2D" uid="uid://c4igs0104hwas" path="res://assets/characters/enemies/bug_blue/death.png" id="14_iivop"]
 [ext_resource type="Texture2D" uid="uid://dtco1gtjwfdg7" path="res://assets/characters/enemies/mouse_trap/pow.png" id="15_d2o5c"]
+[ext_resource type="AudioStream" uid="uid://7krar8yrcxkb" path="res://assets/characters/enemies/mouse_trap/slap.wav" id="17_jd0q5"]
 [ext_resource type="PackedScene" uid="uid://b6pkedphn6qas" path="res://scenes/characters/enemies/bug_green.tscn" id="19_esy46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ec55s"]
@@ -204,6 +205,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_14"]
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_14"]
+stream = ExtResource("17_jd0q5")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_15" type="Area2D" parent="obstacles"]
 position = Vector2(432, 194)
 rotation = 1.5708
@@ -223,6 +229,11 @@ autoplay = "nothing"
 
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_15"]
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_15"]
+stream = ExtResource("17_jd0q5")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="cheeses" type="Node" parent="."]
 

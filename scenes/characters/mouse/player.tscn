@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://dnlv8wuw8y7et"]
+[gd_scene load_steps=105 format=3 uid="uid://dnlv8wuw8y7et"]
 
 [ext_resource type="Script" path="res://scripts/characters/mouse/player.gd" id="1_p3jmh"]
 [ext_resource type="Texture2D" uid="uid://cnc8pblqp3s00" path="res://assets/characters/mouse/roll.png" id="2_72rxg"]
@@ -13,6 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://dqsuohh178t6r" path="res://assets/characters/mouse/fall.png" id="5_sjks1"]
 [ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/hurt_box.tscn" id="7_d2iwd"]
 [ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="7_j7bjn"]
+[ext_resource type="AudioStream" uid="uid://dggo1f8tngifv" path="res://assets/characters/mouse/walking.wav" id="14_x6vs6"]
+[ext_resource type="AudioStream" uid="uid://cj6hqahwqnv2v" path="res://assets/characters/mouse/falling.wav" id="15_xmuk8"]
+[ext_resource type="AudioStream" uid="uid://d0iubstcc5mhs" path="res://assets/characters/mouse/attack_1.wav" id="16_k66u4"]
+[ext_resource type="AudioStream" uid="uid://btomit3nvl171" path="res://assets/characters/mouse/attack_2.wav" id="17_5gtr8"]
+[ext_resource type="AudioStream" uid="uid://dpg81g7i507qy" path="res://assets/characters/mouse/damaged.wav" id="18_0o1sa"]
+[ext_resource type="AudioStream" uid="uid://dlde0j8qc88e3" path="res://assets/characters/mouse/jump.wav" id="19_qeqmh"]
+[ext_resource type="AudioStream" uid="uid://dpnmohl51g6cd" path="res://assets/collectibles/cheese/eating.wav" id="20_82v0j"]
+[ext_resource type="AudioStream" uid="uid://d6fci63x2alq" path="res://assets/collectibles/pills/health.wav" id="21_qgc5r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nch0m"]
 atlas = ExtResource("4_uplh7")
@@ -634,7 +642,7 @@ unique_name_in_owner = true
 
 [node name="animated_sprite_mouse" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_copu8")
-animation = &"obstruct"
+animation = &"attack_left"
 speed_scale = 2.0
 
 [node name="camera_2d" type="Camera2D" parent="."]
@@ -661,5 +669,44 @@ debug_color = Color(0, 0.64181, 0.328266, 0.42)
 
 [node name="invincibility_timer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="audio" type="Node" parent="."]
+
+[node name="audio_walk" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("14_x6vs6")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="audio_fall" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("15_xmuk8")
+bus = &"SFX"
+
+[node name="audio_attack_left" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("16_k66u4")
+volume_db = 20.0
+bus = &"SFX"
+
+[node name="audio_attack_right" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("17_5gtr8")
+volume_db = 20.0
+bus = &"SFX"
+
+[node name="audio_damaged" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("18_0o1sa")
+volume_db = 20.0
+bus = &"SFX"
+
+[node name="audio_rolling" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("19_qeqmh")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="audio_eaten" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("20_82v0j")
+bus = &"SFX"
+
+[node name="audio_heart" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("21_qgc5r")
+bus = &"SFX"
 
 [connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]
