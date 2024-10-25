@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bd00qhbwn5hyd"]
+[gd_scene load_steps=30 format=3 uid="uid://bd00qhbwn5hyd"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/bug_flying_shooter.gd" id="1_kf0hq"]
 [ext_resource type="Texture2D" uid="uid://dklb8ebvo002p" path="res://assets/characters/enemies/bug_flying_shooter/damaged.png" id="1_w7cbt"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c20tfj8jwtkiq" path="res://assets/characters/enemies/bug_flying_shooter/shoot.png" id="4_bwrbs"]
 [ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/hurt_box.tscn" id="4_phb5x"]
 [ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="5_wnptm"]
+[ext_resource type="AudioStream" uid="uid://b5tvabuxmmmar" path="res://assets/characters/enemies/bug_damaged.wav" id="8_ypt1f"]
+[ext_resource type="AudioStream" uid="uid://dxcehxdnqeofc" path="res://assets/characters/enemies/bug_death.wav" id="9_r1vnj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_evqfd"]
 atlas = ExtResource("1_w7cbt")
@@ -193,6 +195,16 @@ shape = SubResource("CircleShape2D_bi63i")
 debug_color = Color(0.65, 0, 0, 0.470588)
 
 [node name="shoot_timer" type="Timer" parent="."]
+
+[node name="audio" type="Node" parent="."]
+
+[node name="audio_damaged" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("8_ypt1f")
+bus = &"SFX"
+
+[node name="audio_death" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("9_r1vnj")
+bus = &"SFX"
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

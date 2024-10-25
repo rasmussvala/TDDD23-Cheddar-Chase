@@ -3,7 +3,9 @@ extends Area2D
 # Variables for animated sprites
 @onready var animated_sprite_2d_trap = $animated_sprite_trap
 @onready var animated_sprite_2d_pow = $animated_sprite_pow
+@onready var audio_slap: AudioStreamPlayer2D = $audio_slap
 @onready var player = %player
+
 var has_activated = false
 
 func _ready():
@@ -17,6 +19,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 	
 	body.animated_sprite_2d.visible = false
+	audio_slap.play()
 	animated_sprite_2d_pow.play("pow")
 	
 	if body == player:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://b2o7d24hbubfs"]
+[gd_scene load_steps=33 format=4 uid="uid://b2o7d24hbubfs"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_5b.gd" id="1_6d8ny"]
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="1_rjsy5"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c4igs0104hwas" path="res://assets/characters/enemies/bug_blue/death.png" id="14_g06ip"]
 [ext_resource type="Texture2D" uid="uid://dtco1gtjwfdg7" path="res://assets/characters/enemies/mouse_trap/pow.png" id="15_mrjuv"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="16_76sh6"]
+[ext_resource type="AudioStream" uid="uid://7krar8yrcxkb" path="res://assets/characters/enemies/mouse_trap/slap.wav" id="17_v3scl"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="18_0kvar"]
 [ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="18_1st2b"]
 
@@ -423,6 +424,11 @@ autoplay = "nothing"
 position = Vector2(0, -2.98023e-08)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_4"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_5" type="Area2D" parent="obstacles"]
 position = Vector2(17, -3)
 rotation = 1.5708
@@ -443,6 +449,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_5"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_5"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_6" type="Area2D" parent="obstacles"]
 position = Vector2(42, -3)
@@ -465,6 +476,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_6"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_7" type="Area2D" parent="obstacles"]
 position = Vector2(42, 35)
 rotation = 1.5708
@@ -485,6 +501,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_7"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_7"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_8" type="Area2D" parent="obstacles"]
 position = Vector2(67, 35)
@@ -507,6 +528,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_8"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_13" type="Area2D" parent="obstacles"]
 position = Vector2(122, 86)
 rotation = 1.5708
@@ -527,6 +553,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_13"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_13"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_16" type="Area2D" parent="obstacles"]
 position = Vector2(136, 138)
@@ -549,6 +580,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_16"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_17" type="Area2D" parent="obstacles"]
 position = Vector2(111, 138)
 rotation = 1.5708
@@ -569,6 +605,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_17"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_17"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_18" type="Area2D" parent="obstacles"]
 position = Vector2(86, 138)
@@ -591,6 +632,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_18"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_36" type="Area2D" parent="obstacles"]
 position = Vector2(161, 138)
 rotation = 1.5708
@@ -611,6 +657,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_36"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_36"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_37" type="Area2D" parent="obstacles"]
 position = Vector2(186, 138)
@@ -633,6 +684,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_37"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_49" type="Area2D" parent="obstacles"]
 position = Vector2(122, -53)
 rotation = 1.5708
@@ -653,6 +709,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_49"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_49"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_50" type="Area2D" parent="obstacles"]
 position = Vector2(147, -53)
@@ -675,6 +736,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_50"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_57" type="Area2D" parent="obstacles"]
 position = Vector2(162, -18)
 rotation = 1.5708
@@ -695,6 +761,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_57"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_57"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_58" type="Area2D" parent="obstacles"]
 position = Vector2(137, -18)
@@ -717,6 +788,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_58"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_59" type="Area2D" parent="obstacles"]
 position = Vector2(122, 16)
 rotation = 1.5708
@@ -737,6 +813,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_59"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_59"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_60" type="Area2D" parent="obstacles"]
 position = Vector2(147, 16)
@@ -759,6 +840,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_60"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_72" type="Area2D" parent="obstacles"]
 position = Vector2(66, -54)
 rotation = 1.5708
@@ -779,6 +865,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_72"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_72"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_73" type="Area2D" parent="obstacles"]
 position = Vector2(41, -54)
@@ -801,6 +892,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_73"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_74" type="Area2D" parent="obstacles"]
 position = Vector2(16, -54)
 rotation = 1.5708
@@ -821,6 +917,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_74"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_74"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_75" type="Area2D" parent="obstacles"]
 position = Vector2(-9, -54)
@@ -843,6 +944,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_75"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_76" type="Area2D" parent="obstacles"]
 position = Vector2(-34, -54)
 rotation = 1.5708
@@ -863,6 +969,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_76"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_76"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_61" type="Area2D" parent="obstacles"]
 position = Vector2(162, 51)
@@ -885,6 +996,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_61"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_65" type="Area2D" parent="obstacles"]
 position = Vector2(177, -119)
 rotation = 1.5708
@@ -905,6 +1021,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_65"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_65"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_66" type="Area2D" parent="obstacles"]
 position = Vector2(151, -119)
@@ -927,6 +1048,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_66"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_67" type="Area2D" parent="obstacles"]
 position = Vector2(126, -119)
 rotation = 1.5708
@@ -947,6 +1073,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_67"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_67"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_68" type="Area2D" parent="obstacles"]
 position = Vector2(101, -119)
@@ -969,6 +1100,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_68"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_69" type="Area2D" parent="obstacles"]
 position = Vector2(76, -119)
 rotation = 1.5708
@@ -989,6 +1125,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_69"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_69"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_62" type="Area2D" parent="obstacles"]
 position = Vector2(137, 51)
@@ -1011,6 +1152,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_62"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_9" type="Area2D" parent="obstacles"]
 position = Vector2(67, -3)
 rotation = 1.5708
@@ -1031,6 +1177,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_9"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_9"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_84" type="Area2D" parent="obstacles"]
 position = Vector2(-18, 71)
@@ -1053,6 +1204,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_84"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_87" type="Area2D" parent="obstacles"]
 position = Vector2(16, 103)
 rotation = 1.5708
@@ -1073,6 +1229,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_87"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_87"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_88" type="Area2D" parent="obstacles"]
 position = Vector2(-18, 148)
@@ -1095,6 +1256,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_88"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_93" type="Area2D" parent="obstacles"]
 position = Vector2(-47, 178)
 rotation = 1.5708
@@ -1115,6 +1281,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_93"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_93"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_94" type="Area2D" parent="obstacles"]
 position = Vector2(-60, 148)
@@ -1137,6 +1308,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_94"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_95" type="Area2D" parent="obstacles"]
 position = Vector2(-86, 148)
 rotation = 1.5708
@@ -1157,6 +1333,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_95"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_95"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_96" type="Area2D" parent="obstacles"]
 position = Vector2(-96, 188)
@@ -1179,6 +1360,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_96"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_99" type="Area2D" parent="obstacles"]
 position = Vector2(-122, 188)
 rotation = 1.5708
@@ -1199,6 +1385,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_99"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_99"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_100" type="Area2D" parent="obstacles"]
 position = Vector2(-169, 147)
@@ -1221,6 +1412,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_100"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_105" type="Area2D" parent="obstacles"]
 position = Vector2(-101, 85)
 rotation = 1.5708
@@ -1241,6 +1437,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_105"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_105"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_106" type="Area2D" parent="obstacles"]
 position = Vector2(-75, 85)
@@ -1263,6 +1464,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_106"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_114" type="Area2D" parent="obstacles"]
 position = Vector2(-169, 16)
 rotation = 1.5708
@@ -1283,6 +1489,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_114"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_114"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_115" type="Area2D" parent="obstacles"]
 position = Vector2(-143, 16)
@@ -1305,6 +1516,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_115"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_116" type="Area2D" parent="obstacles"]
 position = Vector2(-117, 16)
 rotation = 1.5708
@@ -1325,6 +1541,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_116"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_116"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_117" type="Area2D" parent="obstacles"]
 position = Vector2(-91, 16)
@@ -1347,6 +1568,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_117"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_118" type="Area2D" parent="obstacles"]
 position = Vector2(-59, -54)
 rotation = 1.5708
@@ -1367,6 +1593,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_118"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_118"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_119" type="Area2D" parent="obstacles"]
 position = Vector2(-84, -54)
@@ -1389,6 +1620,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_119"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_107" type="Area2D" parent="obstacles"]
 position = Vector2(-60, 46)
 rotation = 1.5708
@@ -1409,6 +1645,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_107"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_107"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_108" type="Area2D" parent="obstacles"]
 position = Vector2(-86, 46)
@@ -1431,6 +1672,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_108"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_109" type="Area2D" parent="obstacles"]
 position = Vector2(-112, 46)
 rotation = 1.5708
@@ -1451,6 +1697,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_109"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_109"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_110" type="Area2D" parent="obstacles"]
 position = Vector2(-138, 46)
@@ -1473,6 +1724,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_110"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_124" type="Area2D" parent="obstacles"]
 position = Vector2(-109, -54)
 rotation = 1.5708
@@ -1493,6 +1749,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_124"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_124"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_125" type="Area2D" parent="obstacles"]
 position = Vector2(-134, -54)
@@ -1515,6 +1776,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_125"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_126" type="Area2D" parent="obstacles"]
 position = Vector2(-159, -54)
 rotation = 1.5708
@@ -1535,6 +1801,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_126"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_126"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_128" type="Area2D" parent="obstacles"]
 position = Vector2(-169, -87)
@@ -1557,6 +1828,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_128"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_129" type="Area2D" parent="obstacles"]
 position = Vector2(-144, -87)
 rotation = 1.5708
@@ -1577,6 +1853,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_129"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_129"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_130" type="Area2D" parent="obstacles"]
 position = Vector2(-119, -87)
@@ -1599,6 +1880,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_130"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_139" type="Area2D" parent="obstacles"]
 position = Vector2(-147, -116)
 rotation = 1.5708
@@ -1619,6 +1905,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_139"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_139"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_141" type="Area2D" parent="obstacles"]
 position = Vector2(-94, -137)
@@ -1641,6 +1932,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_141"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_142" type="Area2D" parent="obstacles"]
 position = Vector2(-68, -137)
 rotation = 1.5708
@@ -1661,6 +1957,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_142"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_142"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_143" type="Area2D" parent="obstacles"]
 position = Vector2(-42, -137)
@@ -1683,6 +1984,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_143"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_144" type="Area2D" parent="obstacles"]
 position = Vector2(-16, -137)
 rotation = 1.5708
@@ -1703,6 +2009,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_144"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_144"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_152" type="Area2D" parent="obstacles"]
 position = Vector2(9, -87)
@@ -1725,6 +2036,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_152"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_153" type="Area2D" parent="obstacles"]
 position = Vector2(34, -87)
 rotation = 1.5708
@@ -1745,6 +2061,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_153"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_153"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_154" type="Area2D" parent="obstacles"]
 position = Vector2(51, -119)
@@ -1767,6 +2088,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_154"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_155" type="Area2D" parent="obstacles"]
 position = Vector2(26, -119)
 rotation = 1.5708
@@ -1787,6 +2113,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_155"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_155"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_156" type="Area2D" parent="obstacles"]
 position = Vector2(9, -152)
@@ -1809,6 +2140,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_156"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_157" type="Area2D" parent="obstacles"]
 position = Vector2(34, -152)
 rotation = 1.5708
@@ -1829,6 +2165,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_157"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_157"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_158" type="Area2D" parent="obstacles"]
 position = Vector2(59, -152)
@@ -1851,6 +2192,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_158"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_159" type="Area2D" parent="obstacles"]
 position = Vector2(98, -152)
 rotation = 1.5708
@@ -1871,6 +2217,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_159"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_159"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="mouse_trap_160" type="Area2D" parent="obstacles"]
 position = Vector2(123, -152)
@@ -1893,6 +2244,11 @@ autoplay = "nothing"
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
 
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_160"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
+
 [node name="mouse_trap_101" type="Area2D" parent="obstacles"]
 position = Vector2(-143, 147)
 rotation = 1.5708
@@ -1913,6 +2269,11 @@ autoplay = "nothing"
 [node name="collision" type="CollisionShape2D" parent="obstacles/mouse_trap_101"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_hhibv")
+
+[node name="audio_slap" type="AudioStreamPlayer2D" parent="obstacles/mouse_trap_101"]
+stream = ExtResource("17_v3scl")
+volume_db = -20.0
+bus = &"SFX"
 
 [node name="pit" parent="obstacles" instance=ExtResource("16_76sh6")]
 
