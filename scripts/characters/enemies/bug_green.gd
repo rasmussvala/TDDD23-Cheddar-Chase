@@ -13,10 +13,11 @@ var pause_time = 0
 var pause_duration = 3
 var is_rolling = false
 var is_falling = false
+var is_flying = false
 
 # Variables for Health
-var max_health = 20
-var current_health = 20
+var max_health = 10
+var current_health = 10
 var is_dead = false
 
 # Variables for Knockback
@@ -25,8 +26,12 @@ var knockback_duration = 0.2
 var knockback_timer = 0.0
 var knockback_strength = 100
 
+# Audio references
+@onready var audio_damaged: AudioStreamPlayer2D = $audio/audio_damaged
+@onready var audio_death: AudioStreamPlayer2D = $audio/audio_death
+
 # References to nodes
-@onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_2d
+@onready var animated_sprite_2d: AnimatedSprite2D = $animated_sprite_bug_green
 @onready var ray_cast: RayCast2D = $detection_ray
 @onready var detection_area: Area2D = $detection_area
 @onready var hit_box: HitBox = $hit_box
@@ -125,12 +130,14 @@ func take_damage(amount: int, attacker_position: Vector2):
 		knockback_timer = knockback_duration
 		
 		animated_sprite_2d.play("damaged")
+		audio_damaged.play()
 		await animated_sprite_2d.animation_finished
 		animated_sprite_2d.play("walk")
 
 func die():
 	is_dead = true
 	animated_sprite_2d.play("death")
+	audio_death.play()
 	await animated_sprite_2d.animation_finished
 	queue_free()
 
@@ -144,9 +151,9 @@ func fall_in_pit():
 	# Create a new Tween instance
 	var tween = get_tree().create_tween()
 	
-	tween.tween_property($animated_sprite_2d, "scale", Vector2(), 1)
-	tween.parallel().tween_property($animated_sprite_2d, "modulate", Color.BLACK, 0.5)
-	tween.parallel().tween_property($animated_sprite_2d, "rotation_degrees", 360.0, 2)
+	tween.tween_property($animated_sprite_bug_green, "scale", Vector2(), 1)
+	tween.parallel().tween_property($animated_sprite_bug_green, "modulate", Color.BLACK, 0.5)
+	tween.parallel().tween_property($animated_sprite_bug_green, "rotation_degrees", 360.0, 2)
 	await tween.finished
 	
 	queue_free()

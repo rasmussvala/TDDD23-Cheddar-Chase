@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://be61rj1jagrum"]
+[gd_scene load_steps=32 format=3 uid="uid://be61rj1jagrum"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemies/bug_blue.gd" id="1_cefck"]
 [ext_resource type="Texture2D" uid="uid://ccrv1et1sa7o" path="res://assets/characters/enemies/bug_blue/damaged.png" id="1_l87y1"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://c4igs0104hwas" path="res://assets/characters/enemies/bug_blue/death.png" id="2_cafm6"]
 [ext_resource type="PackedScene" uid="uid://cxb8foogagtu4" path="res://scenes/tools/hurt_box.tscn" id="5_a00sg"]
 [ext_resource type="PackedScene" uid="uid://bq7xttj67lksf" path="res://scenes/tools/hit_box.tscn" id="6_2j0bv"]
+[ext_resource type="AudioStream" uid="uid://b5tvabuxmmmar" path="res://assets/characters/enemies/bug_damaged.wav" id="7_16jct"]
+[ext_resource type="AudioStream" uid="uid://dxcehxdnqeofc" path="res://assets/characters/enemies/bug_death.wav" id="8_gagi0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkbkd"]
 atlas = ExtResource("1_l87y1")
@@ -165,10 +167,10 @@ radius = 4.0
 
 [node name="bug_blue" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 9
+collision_mask = 137
 script = ExtResource("1_cefck")
 
-[node name="animated_sprite_2d" type="AnimatedSprite2D" parent="."]
+[node name="animated_sprite_bug_blue" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_krt7u")
 animation = &"damaged"
 autoplay = "walk"
@@ -183,6 +185,7 @@ debug_color = Color(0, 0.541667, 0.65, 0.470588)
 
 [node name="detection_ray" type="RayCast2D" parent="."]
 target_position = Vector2(40, 0)
+collision_mask = 129
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cnqkr")
@@ -201,6 +204,17 @@ collision_layer = 32
 [node name="hit_box_collision" type="CollisionShape2D" parent="hit_box"]
 shape = SubResource("CircleShape2D_bq1gs")
 debug_color = Color(0.65, 0, 0, 0.470588)
+
+[node name="audio" type="Node" parent="."]
+
+[node name="audio_damaged" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("7_16jct")
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="audio_death" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("8_gagi0")
+bus = &"SFX"
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
