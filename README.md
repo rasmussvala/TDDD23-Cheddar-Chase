@@ -6,7 +6,8 @@ Cheddar Chase is a project for the courses [TDDD23: Design and Programming of Co
 
 * Custom-made assets made in Aseprite
 * Finite-State Machines
-* Behavior Trees 
+* Behavior Trees
+* Custom sound and music made in Beepbox
 
 ## Media
 
