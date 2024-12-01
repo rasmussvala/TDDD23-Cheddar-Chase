@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/levels/level_5b.gd" id="1_6d8ny"]
 [ext_resource type="PackedScene" uid="uid://doxu1wbw651md" path="res://scenes/tools/level_time.tscn" id="1_rjsy5"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_flt4u"]
-[ext_resource type="PackedScene" uid="uid://bpw6urgdij01f" path="res://scenes/menus/win_menu.tscn" id="4_i86ch"]
+[ext_resource type="PackedScene" uid="uid://4o24xbo8axtk" path="res://scenes/menus/win_menu_secret.tscn" id="4_eugdp"]
 [ext_resource type="PackedScene" uid="uid://86tsdexohbg4" path="res://scenes/menus/death_menu.tscn" id="5_a5j5x"]
 [ext_resource type="PackedScene" uid="uid://cbh0v2p385ld2" path="res://scenes/menus/pause_menu.tscn" id="6_ch5y3"]
 [ext_resource type="PackedScene" uid="uid://y16vsgpfcas8" path="res://scenes/tools/tile_map_layers/room_layer.tscn" id="6_f7kqo"]
@@ -12,13 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://cv7e0kb2x6ro2" path="res://scenes/collectibles/cheese.tscn" id="9_mbewk"]
 [ext_resource type="PackedScene" uid="uid://dcfj1ji8t2a6c" path="res://scenes/characters/enemies/mouse_trap.tscn" id="9_r673d"]
 [ext_resource type="Script" path="res://scripts/characters/enemies/mouse_trap.gd" id="10_rg8uu"]
-[ext_resource type="Texture2D" uid="uid://b3p2cqcnb4wmg" path="res://assets/characters/enemies/mouse_trap/trapped_bug.png" id="11_3yxbm"]
-[ext_resource type="Texture2D" uid="uid://6wq0yftqleu" path="res://assets/characters/enemies/mouse_trap/idle.png" id="12_ed86p"]
-[ext_resource type="Texture2D" uid="uid://dp8ue34i5iu0l" path="res://assets/characters/enemies/mouse_trap/trapped.png" id="13_hl6pu"]
-[ext_resource type="Texture2D" uid="uid://c4igs0104hwas" path="res://assets/characters/enemies/bug_blue/death.png" id="14_g06ip"]
-[ext_resource type="Texture2D" uid="uid://dtco1gtjwfdg7" path="res://assets/characters/enemies/mouse_trap/pow.png" id="15_mrjuv"]
+[ext_resource type="Texture2D" uid="uid://ebpahl6nbqfc" path="res://assets/characters/enemies/mouse_trap/trapped_bug.png" id="11_3yxbm"]
+[ext_resource type="Texture2D" uid="uid://cqcotif45ngns" path="res://assets/characters/enemies/mouse_trap/idle.png" id="12_ed86p"]
+[ext_resource type="Texture2D" uid="uid://br20y8kajw6ia" path="res://assets/characters/enemies/mouse_trap/trapped.png" id="13_hl6pu"]
+[ext_resource type="Texture2D" uid="uid://cti7xga3tvcol" path="res://assets/characters/enemies/bug_blue/death.png" id="14_g06ip"]
+[ext_resource type="Texture2D" uid="uid://nh3cxp8phfkd" path="res://assets/characters/enemies/mouse_trap/pow.png" id="15_mrjuv"]
 [ext_resource type="PackedScene" uid="uid://cs03yq5n5ibww" path="res://scenes/characters/enemies/pit.tscn" id="16_76sh6"]
-[ext_resource type="AudioStream" uid="uid://7krar8yrcxkb" path="res://assets/characters/enemies/mouse_trap/slap.wav" id="17_v3scl"]
+[ext_resource type="AudioStream" uid="uid://dyx1gmifcvh1l" path="res://assets/characters/enemies/mouse_trap/slap.wav" id="17_v3scl"]
 [ext_resource type="PackedScene" uid="uid://dnlv8wuw8y7et" path="res://scenes/characters/mouse/player.tscn" id="18_0kvar"]
 [ext_resource type="PackedScene" uid="uid://bd00qhbwn5hyd" path="res://scenes/characters/enemies/bug_flying_shooter.tscn" id="18_1st2b"]
 
@@ -122,7 +122,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 script = ExtResource("3_flt4u")
 
-[node name="win_menu" parent="." instance=ExtResource("4_i86ch")]
+[node name="win_menu" parent="." instance=ExtResource("4_eugdp")]
 unique_name_in_owner = true
 visible = false
 
